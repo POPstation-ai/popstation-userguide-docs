@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests
 import json
 import os
@@ -15,7 +16,7 @@ notion = Client(auth=notion_token)
 BASE_DOCS_DIR = "docs"
 IMAGE_DIR = "images"
 
-
+#----------　各ハンドラ関数定義ここから　----------
 def get_toggle_content(toggle_block_id):
     """トグルのタイトルではなく、その中にあるブロックのテキストだけを取得する
     Args:
@@ -24,15 +25,16 @@ def get_toggle_content(toggle_block_id):
         str: トグル内のテキストコンテンツ。
     """
     try:
-        
         # トグルの子要素を取得
         child_blocks = notion.blocks.children.list(block_id=toggle_block_id).get("results", [])
         extracted_texts = []
+        content = ""        
         for child in child_blocks:
             # トグル内の各ブロックを処理
             # 段落ブロックのテキストを抽出
             if child["type"] == "paragraph":
                 # リッチテキストは配列なのでプレーンテキストに変換
+                print('paragraph found in toggle')
                 content += "".join([t["plain_text"] for t in child["paragraph"]["rich_text"]])
                 if content:
                     extracted_texts.append(content)
@@ -100,7 +102,24 @@ def extract_text(rich_text_array):
     """
     return "".join([t["plain_text"] for t in rich_text_array]) if rich_text_array else ""
 
-def handle_h1_block(block):
+
+def handle_callout(block, **kwargs):
+    """calloutブロックを処理する
+
+    Args:
+        block (object dict): Notion APIから取得した見出し1ブロックオブジェクト
+
+    Returns:
+        str: 見出し1のMarkdown形式のテキスト
+    """
+    text = extract_text(block["callout"]["rich_text"])
+    icon = block["callout"].get("icon", {}).get("emoji", "💡")
+
+    return f"> {icon} {text}\n"
+
+
+
+def handle_h1_block(block, **kwargs):
     """見出し1ブロックをMarkdown形式に変換する
 
     Args:
@@ -110,9 +129,9 @@ def handle_h1_block(block):
         str: 見出し1のMarkdown形式のテキスト
     """
     text = extract_text(block['heading_1']['rich_text'])
-    return f"# {text}\n\n"
+    return f"## {text}\n\n"
 
-def handle_h2_block(block):
+def handle_h2_block(block, **kwargs):
     """見出し2ブロックをMarkdown形式に変換する
 
     Args:
@@ -122,9 +141,20 @@ def handle_h2_block(block):
         str: 見出し2のMarkdown形式のテキスト
     """
     text = extract_text(block['heading_2']['rich_text'])
-    return f"## {text}\n\n"
+    return f"### {text}\n\n"
 
-def handle_paragraph_block(block):
+def handle_h3_block(block, **kwargs):
+    """見出し3ブロックをMarkdown形式に変換する
+
+    Args:
+        block (object dict): Notion APIから取得した見出し3ブロックオブジェクト
+    Returns:
+        str: 見出し3のMarkdown形式のテキスト
+    """
+    text = extract_text(block['heading_3']['rich_text'])
+    return f"#### {text}\n\n"
+
+def handle_paragraph_block(block, **kwargs):
     """段落ブロックをMarkdown形式に変換する
 
     Args:
@@ -136,7 +166,7 @@ def handle_paragraph_block(block):
     text = extract_text(block['paragraph']['rich_text'])
     return f"{text}\n\n"
 
-def handle_bulleted_list_item_block(block):
+def handle_bulleted_list_item_block(block, **kwargs):
     """箇条書きブロックをMarkdown形式に変換する
 
     Args:
@@ -148,17 +178,33 @@ def handle_bulleted_list_item_block(block):
     text = extract_text(block['bulleted_list_item']['rich_text'])
     return f"* {text}\n"
 
-def handle_numbered_list_item_block(block):
+def handle_numbered_list_item_block(block, **kwargs):
     """番号付きリストブロックをMarkdown形式に変換する
 
     Args:
         block (object dict): Notion APIから取得した番号付きリストブロックオブジェクト
+        count (int, optional): リスト番号。デフォルトは1。
 
     Returns:
         str: 番号付きリストのMarkdown形式のテキスト
+        int: 次のリスト番号
     """
+    #count = kwargs.get("count", 1) # 引数がなければ1にする
     text = extract_text(block['numbered_list_item']['rich_text'])
     return f"1. {text}\n"
+#----------　各ハンドラ関数定義ここまで　----------
+
+# 処理関数を辞書で管理（拡張しやすい！）
+handlers = {
+    "heading_1": handle_h1_block,
+    "heading_2": handle_h2_block,
+    "paragraph": handle_paragraph_block,
+    "bulleted_list_item": handle_bulleted_list_item_block,
+    "numbered_list_item": handle_numbered_list_item_block,
+
+    #"image": handle_image_block,  # 画像は別関数で処理
+    # 新しいブロックが増えたらここに1行足すだけ
+}
 
 def block_to_markdown(block):
     """1つのブロックオブジェクトから、Markdownを作成(imgae以外)
@@ -174,18 +220,6 @@ def block_to_markdown(block):
     """
     b_type = block['type']
     md = "" # 最終的に返すMarkdownテキストの初期化
-
-    # 処理関数を辞書で管理（拡張しやすい！）
-    handlers = {
-        "heading_1": handle_h1_block,
-        "heading_2": handle_h2_block,
-        "paragraph": handle_paragraph_block,
-        "bulleted_list_item": handle_bulleted_list_item_block,
-        "numbered_list_item": handle_numbered_list_item_block,
-
-        #"image": handle_image_block,  # 画像は別関数で処理
-        # 新しいブロックが増えたらここに1行足すだけ
-    }
 
     # 辞書にあれば実行、なければデフォルトの処理（フォールバック）
     handler = handlers.get(b_type)
@@ -206,9 +240,50 @@ def block_to_markdown(block):
 
     return md
 
+def handle_single_block(block, depth=0):
+    """1つのブロックオブジェクトから、Markdownを作成(imgae以外)
+
+    Args:
+        block (object dict): Notion APIから取得したブロックオブジェクト
+        depth (int): ブロックの深さ（ネストレベル）
+
+    Returns:
+        str (markdown): markdown形式のテキスト
+
+    Raises:
+        
+    """
+    md = block_to_markdown(block)
+    # ネストレベルに応じてインデントを追加
+    b_type = block['type']
+    indent = "  " * depth
+    md_content = ""
+
+    # 辞書にあれば実行、なければデフォルトの処理（フォールバック）
+    handler = handlers.get(b_type)
+    if handler:
+        md_content = handler(block)
+    else:
+        # 知らないブロックでも中身のテキストがあれば抜き出す.別のブロックと「くっつく」のを防ぐため、改行をふたつ追加
+        content = block.get(b_type, {})
+        if "rich_text" in content:
+            text = extract_text(content["rich_text"])
+            print(f"⚠️  Unknown block type '{b_type}': Text extracted anyway.")
+            #return f"{text}\n\n"
+            md_content = f"{text}\n\n"
+        else:
+            # テキストすらない場合は空文字を返して無視
+            print(f"❌  Unsupported block type '{b_type}': Skipped.")
+            md_content = ""
+
+    # 各行の先頭に現在の深さのインデントを付与
+    content = "".join([f"{indent}{line}\n" for line in md_content.splitlines()])
+
+    return content
+
+
 def fetch_all_blocks(block_id):
     """指定したidのブロック以下の全てのブロックを取得する
-
     Args:
         block_id (str): NotionのブロックID
 
@@ -231,6 +306,45 @@ def fetch_all_blocks(block_id):
         cursor = return_data['next_cursor']
 
     return blocks
+
+def convert_blocks_to_markdown(block_list, depth=0):
+    """ ブロックのリストを走査し、画像+トグルペア等を考慮しながらMarkdown化する
+    Args:
+        block_id (str): NotionのブロックID
+
+    Returns:
+        object list: ブロックオブジェクトのリスト    
+    """
+    md = ""
+    skip_indices = set()
+    indent = "    " * depth
+    
+    for i, block in enumerate(block_list):
+        if i in skip_indices: continue
+        b_type = block["type"]
+        
+        if b_type == "image":            
+            # 画像+トグルのペア処理
+            # 次のブロックが存在し、かつトグルであるか確認（先読み）
+            if i + 1 < len(block_list) and block_list[i+1]["type"] == "toggle":
+                # トグルの「中身」を別関数で取得
+                alt_text = get_toggle_content(block_list[i+1]["id"])
+                # トグルを消費したのでスキップ登録
+                skip_indices.add(i + 1)
+            # 画像のMarkdown変換（引数にalt_textを渡せるように関数を調整）
+            md += image_block_to_markdown(block, alt_text)                
+            
+        else:
+            # image以外のブロック処理
+            md += handle_single_block(block)
+
+            # ネストされた子ブロックがあれば再帰的に処理
+            if block.get("has_children"):
+                child_blocks = fetch_all_blocks(block["id"])
+                md += convert_blocks_to_markdown(child_blocks, depth + 1)            
+    return md
+
+
 
 def convert_page_to_md(page_id, output_filename):
     """指定のnotionページをMarkdownに変換し、保存する
@@ -257,21 +371,20 @@ def convert_page_to_md(page_id, output_filename):
         b_type = block['type']
         # --- 画像ブロックの特別処理 ---
         if b_type == "image":
-                    alt_text = ""
-                    
-                    # 次のブロックが存在し、かつトグルであるか確認（先読み）
-                    if i + 1 < len(blocks) and blocks[i+1]["type"] == "toggle":
-                        # トグルの「中身」を別関数で取得
-                        alt_text = get_toggle_content(blocks[i+1]["id"])
-                        # トグルは画像の一部として処理したので、次のループではスキップ
-                        skip_indices.add(i + 1)
-                    
-                    # 画像のMarkdown変換（引数にalt_textを渡せるように関数を調整）
-                    full_markdown += image_block_to_markdown(block, alt_text)
+            alt_text = ""
+            # 次のブロックが存在し、かつトグルであるか確認（先読み）
+            if i + 1 < len(blocks) and blocks[i+1]["type"] == "toggle":
+                # トグルの「中身」を別関数で取得
+                alt_text = get_toggle_content(blocks[i+1]["id"])
+                # トグルは画像の一部として処理したので、次のループではスキップ
+                skip_indices.add(i + 1)
+            
+            # 画像のMarkdown変換（引数にalt_textを渡せるように関数を調整）
+            md_lines += image_block_to_markdown(block, alt_text)
                     
         else:
             # image以外のブロック処理
-            full_markdown += block_to_markdown(block)        
+            md_lines += block_to_markdown(block)
 
     #ファイルに保存
     os.makedirs(BASE_DOCS_DIR, exist_ok=True)
@@ -280,9 +393,4 @@ def convert_page_to_md(page_id, output_filename):
         f.write(md_lines)
 
     print(f"🎉 Success! Generated: {save_path}")
-
-def get_and_filter_blocks(page_id):
-
-    response = notion.blocks.children.list(block_id=page_id)
-    return response['results']
-
+    return
