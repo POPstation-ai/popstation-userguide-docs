@@ -216,6 +216,68 @@ def handle_numbered_list_item_block(block, **kwargs):
     #count = kwargs.get("count", 1) # 引数がなければ1にする
     text = extract_text(block['numbered_list_item']['rich_text'])
     return f"1. {text}\n"
+
+def handle_column_list(block, **kwargs):
+    # column_list自体は何も出力しない。
+    # blocks_to_markdown の再帰処理が中身（column）を拾いに行くのを待つ。
+    return ""
+
+def handle_column(block, **kwargs):
+    # 各列の区切りとして少し余白を入れる程度にする
+    return "\n\n"
+
+class NotionToMarkdownConverter:
+    def __init__(self, client):
+        self.notion = client
+        self.queue = []         # 未処理のページ
+        self.processed_ids = set() # 処理済みID（二重処理防止）
+
+    def handle_child_page(self, block):
+        """ハンドラもクラスのメソッドにする"""
+        title = block["child_page"]["title"]
+        page_id = block["id"]
+        
+        safe_title = re.sub(r'[\\/*?:"<>|]', '_', title)
+        file_name = f"{safe_title}.md"
+
+        # 自分の「持ち物（queue）」に記録する
+        if page_id not in self.processed_ids:
+            self.queue.append({
+                "id": page_id,
+                "title": title,
+                "file_name": file_name
+            })
+
+        return f"### 📄 [{title}]({file_name})\n\n"
+
+    def convert_page(self, page_id, title, is_root=False):
+        """1ページをMarkdownに変換するコアロジック"""
+        blocks = fetch_all_blocks(page_id)
+        
+        # convert_blocks_to_markdownを呼び出す際に、
+        # self.handle_child_page を使うように設定する
+        #20261226このconverter=self) をまだかみくだいてない！
+        md_text = convert_blocks_to_markdown(blocks, converter=self) 
+        
+        # ルートなら index.md、それ以外はタイトル名
+        file_name = "index.md" if is_root else f"{title}.md"
+        
+        with open(f"docs/{file_name}", "w", encoding="utf-8") as f:
+            f.write(md_text)
+        
+        self.processed_ids.add(page_id)
+
+    def run(self, root_page_id):
+        """司令塔：キューがなくなるまで回し続ける"""
+        self.queue.append({"id": root_page_id, "title": "index", "is_root": True})
+        
+        while self.queue:
+            page = self.queue.pop(0)
+            if page["id"] in self.processed_ids:
+                continue
+            
+            self.convert_page(page["id"], page["title"], page.get("is_root", False))
+
 #----------　各ハンドラ関数定義ここまで　----------
 
 # 処理関数を辞書で管理（拡張しやすい！）
@@ -227,43 +289,12 @@ handlers = {
     "bulleted_list_item": handle_bulleted_list_item_block,
     "numbered_list_item": handle_numbered_list_item_block,
     "callout": handle_callout,
+    "column_list": handle_column_list,
+    "column": handle_column,
     #"image": handle_image_block,  # 画像は別関数で処理
     # 新しいブロックが増えたらここに足す
 }
 
-def block_to_markdown(block):
-    """1つのブロックオブジェクトから、Markdownを作成(imgae以外)
-
-    Args:
-        block (object dict): Notion APIから取得したブロックオブジェクト
-
-    Returns:
-        str (markdown): markdown形式のテキスト
-
-    Raises:
-        
-    """
-    b_type = block['type']
-    md = "" # 最終的に返すMarkdownテキストの初期化
-
-    # 辞書にあれば実行、なければデフォルトの処理（フォールバック）
-    handler = handlers.get(b_type)
-    if handler:
-        md = handler(block)
-    else:
-        # 知らないブロックでも中身のテキストがあれば抜き出す
-        content = block.get(b_type, {})
-        if "rich_text" in content:
-            text = extract_text(content["rich_text"])
-            print(f"⚠️  Unknown block type '{b_type}': Text extracted anyway.")
-            #return f"{text}\n\n"
-            md = f"{text}\n\n"
-        else:
-            # テキストすらない場合は空文字を返して無視
-            print(f"❌  Unsupported block type '{b_type}': Skipped.")
-            md = ""
-
-    return md
 
 def handle_single_block(block, depth=0):
     """1つのブロックオブジェクトから、Markdownを作成(imgae以外)
@@ -278,7 +309,6 @@ def handle_single_block(block, depth=0):
     Raises:
         
     """
-    #md = block_to_markdown(block)
     # ネストレベルに応じてインデントを追加
     b_type = block['type']
     indent = "  " * depth
@@ -333,17 +363,18 @@ def fetch_all_blocks(block_id):
 
     return blocks
 
-def convert_blocks_to_markdown(block_list, depth=0):
+def convert_blocks_to_markdown(block_list, depth=0, converter=None):
     """ ブロックのリストを走査し、画像+トグルペア等を考慮しながらMarkdown化する
     Args:
-        block_id (str): NotionのブロックID
+        block_list (list): Notion APIから取得したブロックオブジェクトのリスト
+        depth (int): ネストレベル
 
     Returns:
         object list: ブロックオブジェクトのリスト    
     """
     md = ""
     skip_indices = set()
-    indent = "    " * depth
+    #indent = "    " * depth
     
     for i, block in enumerate(block_list):
         if i in skip_indices: continue
@@ -352,13 +383,14 @@ def convert_blocks_to_markdown(block_list, depth=0):
         if b_type == "image":            
             # 画像+トグルのペア処理
             # 次のブロックが存在し、かつトグルであるか確認（先読み）
+            alt_text = ""
             if i + 1 < len(block_list) and block_list[i+1]["type"] == "toggle":
                 # トグルの「中身」を別関数で取得
                 alt_text = get_toggle_content(block_list[i+1]["id"])
                 # トグルを消費したのでスキップ登録
                 skip_indices.add(i + 1)
             # 画像のMarkdown変換（引数にalt_textを渡せるように関数を調整）
-            md += image_block_to_markdown(block, alt_text)                
+            md += image_block_to_markdown(block, alt_text)
             
         else:
             # image以外のブロック処理
@@ -392,3 +424,15 @@ def convert_page_to_md(page_id, output_filename):
 
     print(f"🎉 Success! Generated: {save_path}")
     return
+
+def main(gloval_page_id, output_filename='index'):
+    """メイン処理関数
+
+    Args:
+        global_page_id (str): NotionのトップページID
+        output_filename (str): 出力するMarkdownファイル名
+
+    Returns:
+        None
+    """
+    
