@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
 import requests
-#import json
 import os
-from dotenv import load_dotenv
-from notion_client import Client
 import re
 
 # .envファイルを読み込む
-load_dotenv()
+#load_dotenv()
 # ロードされた環境変数を取得
-notion_token = os.environ.get("NOTION_TOKEN")
+#notion_token = os.environ.get("NOTION_TOKEN")
 # Notionクライアントを初期化
-notion = Client(auth=notion_token)
+#notion = Client(auth=notion_token)
 
 # パス設定
 #BASE_DOCS_DIR = "docs"
@@ -42,7 +39,7 @@ def extract_text(rich_text_array):
     """
     return "".join([t["plain_text"] for t in rich_text_array]) if rich_text_array else ""
 
-def download_image(url, block_id):
+def download_image(url, block_id, base_docs_dir="docs", image_dir="images"):
     """画像を保存し、Markdown形式のリンクを返す（相対パス）
 
     Args:
@@ -55,9 +52,9 @@ def download_image(url, block_id):
     Raises:
         requests.exceptions.RequestException: ダウンロードに失敗した場合に発生。
     """
-    os.makedirs(os.path.join(NotionToMarkdownConverter.BASE_DOCS_DIR, NotionToMarkdownConverter.IMAGE_DIR), exist_ok=True)
+    os.makedirs(os.path.join(base_docs_dir, image_dir), exist_ok=True)
     filename = f"{block_id}.png"
-    filepath = os.path.join(NotionToMarkdownConverter.BASE_DOCS_DIR, NotionToMarkdownConverter.IMAGE_DIR, filename)
+    filepath = os.path.join(base_docs_dir, image_dir, filename)
 
     response = requests.get(url, stream=True)
     if response.status_code == 200:
@@ -76,11 +73,15 @@ class NotionToMarkdownConverter:
     BASE_DOCS_DIR = "docs"
     IMAGE_DIR = "images"    
 
-    def __init__(self, notionclient, indent_unit="    "):
+    def __init__(self, notionclient, output_dir="docs", indent_unit="    "):
         self.notion = notionclient
         self.queue = []         # 未処理のページ
         self.processed_ids = set() # 処理済みID（二重処理防止）
         self.INDENT_UNIT = indent_unit
+
+        # 出力先ディレクトリを保持(画像保存用はimagesサブディレクトリ)
+        self.output_dir = output_dir
+        self.image_dir = os.path.join(self.output_dir, 'images')
 
         # ハンドラを辞書形式で持っておく 未完成
         self.handlers = {
@@ -126,6 +127,11 @@ class NotionToMarkdownConverter:
         Args:
             root_page_id (str): ルートページのNotion ID
         """
+        # 出力ディレクトリを作成
+        os.makedirs(self.output_dir, exist_ok=True)
+        os.makedirs(self.image_dir, exist_ok=True)
+        print(f"📁 出力先: {self.output_dir}")
+
         # 最初に親ページ（index）をキューに入れる
         self.queue.append({
             "id": root_page_id, 
@@ -176,7 +182,7 @@ class NotionToMarkdownConverter:
         import os
         os.makedirs("docs", exist_ok=True)
         
-        save_path = os.path.join("docs", file_name)
+        save_path = os.path.join(self.output_dir, file_name)
         with open(save_path, "w", encoding="utf-8") as f:
             # 必要なら先頭にタイトルを見出しとして入れる
             f.write(f"# {title}\n\n")
@@ -304,7 +310,8 @@ class NotionToMarkdownConverter:
         url = img["file"]["url"] if "file" in img else img["external"]["url"]
         block_id = block['id']
         # 画像をダウンロードして保存
-        relative_image_path = download_image(url, block_id)
+        relative_image_path = download_image(url, block_id, base_docs_dir=self.output_dir, image_dir=self.image_dir)
+        
         # Markdown形式で返す
         return f"![{alt_text}]({relative_image_path})\n"
 
@@ -433,233 +440,3 @@ class NotionToMarkdownConverter:
     #----------　ハンドラ内で使う関数　----------
 
 #----------　クラス定義ここまで　----------
-
-
-#----------　ブロックのタイプに対する関数定義ここから　----------
-def get_toggle_content(toggle_block_id):
-    """トグルのタイトルではなく、その中にあるブロックのテキストだけを取得する
-    Args:
-        toggle_block_id (str): トグルブロックのID。
-    Returns:
-        str: トグル内のテキストコンテンツ。
-    """
-    try:
-        # トグルの子要素を取得
-        child_blocks = notion.blocks.children.list(block_id=toggle_block_id).get("results", [])
-        extracted_texts = []
-        content = ""        
-        for child in child_blocks:
-            # トグル内の各ブロックを処理
-            # 段落ブロックのテキストを抽出
-            if child["type"] == "paragraph":
-                # リッチテキストは配列なのでプレーンテキストに変換
-                print('paragraph found in toggle')
-                content += "".join([t["plain_text"] for t in child["paragraph"]["rich_text"]])
-                if content:
-                    extracted_texts.append(content)
-            # 中身が段落以外の場合（箇条書きなど）、必要に応じて他のタイプも処理を追加すること！
-
-    except Exception as e:
-            print(f"Error fetching toggle children: {e}")
-            return ""
-    
-    # 抽出したテキストを改行で結合して返す
-    return "\n".join(extracted_texts)
-
-def get_icon(block):
-    """calloutブロックからアイコン（絵文字）を取得する
-    Args:
-        block (object dict): Notion APIから取得したcalloutブロックオブジェクト
-    Returns:
-        str: アイコンの絵文字、存在しない場合はデフォルトの絵文字
-    """    
-    callout = block.get("callout", {})
-    icon_ptr = callout.get("icon")
-    
-    # icon_ptr が辞書であることを確認してから中身を見る
-    if isinstance(icon_ptr, dict) and icon_ptr.get("type") == "emoji":
-        return icon_ptr.get("emoji", "💡")
-    
-    return "💡" # デフォルト
-
-def image_block_to_markdown(block, alt_text="", depth=0):
-    """画像ブロックをMarkdown形式に変換し、画像を保存する
-
-    Args:
-        block (object dict): Notion APIから取得した画像ブロックオブジェクト
-        alt_text (str): 画像の代替テキスト（alt属性）
-
-    Returns:
-        str: 画像のMarkdown形式のリンク
-    """
-    img = block['image']
-    url = img["file"]["url"] if "file" in img else img["external"]["url"]
-    block_id = block['id']
-    # 画像をダウンロードして保存
-    relative_image_path = download_image(url, block_id)
-    # Markdown形式で返す
-    return f"![{alt_text}]({relative_image_path})\n"
-
-def handle_callout(block, **kwargs):
-    """calloutブロックを処理する
-
-    Args:
-        block (object dict): Notion APIから取得した見出し1ブロックオブジェクト
-
-    Returns:
-        str: 見出し1のMarkdown形式のテキスト
-    """
-    callout = block.get("callout", {})
-    text = extract_text(callout.get("rich_text", []))
-
-    # 安全にアイコンを取得
-    icon = get_icon(block)
-
-    return f"> {icon} {text}\n"
-
-def handle_h1_block(block, **kwargs):
-    """見出し1ブロックをMarkdown形式に変換する
-
-    Args:
-        block (object dict): Notion APIから取得した見出し1ブロックオブジェクト
-
-    Returns:
-        str: 見出し1のMarkdown形式のテキスト
-    """
-    text = extract_text(block['heading_1']['rich_text'])
-    return f"\n## {text}\n\n"
-
-def handle_h2_block(block, **kwargs):
-    """見出し2ブロックをMarkdown形式に変換する
-
-    Args:
-        block (object dict): Notion APIから取得した見出し2ブロックオブジェクト
-
-    Returns:
-        str: 見出し2のMarkdown形式のテキスト
-    """
-    text = extract_text(block['heading_2']['rich_text'])
-    return f"\n### {text}\n\n"
-
-def handle_h3_block(block, **kwargs):
-    """見出し3ブロックをMarkdown形式に変換する
-
-    Args:
-        block (object dict): Notion APIから取得した見出し3ブロックオブジェクト
-    Returns:
-        str: 見出し3のMarkdown形式のテキスト
-    """
-    text = extract_text(block['heading_3']['rich_text'])
-    return f"\n#### {text}\n\n"
-
-def handle_paragraph_block(block, **kwargs):
-    """段落ブロックをMarkdown形式に変換する
-
-    Args:
-        block (object dict): Notion APIから取得した段落ブロックオブジェクト
-
-    Returns:
-        str: 段落のMarkdown形式のテキスト
-    """
-    text = extract_text(block['paragraph']['rich_text'])
-    # 【スキップ判定】特定のキーワードが含まれていたら無視する
-    skip_keywords = ["トップページに戻る", "トップページへ戻る", "TOPへ戻る", "目次へ戻る"]
-    if any(keyword in text for keyword in skip_keywords):
-        return ""
-    else:
-        return f"{text}\n\n"
-
-def handle_bulleted_list_item_block(block, **kwargs):
-    """箇条書きブロックをMarkdown形式に変換する
-
-    Args:
-        block (object dict): Notion APIから取得した箇条書きブロックオブジェクト
-
-    Returns:
-        str: 箇条書きのMarkdown形式のテキスト
-    """
-    text = extract_text(block['bulleted_list_item']['rich_text'])
-    return f"* {text}\n"
-
-def handle_numbered_list_item_block(block, **kwargs):
-    """番号付きリストブロックをMarkdown形式に変換する
-
-    Args:
-        block (object dict): Notion APIから取得した番号付きリストブロックオブジェクト
-        count (int, optional): リスト番号。デフォルトは1。
-
-    Returns:
-        str: 番号付きリストのMarkdown形式のテキスト
-        int: 次のリスト番号
-    """
-    #count = kwargs.get("count", 1) # 引数がなければ1にする
-    text = extract_text(block['numbered_list_item']['rich_text'])
-    return f"1. {text}\n"
-
-def handle_column_list(block, **kwargs):
-    # column_list自体は何も出力しない。
-    # blocks_to_markdown の再帰処理が中身（column）を拾いに行くのを待つ。
-    return ""
-
-def handle_column(block, **kwargs):
-    # 各列の区切りとして少し余白を入れる程度にする
-    return "\n\n"
-
-#----------　ブロックのタイプに対する関数定義ここまで　----------
-
-
-# 処理関数を辞書で管理（拡張しやすい！）
-handlers = {
-    "heading_1": handle_h1_block,
-    "heading_2": handle_h2_block,
-    "heading_3": handle_h3_block,
-    "paragraph": handle_paragraph_block,
-    "bulleted_list_item": handle_bulleted_list_item_block,
-    "numbered_list_item": handle_numbered_list_item_block,
-    "callout": handle_callout,
-    "column_list": handle_column_list,
-    "column": handle_column,
-    #"image": handle_image_block,  # 画像は別関数で処理
-    # 新しいブロックが増えたらここに足す
-}
-
-'''
-def convert_blocks_to_markdown(block_list, depth=0, converter=None):
-    """ ブロックのリストを走査し、画像+トグルペア等を考慮しながらMarkdown化する
-    Args:
-        block_list (list): Notion APIから取得したブロックオブジェクトのリスト
-        depth (int): ネストレベル
-
-    Returns:
-        object list: ブロックオブジェクトのリスト    
-    """
-    md = ""
-    skip_indices = set()
-    #indent = "    " * depth
-    
-    for i, block in enumerate(block_list):
-        if i in skip_indices: continue
-        b_type = block["type"]
-        
-        if b_type == "image":            
-            # 画像+トグルのペア処理
-            # 次のブロックが存在し、かつトグルであるか確認（先読み）
-            alt_text = ""
-            if i + 1 < len(block_list) and block_list[i+1]["type"] == "toggle":
-                # トグルの「中身」を別関数で取得
-                alt_text = get_toggle_content(block_list[i+1]["id"])
-                # トグルを消費したのでスキップ登録
-                skip_indices.add(i + 1)
-            # 画像のMarkdown変換（引数にalt_textを渡せるように関数を調整）
-            md += image_block_to_markdown(block, alt_text)
-            
-        else:
-            # image以外のブロック処理
-            md += handle_single_block(block)
-
-            # ネストされた子ブロックがあれば再帰的に処理
-            if block.get("has_children"):
-                child_blocks = fetch_all_blocks(block["id"])
-                md += convert_blocks_to_markdown(child_blocks, depth + 1)            
-    return md
-'''
