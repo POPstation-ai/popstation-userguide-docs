@@ -1,0 +1,21 @@
+site_name: Notion Manual      # サイトのタイトル
+site_url: https://your-username.github.io/your-repo-name/ # あなたのURLに変更
+
+theme:
+  name: material              # 非常に綺麗なテーマです
+  language: ja                # 日本語設定
+  features:
+    - navigation.expand       # メニューを最初から展開する
+    - navigation.top          # 「トップへ戻る」ボタン
+    - search.suggest          # 検索のサジェスト機能
+
+markdown_extensions:
+  - admonition                # コールアウト（注釈）用
+  - def_list
+  - pymdownx.details
+  - pymdownx.superfences      # コードブロック内での入れ子用
+  - tables                    # テーブル用
+
+# 左側のメニュー構成（自動で見出しを拾わせる場合は省略も可能です）
+nav:
+  - Home: index.md
