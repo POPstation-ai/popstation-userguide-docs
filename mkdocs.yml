@@ -14,7 +14,7 @@ theme:
 markdown_extensions:
   - admonition                # コールアウト（注釈）用
   - def_list
-  - pymdownx.details
+  - pymdownx.details          # トグル（開閉）用
   - pymdownx.superfences      # コードブロック内での入れ子用
   - tables                    # テーブル用
 

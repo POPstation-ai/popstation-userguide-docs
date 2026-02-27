@@ -1,0 +1,38 @@
+{
+  "name": "popstation-userguide-docs-Dev",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Python 開発用
+        "ms-python.python",
+        "ms-python.vscode-pylint",
+        // TypeScript / JS 開発用
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        // Markdown / MkDocs 用
+        "stairsjs.vscode-notion-l10n",
+        "unifiedjs.vscode-remark",
+        // その他便利ツール
+        "ritwickdey.LiveServer",
+        "irongeek.vscode-env"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "python",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  },
+  // コンテナ起動時に .env などを読み込む設定
+  "remoteEnv": {
+    "NOTION_TOKEN": "${localEnv:NOTION_TOKEN}"
+  },
+  // ポートフォワーディング（MkDocsのプレビュー用 8000番）
+  "forwardPorts": [8000],
+  "postCreateCommand": "npm install && pip install -r requirements.txt",
+  "remoteUser": "root"
+}
