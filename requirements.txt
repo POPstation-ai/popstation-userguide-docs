@@ -1,0 +1,18 @@
+notion-client==2.7.0
+python-dotenv==1.2.1
+requests==2.32.5
+httpx==0.28.1
+
+# MkDocs (Help Page)
+mkdocs>=1.5.0
+mkdocs-material>=9.0.0
+
+# RAG & AI (GCP / Vertex AI)
+google-cloud-aiplatform  # Vertex AI用
+langchain
+langchain-google-vertexai
+pydantic
+
+# API & Server
+fastapi
+uvicorn[standard]

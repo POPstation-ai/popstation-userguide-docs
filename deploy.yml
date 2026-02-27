@@ -1,0 +1,31 @@
+name: Deploy Help Page
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 * * * *' # 1時間に1回、Notionの更新をチェックして自動反映
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Fetch from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        #run: python fetch_notion.py # ここでMarkdownを生成
+
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdocs gh-deploy --force
