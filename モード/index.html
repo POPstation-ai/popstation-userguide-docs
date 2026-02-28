@@ -1,0 +1,484 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://hachico.github.io/popstation-userguide-docs/%E3%83%A2%E3%83%BC%E3%83%89/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>モード - POPstation userguide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="POPstation userguide" class="md-header__button md-logo" aria-label="POPstation userguide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            POPstation userguide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              モード
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="POPstation userguide" class="md-nav__button md-logo" aria-label="POPstation userguide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    POPstation userguide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モードの利用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モードお気に入り機能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モード検索
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIモデルの変更
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイル入力機能（マルチモーダル機能）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル入力機能（マルチモーダル機能）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 「ファイルのアップロード」の場合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 「クリップボードからの貼付け」の場合（画像のみ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web検索機能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL読込機能
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">モード</h1>
+<h3 id="_2">モードの利用</h3>
+<p>モード機能を利用する基本的な手順は以下の通りです。</p>
+<p>POPstationのメイン画面左側に並ぶモードのひとつが強調されています</p>
+<p>POPstationのメイン画面左側に並ぶモードのひとつが選択され、「出力条件シート」フォームがモーダルで画面に表示されている</p>
+<p>メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。エンドユーザーが入力する箇所が強調されている</p>
+<p>POPstationのメイン画面中央にAIの回答が表示されている。追加の質問や依頼をするためのメッセージボックスは、AIの回答が表示されいるエリアの下部に表示されている。</p>
+<h3 id="_3">モードお気に入り機能</h3>
+<p>よく使うモードをモード選択画面上部に固定することができます。</p>
+<p>POPstationメイン画面左側モードが並んでいる部分。モードの名前の横にお気に入りボタンが表示されている。</p>
+<p>POPstationメイン画面左側、モードのカテゴリに「お気に入り」が追加され、先の操作でお気に入りボタンを押したモードが表示されいてる様子</p>
+<h3 id="_4">モード検索</h3>
+<p>POPstationメイン画面の左側上部「モード選択」という文字の右側にモードを検索できるテキストボックスが表示されている</p>
+<p>POPstationメイン画面でモードの検索が実行された結果の画面。検出されたモードが検索ボックスの下部のエリアに並んでいる。</p>
+<p>POPstationメイン画面でモードの検索が実行された結果の画面。検索ボックスの下部にはモードは表示されず「検索結果が見つかりませんでした。入力を確認するか、別のキーワードで検索してください」というテキストが表示されている。</p>
+<h3 id="ai">AIモデルの変更</h3>
+<p>AIモデルを変更してモードを実行することができます。</p>
+<ul>
+<li>出力条件シート「AIモデル」ドロップダウンから、モード実行に使用するAIモデルを変更することができます。
+POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内の「AIモデル」というドロップダウンが表示されている。</li>
+</ul>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」フォーム内の「AIモデル」というドロップダウンで、ドロップダウンが展開されている状態。選択肢には使うことができるAIモデルが並んでいる。</p>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内の「AIモデル」というドロップダウンでAIモデルを変更した画面。</p>
+<h3 id="_5">ファイル入力機能（マルチモーダル機能）</h3>
+<p>マルチモーダルとは、異なる種類のデータ（テキスト、画像、音声など）を同時に扱うAI技術です。</p>
+<p>マルチモーダルに対応しているAIモデル<em>では、画像・PDF・動画・音声データ・テキストファイルの入力</em>*ができます。</p>
+<p>アップロード可能なファイル数は1つのチャットで最大10個までです。</p>
+<ul>
+<li>現在、gemini-2.0-flash, gemini-1.5-pro, gemini-1.5-flash のみ対応</li>
+</ul>
+<p>**対応しているファイル形式は下記の通り</p>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内ではマルチモーダルに対応したエリア「ファイルをアップロード」「クリップボードから貼り付け」タブが表示されている</p>
+<p>データを添付する方法は「ファイルのアップロード」と「クリップボードからの貼り付け」の2種類あります。</p>
+<h4 id="1">1. 「ファイルのアップロード」の場合</h4>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内ではマルチモーダルに対応したエリア「ファイルをアップロード」「クリップボードから貼り付け」タブが表示され、そのうち「ファイルをアップロード」を選択した状態。</p>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内ではマルチモーダルに対応したエリア「ファイルをアップロード」「クリップボードから貼り付け」タブが表示され、そのうち「ファイルをアップロード」を選択した状態。タブの下に「ファイルアップロード」ボタンがある。</p>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内ではマルチモーダルに対応したエリア「ファイルをアップロード」「クリップボードから貼り付け」タブが表示され、そのうち「ファイルをアップロード」を選択後、ファイルをアップロードした状態。フォームに実行ボタンが表示されている。</p>
+<p>POPstationのメイン画面中央。ファイルアップロード経由でAIの回答が生成された様子。</p>
+<h4 id="2">2. 「クリップボードからの貼付け」の場合（画像のみ）</h4>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内ではマルチモーダルに対応したエリア「ファイルをアップロード」「クリップボードから貼り付け」タブが並んで表示され、そのうち「クリップボードから貼り付け」を選択しようとしている</p>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内ではマルチモーダルに対応したエリア「ファイルをアップロード」「クリップボードから貼り付け」タブが表示され、そのうち「クリップボードから貼り付け」を選択した状態。タブの下部にクリップボードから画像を貼り付けるためのエリアが表示され「ここをクリックしてから画像を貼り付け」と書かれている。</p>
+<p>POPstationのメイン画面でモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。フォーム内ではマルチモーダルに対応したエリア「ファイルをアップロード」「クリップボードから貼り付け」タブが表示され、そのうち「クリップボードから貼り付け」を選択後、画像を貼り付けた状態。フォームに実行ボタンが表示されている。</p>
+<p>POPstationのメイン画面中央。クリップボードからの貼り付け経由でAIの回答が生成された様子。</p>
+<h3 id="web">Web検索機能</h3>
+<p>Web検索に対応しているモードでは、POPstationからWebページの検索を実行してその検索結果から回答を生成することができます。</p>
+<p>モードの管理画面。表示されているモードに対して「WEB検索機能」と記載されている</p>
+<p>POPstationのメイン画面でWEB検索に対応したモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。テキストボックスにWEB検索条件が入力できるようになっている様子。</p>
+<p>POPstationのメイン画面中央。Web検索した結果とモードに従ってAIの回答が生成された様子。</p>
+<h3 id="url">URL読込機能</h3>
+<p>URL読込に対応しているモードでは、入力したURLのページから回答を生成することができます。</p>
+<p>モードの管理画面。表示されているモードに対して「URL読込」と記載されている</p>
+<p>POPstationのメイン画面でWEB検索に対応したモードを選択後、メイン画面上にモーダルのフォーム「出力条件シート」が表示されている。テキストボックスにURLとモードの条件に従ったAIへの質問が書かれている。</p>
+<p>POPstationのメイン画面中央。URLを参照した結果とモードに従ってAIの回答が生成された様子。</p>
+<p>モードの管理 はこちら</p>
+<p>推奨モードのインポート はこちら</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.expand", "navigation.top", "search.suggest", "navigation.tracking", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
