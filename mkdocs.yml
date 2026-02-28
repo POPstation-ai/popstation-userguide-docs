@@ -1,23 +1,54 @@
 docs_dir: docs
 
-site_name: POPstation userguide      # サイトのタイトル
+site_name: POPstation userguide # サイトのタイトル
 site_url: https://hachico.github.io/popstation-userguide-docs/
 
 theme:
-  name: material              # 非常に綺麗なテーマです
-  language: ja                # 日本語設定
+  # 1. 基本テーマの指定
+  name: material # GoogleのMaterial Designに基づいた、世界で最も人気のあるドキュメント用テーマです。
+
+  # 2. 日本語対応
+  language: ja # 検索窓のプレースホルダ（「検索」など）や、ボタンのテキストを日本語にローカライズします。
+
+  # 3. ユーザー体験を向上させる機能（features）
   features:
-    - navigation.expand       # メニューを最初から展開する
-    - navigation.top          # 「トップへ戻る」ボタン
-    - search.suggest          # 検索のサジェスト機能
+    # --- ナビゲーション関連 ---
+    - navigation.expand # 【左メニューの自動展開】
+      # ページを開いた時、左側のメニュー階層を最初からすべて開いた状態にします。
+      # ユーザーが「他にどんな項目があるか」を一目で把握できるため、手戻りなく探せます。
+
+    - navigation.top # 【トップへ戻るボタン】
+      # 長いページをスクロールした際、右下に「↑」ボタンを表示します。
+      # ユーザーが読み終わった後、すぐにメニューに戻れるための配慮です。
+
+    # --- 検索機能の強化 ---
+    - search.suggest # 【検索サジェスト】
+      # 検索窓に文字を入力し始めた瞬間、一致するキーワードを予測して表示します。
+      # 正確な単語を覚えていなくても、目的のページに素早くヒットさせることができます。
+
+    - navigation.tracking # 【スクロールに合わせたメニューのハイライト】
+      # ユーザーがページをスクロールするのに合わせて、左側のメニューの「今ここを読んでいます」というハイライトが自動で動きます。
+
+    - content.code.copy # 【コードブロックのコピー機能】
+      # コードブロックの右上に「Copy」ボタンを表示します。
+      # ユーザーがコードを簡単にコピーできるようにするための便利機能です。
 
 markdown_extensions:
-  - admonition                # コールアウト（注釈）用
+  - admonition # コールアウト（注釈）用
   - def_list
-  - pymdownx.details          # トグル（開閉）用
-  - pymdownx.superfences      # コードブロック内での入れ子用
-  - tables                    # テーブル用
+  - pymdownx.details # トグル（開閉）用
+  - pymdownx.superfences # コードブロック内での入れ子用
+  - tables # テーブル用
 
 # 左側のメニュー構成（自動で見出しを拾わせる場合は省略も可能です）
 nav:
   - Home: index.md
+
+# RAG（チャットボット）のタグを全ページに埋め込むための準備
+extra_javascript:
+  - js/chatbot.js
+
+# docs フォルダ内のすべてのファイルを対象にする（デフォルト）
+# もし images フォルダが無視されている場合は以下を検討
+extra_css: []
+extra_javascript: []

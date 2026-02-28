@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": false,
+    "outDir": "./dist"
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["convert.ts"]
+}
