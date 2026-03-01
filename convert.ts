@@ -7,10 +7,6 @@ import axios from "axios"; // Pythonのrequestsの代わり
 dotenv.config();
 
 // --- ユーティリティ関数 ---
-const extractText = (richTextArray: any[]): string => {
-  return richTextArray?.map((t) => t.plain_text).join("") || "";
-};
-
 async function downloadFile(url: string, filePath: string): Promise<boolean> {
   try {
     // 保存先フォルダがなければ作成（これ重要！）
@@ -88,6 +84,57 @@ class NotionToMarkdownConverter {
     console.log("--- すべての変換が終了しました ---");
   }
 
+  private extractText(richTextArray: any[]): string {
+    if (!richTextArray || !Array.isArray(richTextArray)) return "";
+
+    return richTextArray
+      .map((t: any) => {
+        const textContent = t.plain_text;
+        let linkUrl = t.href;
+
+        if (linkUrl) {
+          // 1. Notion内部リンクの判定 (URLにハイフンなしの32文字IDが含まれる場合)
+          // 例: https://www.notion.so/My-Page-abc123456789...
+          const notionPageIdMatch = linkUrl.match(/\/([a-f0-9]{32})/);
+
+          if (notionPageIdMatch) {
+            const pageId = notionPageIdMatch[1];
+            // 2. 自分のサイト内の相対パスに変換
+            // MkDocsの標準的なディレクトリ構造に合わせて [テキスト](../pageId/) に書き換える
+            linkUrl = `../${pageId}/`;
+          }
+
+          return `[${textContent}](${linkUrl})`;
+        }
+
+        return textContent;
+      })
+      .join("");
+  }
+
+  // 追加：トグルの「中身」をテキストとして吸い出す関数
+  private async getToggleContent(toggleBlockId: string): Promise<string> {
+    // Notion APIで子ブロックをすべて取得
+    const response = await this.notion.blocks.children.list({
+      block_id: toggleBlockId,
+    });
+
+    const children = response.results;
+    const texts: string[] = [];
+
+    for (const child of children) {
+      const cType = (child as any).type;
+      const content = (child as any)[cType];
+
+      // テキストが含まれるブロック（paragraph, bulleted_list_item等）から文字を抽出
+      if (content && content.rich_text) {
+        texts.push(this.extractText(content.rich_text));
+      }
+    }
+    // 改行をスペースに変えて1行にまとめる
+    return texts.join(" ").replace(/\n/g, " ").trim();
+  }
+
   private async fetchAllBlocks(blockId: string): Promise<any[]> {
     const blocks: any[] = [];
     let cursor: string | undefined = undefined;
@@ -125,14 +172,19 @@ class NotionToMarkdownConverter {
     let mdOutput = "";
     const indent = currentIndent + this.INDENT_UNIT;
 
-    for (const block of blockList) {
+    // トグルを画像キャプションとして処理済みの場合、そのインデックスを記録してスキップする
+    const skipIndices = new Set<number>();
+
+    for (let i = 0; i < blockList.length; i++) {
+      // すでに処理済み（画像の下のトグルなど）なら飛ばす
+      if (skipIndices.has(i)) continue;
+
+      const block = blockList[i];
       const bType = block.type;
 
-      // 1. 子ページの処理 (Python版同様にキューに追加)
+      // 1. 子ページの処理
       if (bType === "child_page") {
         const childTitle = block.child_page.title;
-
-        // 【修正ポイント】タイトルが空、またはスペースのみなら無視して次へ
         if (!childTitle || childTitle.trim() === "") {
           console.log(
             `⚠️ スキップ: ID ${block.id} はタイトルが空のため無視します。`,
@@ -146,19 +198,18 @@ class NotionToMarkdownConverter {
         if (!this.processedIds.has(block.id)) {
           this.queue.push({ id: block.id, title: childTitle, fileName });
         }
-        // リンクを ./ から始めることで確実に相対パスとして認識させます
-        //mdOutput += `${currentIndent}### 📄 [${childTitle}](./${encodeURIComponent(fileName)})\n\n`; // インデント削除
         mdOutput += `\n\n### 📄 [${childTitle}](./${fileName})\n\n`;
       }
 
-      // 2. 画像の処理
+      // 2. 画像の処理 (Python版の「画像＋トグル」ペアロジック)
       else if (bType === "image") {
+        //captionは人向けの説明、Toggleの中身はAI向けのMeta情報として扱うイメージ
+
         const img = block.image;
         const url = img.type === "external" ? img.external.url : img.file.url;
         const fileName = `${block.id}.png`;
         const filePath = path.join(this.imageDir, fileName);
 
-        // ダウンロードを試みるが、成否に関わらず処理を続ける
         const success = await downloadFile(url, filePath);
 
         if (success) {
@@ -168,18 +219,45 @@ class NotionToMarkdownConverter {
             `⚠️ 画像保存に失敗しましたが、リンクのみ記載します: ${fileName}`,
           );
         }
-        //ダウンロードの成否を問わず mdOutput に追加する
-        mdOutput += `\n\n![image](images/${fileName})\n\n`;
+
+        // Altテキストの決定（優先順位：Alt属性（まだ未公開） > キャプション > デフォルト）
+        //const altText = img.alt_text || "";
+        const captionText =
+          img.caption && img.caption.length > 0
+            ? this.extractText(img.caption)
+            : "";
+
+        // Markdownの ![ ] に入れる値を決定（Alt優先、次点でCaption）
+        const imageAlt = captionText || "画像資料";
+
+        // toggleがあれば　Meta情報として取得
+        let metaContent = "";
+        // 次のブロックが存在し、かつトグルであれば中身を取得
+        if (i + 1 < blockList.length && blockList[i + 1].type === "toggle") {
+          console.log(
+            `🔗 画像直後のトグルをMeta情報として取得します: ${blockList[i + 1].id}`,
+          );
+          metaContent = await this.getToggleContent(blockList[i + 1].id);
+          skipIndices.add(i + 1); // 次のループでこのトグルを単体出力しない
+        }
+
+        // Markdownに書き込み（画像リンクと、AIが読みやすいようにMeta情報も引用形式で添える）
+        mdOutput += `\n\n![${imageAlt}](images/${fileName})\n`;
+
+        // toggleで説明（RAG用Meta）があれば引用符で出力
+        if (metaContent) {
+          mdOutput += `> 🤖 **Image Meta**: ${metaContent}\n\n`;
+        }
       }
 
-      // 3. PDF / ファイル（Python版の移植）
+      // 3. PDF / ファイル
       else if (bType === "file") {
         const fileData = block.file;
         const fileUrl =
           fileData.type === "external"
             ? fileData.external.url
             : fileData.file.url;
-        const caption = extractText(fileData.caption);
+        const caption = this.extractText(fileData.caption);
         const fileName = caption
           ? `${caption.replace(/\s+/g, "_")}.pdf`
           : `${block.id}.pdf`;
@@ -187,7 +265,6 @@ class NotionToMarkdownConverter {
 
         const success = await downloadFile(fileUrl, filePath);
         if (success) {
-          //mdOutput += `\n\n${currentIndent}[📎 添付PDF: ${fileName}](files/${fileName})\n\n`; インデント削除
           mdOutput += `\n\n[📎 添付PDF: ${fileName}](files/${fileName})\n\n`;
           console.log(`   📎 ファイルリンク追加: files/${fileName}`);
         }
@@ -197,7 +274,7 @@ class NotionToMarkdownConverter {
       else if (
         ["heading_1", "heading_2", "heading_3", "paragraph"].includes(bType)
       ) {
-        const text = extractText(block[bType].rich_text);
+        const text = this.extractText(block[bType].rich_text);
         const prefix =
           bType === "heading_1"
             ? "## "
@@ -207,23 +284,21 @@ class NotionToMarkdownConverter {
                 ? "#### "
                 : "";
 
-        // スキップキーワード判定
         const skipKeywords = ["トップページに戻る", "TOPへ戻る"];
         if (!skipKeywords.some((k) => text.includes(k))) {
-          //mdOutput += `${currentIndent}${prefix}${text}\n\n`;
           mdOutput += `${prefix}${text}\n\n`;
         }
       }
 
       // 5. リスト系
       else if (bType === "bulleted_list_item") {
-        const text = extractText(block.bulleted_list_item.rich_text);
-        //mdOutput += `${currentIndent}* ${text}\n`;
+        const text = this.extractText(block.bulleted_list_item.rich_text);
         mdOutput += `* ${text}\n`;
       }
 
       // 6. ネスト（has_children）の再帰処理
-      if (block.has_children && bType !== "child_page") {
+      // トグルの場合は、すでに画像ペアとして中身を吸い出していたら再帰しない
+      if (block.has_children && bType !== "child_page" && !skipIndices.has(i)) {
         const children = await this.fetchAllBlocks(block.id);
         mdOutput += await this.blocksToMarkdown(children, indent);
       }
