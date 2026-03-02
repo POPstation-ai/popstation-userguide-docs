@@ -34,5 +34,8 @@
   // ポートフォワーディング（MkDocsのプレビュー用 8000番）
   "forwardPorts": [8000],
   "postCreateCommand": "npm install && pip install -r requirements.txt",
-  "remoteUser": "root"
+  "remoteUser": "root",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  }
 }

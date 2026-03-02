@@ -40,7 +40,174 @@ async function downloadFile(url: string, filePath: string): Promise<boolean> {
   }
 }
 
+// handlerの型定義
+type BlockHandler = (block: any, indent: string) => Promise<string> | string;
+
 class NotionToMarkdownConverter {
+  // --Handler化　途中
+  // 2. ハンドラ辞書の定義
+  private handlers: Record<string, BlockHandler> = {
+    heading_1: (b) => `## ${this.extractText(b.heading_1.rich_text)}\n\n`,
+    heading_2: (b) => `### ${this.extractText(b.heading_2.rich_text)}\n\n`,
+    heading_3: (b) => `#### ${this.extractText(b.heading_3.rich_text)}\n\n`,
+    paragraph: (b) => {
+      const text = this.extractText(b.paragraph.rich_text);
+      const skipKeywords = ["トップページに戻る", "TOPへ戻る"];
+      return skipKeywords.some((k) => text.includes(k)) ? "" : `${text}\n\n`;
+    },
+    bulleted_list_item: (b) =>
+      `* ${this.extractText(b.bulleted_list_item.rich_text)}\n`,
+    callout: (b) =>
+      `> ${this.getIcon(b)} ${this.extractText(b.callout.rich_text)}\n\n`,
+    // child_page, image, file は特殊ロジックが必要なので個別にメソッド化して登録
+    child_page: (b) => this.handleChildPage(b),
+    image: (b, i) => this.handleImage(b, i), // 引数を渡せるように調整
+    file: (b) => this.handleFile(b),
+  };
+
+  /**
+   * メインのループ処理
+   */
+  private async blocksToMarkdown_Handler(
+    blockList: any[],
+    currentIndent: string,
+  ): Promise<string> {
+    let mdOutput = "";
+    const skipIndices = new Set<number>();
+
+    for (let i = 0; i < blockList.length; i++) {
+      if (skipIndices.has(i)) continue;
+
+      const block = blockList[i];
+      const bType = block.type;
+
+      // --- 特殊ロジック：画像とトグルのペアリング ---
+      if (
+        bType === "image" &&
+        i + 1 < blockList.length &&
+        blockList[i + 1].type === "toggle"
+      ) {
+        mdOutput += await this.handleImageWithToggle(block, blockList[i + 1]);
+        skipIndices.add(i + 1); // 次のトグルをスキップ
+        continue;
+      }
+
+      // --- ハンドラによる通常処理 ---
+      const handler = this.handlers[bType];
+      if (handler) {
+        mdOutput += await handler(block, currentIndent);
+      } else {
+        // --- フォールバック：未知のブロックからテキスト抽出 ---
+        const content = block[bType];
+        if (content && content.rich_text) {
+          mdOutput += `${this.extractText(content.rich_text)}\n\n`;
+          console.log(`⚠️ Unknown block '${bType}': Text extracted.`);
+        }
+      }
+
+      // --- 子要素の再帰処理 ---
+      // child_page自体は別ファイルになるのでここでは掘らない
+      if (block.has_children && bType !== "child_page" && !skipIndices.has(i)) {
+        const children = await this.fetchAllBlocks(block.id);
+        mdOutput += await this.blocksToMarkdown_Handler(
+          children,
+          currentIndent + "  ",
+        );
+      }
+    }
+    return mdOutput;
+  }
+
+  private handleChildPage(block: any): string {
+    const childTitle = block.child_page.title;
+    if (!childTitle) return "";
+
+    const safeTitle = childTitle.replace(/[\\/*?:"<>|]/g, "_").trim();
+    const fileName = `${safeTitle}.md`;
+
+    if (!this.processedIds.has(block.id)) {
+      this.queue.push({ id: block.id, title: childTitle, fileName });
+    }
+    return `\n\n### 📄 [${childTitle}](./${fileName})\n\n`;
+  }
+
+  /**
+   * Fileブロック（PDF等）を処理するハンドラ
+   * @param block Notionのfileブロック
+   * @returns Markdown形式のリンク文字列
+   */
+  private async handleFile(block: any): Promise<string> {
+    const fileData = block.file;
+    if (!fileData) return "";
+
+    // 1. URLの取得（外部URLかNotionホストのファイルか）
+    const fileUrl =
+      fileData.type === "external" ? fileData.external.url : fileData.file.url;
+
+    // 2. ファイル名の決定
+    // キャプションがあればそれを使い、なければブロックIDをファイル名にする
+    const caption = this.extractText(fileData.caption);
+    const rawFileName = caption ? caption.trim() : block.id;
+
+    // ファイル名から不正な文字を除去し、スペースをアンダースコアに置換
+    const safeBaseName = rawFileName
+      .replace(/[\\/*?:"<>|]/g, "_")
+      .replace(/\s+/g, "_");
+
+    // 拡張子の処理（Notion側で拡張子が含まれていない場合を考慮して.pdfを付与）
+    const fileName = safeBaseName.toLowerCase().endsWith(".pdf")
+      ? safeBaseName
+      : `${safeBaseName}.pdf`;
+
+    const filePath = path.join(this.fileDir, fileName);
+
+    // 3. ファイルのダウンロード実行
+    try {
+      const success = await downloadFile(fileUrl, filePath);
+
+      if (success) {
+        console.log(`   📎 ファイル保存完了: ${fileName}`);
+        // AIが「これは添付資料だ」と認識しやすいように絵文字とラベルを付与
+        return `\n\n[📎 添付PDF: ${fileName}](files/${fileName})\n\n`;
+      } else {
+        console.error(`   ❌ ファイルダウンロード失敗: ${fileName}`);
+        return `\n\n> ⚠️ 添付ファイル（${fileName}）のダウンロードに失敗しました。\n\n`;
+      }
+    } catch (error) {
+      console.error(`   🚨 File handler error:`, error);
+      return "";
+    }
+  }
+
+  private async handleImageWithToggle(
+    imageBlock: any,
+    toggleBlock: any,
+  ): Promise<string> {
+    // 既存の画像保存ロジックを実行
+    const imgMd = await this.handleImage(imageBlock, "");
+    // トグルの中身をMeta情報として取得
+    const metaContent = await this.getToggleContent(toggleBlock.id);
+
+    return `${imgMd}> 🤖 **Image Meta**: ${metaContent}\n\n`;
+  }
+
+  private async handleImage(block: any, indent: string): Promise<string> {
+    const img = block.image;
+    const url = img.type === "external" ? img.external.url : img.file.url;
+    const fileName = `${block.id}.png`;
+    const filePath = path.join(this.imageDir, fileName);
+
+    await downloadFile(url, filePath); // ダウンロード実行
+
+    const captionText =
+      img.caption?.length > 0 ? this.extractText(img.caption) : "";
+    const imageAlt = captionText || "画像資料";
+
+    return `\n\n![${imageAlt}](images/${fileName})\n`;
+  }
+
+  // Hander化　ここまで
+
   private notion: Client;
   private queue: Array<{ id: string; title: string; fileName: string }> = [];
   private processedIds = new Set<string>();
@@ -48,6 +215,7 @@ class NotionToMarkdownConverter {
   private imageDir: string;
   private fileDir: string;
   private INDENT_UNIT = "    ";
+  private readonly DEFAULT_ICON = "💡";
 
   constructor(token: string, outputDir = "docs") {
     this.notion = new Client({ auth: token });
@@ -82,6 +250,20 @@ class NotionToMarkdownConverter {
     }
 
     console.log("--- すべての変換が終了しました ---");
+  }
+
+  private getIcon(block: any): string {
+    // Optional Chaining (?.) を使って深く掘り下げる
+    const icon = block?.callout?.icon;
+
+    // 型が "emoji" かつ emoji プロパティが存在する場合のみ返す
+    if (icon?.type === "emoji" && icon.emoji) {
+      return icon.emoji;
+    }
+
+    // アイコンが外部画像 (external) や ファイル (file) の場合は
+    // Markdownで扱いづらいため、デフォルトの絵文字を返す
+    return this.DEFAULT_ICON;
   }
 
   private extractText(richTextArray: any[]): string {
