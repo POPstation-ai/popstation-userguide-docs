@@ -1,0 +1,2797 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Userguide for POPstation">
+      
+      
+        <meta name="author" content="Asahi advertising, Inc.">
+      
+      
+      
+        <link rel="prev" href="mode_edit.html">
+      
+      
+        <link rel="next" href="notice_function.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>AIモデルについて - POPstation ユーザーガイド</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="js/iframe-worker"></script>
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="index.html" title="POPstation ユーザーガイド" class="md-header__button md-logo" aria-label="POPstation ユーザーガイド" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            POPstation ユーザーガイド
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AIモデルについて
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="ダークモードへ"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードへ" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="ライトモードへ"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードへ" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="POPstation ユーザーガイド" class="md-nav__button md-logo" aria-label="POPstation ユーザーガイド" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    POPstation ユーザーガイド
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    トップページ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ■初めての方へ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ■初めての方へ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mode_function.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モード機能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chat_function.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チャット機能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chat_detail.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チャット詳細
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chat_history.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チャット履歴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ■全ユーザー向け
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ■全ユーザー向け
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mode_edit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モード編集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AIモデルについて
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ai_model_comparison.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AIモデルについて
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIモデル比較表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイル入力の制限と対応形式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル入力の制限と対応形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入力可能なファイル数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        対応ファイル形式と詳細制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIモデル利用料金
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AIモデル利用料金">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        提供中のモデル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        提供終了済みモデル（参考）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="notice_function.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    お知らせ機能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mypage.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    マイページ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    よくあるご質問
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    お問い合わせ方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ■管理者向け
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ■管理者向け
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="initial_setup.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    初期設定手順
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="system_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    システム管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザー・グループ管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ユーザー・グループ管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="account_registration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アカウント登録手順
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="account_permissions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アカウント権限
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="user_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザー管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="user_group_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザーグループ管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分析・履歴確認
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    分析・履歴確認
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dashboard.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ダッシュボード
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="user_analysis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザー分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ai_chat_log.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AIチャットログ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="operation_history.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作履歴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="billing_history.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    請求履歴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モード管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    モード管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mode_category_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モードカテゴリ管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recommended_mode_import.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    推奨モードのインポート
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタムデータ管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    カスタムデータ管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="custom_data_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタムデータ管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="custom_data_mode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタムデータモード
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="custom_data_group_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタムデータグループ管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="download_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ダウンロード管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="notification_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    お知らせ管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ■その他
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ■その他
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="environment.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    動作環境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_note.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リリースノート
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIモデル比較表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイル入力の制限と対応形式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル入力の制限と対応形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入力可能なファイル数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        対応ファイル形式と詳細制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIモデル利用料金
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AIモデル利用料金">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        提供中のモデル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        提供終了済みモデル（参考）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="ナビゲーション" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="index.html" class="md-path__link">
+        
+  <span class="md-ellipsis">
+    トップページ
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="mode_edit.html" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ■全ユーザー向け
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ai">AIモデルについて</h1>
+<div class="admonition success">
+<p class="admonition-title">AIモデルについて</p>
+<p>POPstationでは、様々な特徴を持つAIモデルをご利用いただけます。
+各AIモデルの性能や特徴、利用料金について詳しく比較し、お客様の用途に合わせたモデル選びをサポートします。</p>
+</div>
+<h2 id="ai_1">AIモデル比較表</h2>
+<hr />
+<p>AIモデルの性能や機能を比較検討いただけます。</p>
+<table>
+<thead>
+<tr>
+<th>開発元</th>
+<th>モデル名</th>
+<th>回答精度</th>
+<th>回答速度</th>
+<th>ファイル入力対応</th>
+<th>推論機能</th>
+<th>画像生成機能</th>
+<th>上限文字数</th>
+<th>ナレッジカットオフ</th>
+<th>国内リージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google</td>
+<td>Gemini 3.1 Pro</td>
+<td>★★★</td>
+<td>★☆☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>500,000</td>
+<td>2025年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 3 Flash</td>
+<td>★★☆</td>
+<td>★★☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>500,000</td>
+<td>2025年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 3.1 Flash-lite</td>
+<td>★☆☆</td>
+<td>★★★</td>
+<td>〇</td>
+<td>×</td>
+<td>×</td>
+<td>500,000</td>
+<td>2025年11月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 2.5 Pro</td>
+<td>★☆☆</td>
+<td>☆☆☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>500,000</td>
+<td>2025年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 2.5 Flash Thinking</td>
+<td>★☆☆</td>
+<td>★★☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>500,000</td>
+<td>2025年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 2.5 Flash</td>
+<td>☆☆☆</td>
+<td>★★☆</td>
+<td>〇</td>
+<td>×</td>
+<td>×</td>
+<td>500,000</td>
+<td>2025年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>OpenAI</td>
+<td>GPT-5.2</td>
+<td>★★★</td>
+<td>★☆☆</td>
+<td>×</td>
+<td>〇</td>
+<td>×</td>
+<td>150,000</td>
+<td>2025年8月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>OpenAI</td>
+<td>GPT-4o</td>
+<td>☆☆☆</td>
+<td>★★☆</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>115,000</td>
+<td>2023年10月</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>OpenAI</td>
+<td>o3</td>
+<td>★★☆</td>
+<td>★☆☆</td>
+<td>×</td>
+<td>〇</td>
+<td>×</td>
+<td>150,000</td>
+<td>2024年5月</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>OpenAI</td>
+<td>o3 Deep Research</td>
+<td>★★☆</td>
+<td>☆☆☆</td>
+<td>×</td>
+<td>〇</td>
+<td>×</td>
+<td>-</td>
+<td>2024年5月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>Claude Opus 4.6</td>
+<td>★★★</td>
+<td>★☆☆</td>
+<td>×</td>
+<td>〇</td>
+<td>×</td>
+<td>200,000</td>
+<td>2025年8月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>Claude Sonnet 4.6</td>
+<td>★★☆</td>
+<td>★★☆</td>
+<td>×</td>
+<td>〇</td>
+<td>×</td>
+<td>200,000</td>
+<td>2026年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 3.1 Flash Image (Nano Banana 2)</td>
+<td>★★☆</td>
+<td>★★☆</td>
+<td>〇</td>
+<td>×</td>
+<td>〇</td>
+<td>15,000</td>
+<td>2025年11月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 3 Pro Image (Nano Banana Pro)</td>
+<td>★★☆</td>
+<td>★☆☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>〇</td>
+<td>15,000</td>
+<td>2025年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini 2.5 Flash Image (Nano Banana)</td>
+<td>☆☆☆</td>
+<td>★★☆</td>
+<td>〇</td>
+<td>×</td>
+<td>〇</td>
+<td>15,000</td>
+<td>2025年6月</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">各項目の詳細</p>
+<ul>
+<li><strong>開発元</strong>: AIモデルを開発した企業または組織名です。</li>
+<li><strong>モデル名</strong>: 各AIモデルの正式名称です。</li>
+<li><strong>回答精度</strong>: AIモデルが生成する回答の正確さや適切さを示します。<ul>
+<li>★★★: 非常に高い精度</li>
+<li>★★☆: 高い精度</li>
+<li>★☆☆: 標準的な精度</li>
+<li>☆☆☆: 速度・コスト優先</li>
+</ul>
+</li>
+<li><strong>回答速度</strong>: AIモデルが回答を生成するまでの速さを示します。<ul>
+<li>★★★: 非常に速い</li>
+<li>★★☆: 速い</li>
+<li>★☆☆: 標準的</li>
+<li>☆☆☆: 精度優先</li>
+</ul>
+</li>
+<li><strong>ファイル入力対応</strong>: 画像、文書、音声、動画などのファイルを直接入力として扱えるかどうかを示します。<ul>
+<li>〇: 対応</li>
+<li>×: 非対応</li>
+</ul>
+</li>
+<li><strong>推論機能</strong>: 複雑な問いに対し、内部的な思考プロセスを用いることで、より精度の高い回答を生成する機能です。<ul>
+<li>〇: 対応</li>
+<li>×: 非対応</li>
+</ul>
+</li>
+<li><strong>画像生成機能</strong>: 画像を生成する機能です。<ul>
+<li>〇: 対応</li>
+<li>×: 非対応</li>
+</ul>
+</li>
+<li><strong>上限文字数</strong>: 一度のリクエストでAIモデルが処理できる最大文字数です。</li>
+<li><strong>ナレッジカットオフ</strong>: AIモデルの学習データがどの時期まで含まれているかを示します。</li>
+<li><strong>国内リージョン</strong>: 日本国内のサーバーでデータを取り扱うかどうかを示します。<ul>
+<li>〇: 対応</li>
+<li>×: 非対応</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_1">ファイル入力の制限と対応形式</h2>
+<hr />
+<p>ファイル入力機能に対応しているモデルでは、以下の通りファイル数や形式の制限があります。</p>
+<h3 id="_2">入力可能なファイル数</h3>
+<p>1つのチャットでアップロード可能なファイル数は、モデルごとに異なります。</p>
+<table>
+<thead>
+<tr>
+<th>モデル名</th>
+<th>最大ファイル数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini 3 Pro Image (Nano Banana Pro)</td>
+<td>14個</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash Image (Nano Banana 2)</td>
+<td>3個</td>
+</tr>
+<tr>
+<td>Gemini 2.5 Flash Image (Nano Banana)</td>
+<td>3個</td>
+</tr>
+<tr>
+<td>上記以外のファイル入力対応モデル</td>
+<td>20個</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">対応ファイル形式と詳細制限</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">カテゴリ</th>
+<th style="text-align: left;">対応拡張子</th>
+<th style="text-align: left;">制限・注意事項</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>画像</strong></td>
+<td style="text-align: left;">jpg, jpeg, png</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>文書</strong></td>
+<td style="text-align: left;">pdf, txt, csv, pptx, docx, xlsx</td>
+<td style="text-align: left;">- PDFは1ファイルにつき<strong>最大1000ページ</strong>まで<br>- txt, csvはUTF-8形式のみ対応<br>- PowerPoint, Excel, WordはPDFに自動変換されます<br>- <strong>※Gemini 3.1 Flash Image, Gemini 3 Pro Image, Gemini 2.5 Flash Image はテキスト、CSVのみ対応</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>音声</strong></td>
+<td style="text-align: left;">mp3, wav</td>
+<td style="text-align: left;">- <strong>※Gemini 3.1 Flash Image, Gemini 3 Pro Image, Gemini 2.5 Flash Image は非対応</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>動画</strong></td>
+<td style="text-align: left;">mov, mp4, avi, wmv, mpeg, mpg, flv</td>
+<td style="text-align: left;">- <strong>※Gemini 3.1 Flash Image, Gemini 3 Pro Image, Gemini 2.5 Flash Image は非対応</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai_2">AIモデル利用料金</h2>
+<hr />
+<p>各AIモデルの利用料金は以下の通りです。</p>
+<p>料金の単位は以下の通りです。</p>
+<ul>
+<li><strong>文字</strong>: 入力または出力されるテキストの文字数に基づきます。</li>
+<li><strong>画像</strong>: 入力される画像の枚数に基づきます。</li>
+<li><strong>ページ数</strong>: PDFなどの文書ファイルの場合、ページ数に基づきます。</li>
+<li><strong>秒数</strong>: 音声ファイルや動画ファイルの場合、その長さに基づきます。</li>
+</ul>
+<h3 id="_4">提供中のモデル</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">内容</th>
+<th style="text-align: left;">単位</th>
+<th style="text-align: left;">単価</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Pro モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Pro</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Pro テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Pro 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Pro PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Pro 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Pro 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Flash モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Flash</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Flash テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Flash 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Flash PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Flash 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Flash 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash-lite モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash-lite</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash-lite テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash-lite 画像入力</td>
+<td style="text-align: left;">枚</td>
+<td style="text-align: left;">¥0.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash-lite PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥0.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash-lite 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.05</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash-lite 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.05</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Pro モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Pro</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Pro テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Pro 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Pro PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Pro 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Pro 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Thinking モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Thinking</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Thinking テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Thinking 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Thinking PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Thinking 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Thinking 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5.2</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-4o</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">o3</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.6</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Sonnet 4.6</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash Image モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash Image</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash Image 画像生成</td>
+<td style="text-align: left;">枚</td>
+<td style="text-align: left;">¥40</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash Image テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.1 Flash Image 画像入力</td>
+<td style="text-align: left;">枚</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro Image モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro Image</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro Image 画像生成</td>
+<td style="text-align: left;">枚</td>
+<td style="text-align: left;">¥80</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro Image テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro Image 画像入力</td>
+<td style="text-align: left;">枚</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Image モデル・マルチモーダル利用料</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Image</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Image 画像生成</td>
+<td style="text-align: left;">枚</td>
+<td style="text-align: left;">¥20</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Image テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.5 Flash Image 画像入力</td>
+<td style="text-align: left;">枚</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">提供終了済みモデル（参考）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">内容</th>
+<th style="text-align: left;">単位</th>
+<th style="text-align: left;">単価</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">GPT-5.1</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.5</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Sonnet 4.5</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-3.5-turbo</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-4</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-4 Turbo</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.01</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">o1</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">PaLM2</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.0001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude 3 Sonnet</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude 3.5 Sonnet</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Sonnet 4</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude 3 Opus</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Pro モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Pro</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Pro テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Pro 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Pro PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Pro 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Pro 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash モデル・マルチモーダル利用料</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.0 Flash モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.0 Flash</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.0 Flash テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.0 Flash 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.0 Flash PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.0 Flash 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 2.0 Flash 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3 Pro 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">提供終了モデルの取り扱いについて</p>
+<p>提供を終了するモデルが各種設定で利用されていた場合、以下の通り自動で切り替わります。</p>
+<ul>
+<li>
+<p><strong>システムのデフォルトモデルとして設定されていた場合</strong></p>
+<ul>
+<li>システム管理画面より、後継モデル等への設定変更をお願いいたします。設定が提供終了モデルのままの場合、利用可能なモデル一覧の最上部に表示されているモデルが、代替モデルとして自動的に選択されます。</li>
+</ul>
+</li>
+<li>
+<p><strong>モードのデフォルトモデルとして設定されていた場合</strong></p>
+<ul>
+<li>各モードの編集画面より、後継モデルへの設定変更をお願いいたします。設定が提供終了モデルのままの場合、そのモードを新たに開いた際には、代替モデルとして「システムのデフォルトモデル」が自動的に選択されます。</li>
+<li>システムのデフォルトモデルも利用できない場合、ユーザーが利用可能なモデル一覧の最上部に表示されているモデルが選択されます。</li>
+</ul>
+</li>
+<li>
+<p><strong>既存のチャットで使用されていた場合</strong></p>
+<ul>
+<li>提供終了モデルでの対話は継続できなくなります。メッセージを送信しようとすると、自動的に代替モデルへ切り替わって新しいチャットが開始されます。</li>
+<li>代替モデルは、1.「システムのデフォルトモデル」、2.「利用可能なモデル一覧の最上部のモデル」の優先順位で決定されます。</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Asahi advertising, Inc.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.top", "content.code.copy", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.sections", "navigation.path", "toc.follow", "navigation.top", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

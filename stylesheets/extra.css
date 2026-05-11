@@ -1,0 +1,7 @@
+/* extra.css */
+/* ライトモードの時だけ、メインカラーを特定の色に変える */
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color: #fadc00;
+    --md-accent-fg-color: #00008c;
+    /* 背景色などはテーマに任せる*/
+}
