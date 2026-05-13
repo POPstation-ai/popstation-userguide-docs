@@ -1,4 +1,14 @@
 /* extra.css */
+/* ヘッダー内のタイトル文字色を変える */
+.md-header__title {
+  color: #00008C; /* ここに好きな色コードを指定（例: #FFD700 でゴールド） */
+  opacity: 1;
+}
+
+/* ヘッダー内のアイコンやボタンの色も変えたい場合 */
+.md-header__button {
+  color: #00008C !important;
+}
 /* ライトモードの時だけ、メインカラーを特定の色に変える */
 [data-md-color-scheme="default"] {
     --md-primary-fg-color: #fadc00;
