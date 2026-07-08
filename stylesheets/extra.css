@@ -9,9 +9,36 @@
 .md-header__button {
   color: #00008C !important;
 }
+
 /* ライトモードの時だけ、メインカラーを特定の色に変える */
 [data-md-color-scheme="default"] {
     --md-primary-fg-color: #fadc00;
     --md-accent-fg-color: #00008c;
     /* 背景色などはテーマに任せる*/
+}
+
+/* MkDocs Materialの仕様を完全に上書きして、何が何でも数字（1, 2）にする */
+.md-typeset ul ol {
+    list-style-type: decimal !important;
+}
+
+/* ついでに、数字の見た目がバグらないように左側の余白もちょっと確保！ */
+.md-typeset ul ol li {
+    list-style-type: decimal !important;
+}
+
+/* コンテンツエリアの最下部にフッターとかぶらないための余白を強制追加 */
+.md-content {
+  padding-bottom: 80px; /* 下のバーの高さに合わせて調整 */
+}
+
+/* もし左メニューや右メニューも下のバーにかぶる場合はここも調整 */
+.md-sidebar {
+  padding-bottom: 80px;
+}
+
+/* 下のバー（フッター）自体の重なり順を安全にする */
+.md-footer {
+  position: relative;
+  z-index: 10; /* コンテンツより確実に手前に表示させる */
 }
