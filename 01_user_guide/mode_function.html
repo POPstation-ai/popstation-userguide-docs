@@ -148,6 +148,48 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -480,6 +522,45 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        モードの種類
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="モードの種類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本モード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カスタムモード
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         モード機能の利用
       
     </span>
@@ -499,7 +580,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         データ参照先の指定
@@ -510,7 +591,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         ファイル入力機能
@@ -521,7 +602,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         画像生成機能
@@ -532,7 +613,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         モードお気に入り機能
@@ -540,10 +621,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="モードお気に入り機能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        お気に入りモードの並び替え
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         モードの共有
@@ -554,18 +652,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deepresearch" class="md-nav__link">
+  <a href="#deep-research" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DeepResearch (プレビュー版)
+        Deep Research
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Research">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        利用料金の目安
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         モード検索
@@ -2015,6 +2130,45 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        モードの種類
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="モードの種類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本モード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カスタムモード
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         モード機能の利用
       
     </span>
@@ -2034,7 +2188,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         データ参照先の指定
@@ -2045,7 +2199,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         ファイル入力機能
@@ -2056,7 +2210,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         画像生成機能
@@ -2067,7 +2221,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         モードお気に入り機能
@@ -2075,10 +2229,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="モードお気に入り機能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        お気に入りモードの並び替え
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         モードの共有
@@ -2089,18 +2260,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deepresearch" class="md-nav__link">
+  <a href="#deep-research" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DeepResearch (プレビュー版)
+        Deep Research
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Research">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        利用料金の目安
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         モード検索
@@ -2133,7 +2321,23 @@
 <p>POPstationには、<strong>モード</strong>と呼ばれる<strong>特定の用途に応じた回答を生成する機能</strong>があります。
 このモード機能を利用してAIとのやり取りを行います。</p>
 </div>
-<h2 id="_2">モード機能の利用</h2>
+<h2 id="_2">モードの種類</h2>
+<hr />
+<p>POPstationには2種類のモードが用意されています。</p>
+<p><img alt="モードの種類" src="../images/mode_function_036.png" /></p>
+<h3 id="_3">基本モード</h3>
+<p>POPstation運営チームが提供する基本的なモードです。プロンプトや設定は常に最新かつ最適な状態に自動更新されるため、そのまま安心してご利用いただけます。</p>
+<div class="admonition info">
+<p class="admonition-title">基本モードの特徴</p>
+<ul>
+<li><strong>編集不可</strong>: 基本モードのプロンプトや設定はユーザーが直接編集できません（閲覧・利用専用）。</li>
+<li><strong>自動更新</strong>: POPstation運営チームにてモードを更新した場合、ユーザー側にも即座に反映されます。</li>
+</ul>
+</div>
+<h3 id="_4">カスタムモード</h3>
+<p>ご自身、または組織内のメンバーが作成したオリジナルのモードです。プロンプトや設定を自由に編集できます。
+カスタムモードの作成・編集方法については <a href="../02_common_features/mode_edit.html">モード編集ページ</a> をご参照ください。</p>
+<h2 id="_5">モード機能の利用</h2>
 <hr />
 <p>モード機能を利用する基本的な手順は以下の通りです。</p>
 <ol>
@@ -2159,7 +2363,7 @@
 <p>モード実行画面の「モデル選択」ドロップダウンから、モード実行に使用するAIモデルを変更することができます。
 <img alt="モデル選択ドロップダウン" src="../images/mode_function_019.png" /></p>
 <p>各モデルの特徴については、<a href="../02_common_features/ai_model_comparison.html">AIモデル比較表</a>のページをご参照ください。</p>
-<h2 id="_3">データ参照先の指定</h2>
+<h2 id="_6">データ参照先の指定</h2>
 <hr />
 <p>モード実行画面の「データ参照先」ドロップダウンを使用することで、回答生成に外部データソースを活用できます。
     <img alt="データ参照先ドロップダウン" src="../images/mode_function_020.png" /></p>
@@ -2171,6 +2375,8 @@
 </li>
 <li>
 <p><strong>Web検索</strong>: リアルタイムのWeb検索結果を回答生成の参考にします。</p>
+<ul>
+<li>
 <p><strong>利用方法:</strong></p>
 <ol>
 <li>「データ参照先」ドロップダウンから「Web検索」を選択します。</li>
@@ -2184,27 +2390,28 @@
 <p>Web検索の仕組みは、利用するAIモデルによって異なります。</p>
 <ul>
 <li>
-<p>Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash thinking モデル:</p>
+<p>Geminiシリーズモデル:</p>
 <ul>
 <li>AIがプロンプトの意図を理解し、最適なキーワードで検索します。</li>
 <li>アクセスしたページの情報を参考にして、回答を生成します。</li>
-<li>長文や複雑な質問にも対応しています。</li>
 </ul>
 </li>
 <li>
-<p>上記以外のモデル:</p>
+<p>上記以外のモデル（GPTシリーズ、Claudeシリーズなど）:</p>
 <ul>
-<li>ユーザーからの質問を形態素解析し、単語に分割します。</li>
-<li>単語ベースでWeb検索し、検索結果の上位3ページのURLにアクセスします。</li>
-<li>アクセスしたページの情報を参考にして、回答を生成します。</li>
-<li>長文や複雑な質問には対応していません。</li>
+<li>AIがプロンプトの内容をもとに、検索用のクエリを自動生成してWeb検索します。</li>
+<li>検索結果の上位ページのURLにアクセスし、その情報を参考にして回答を生成します。</li>
 </ul>
 </li>
 </ul>
 </details>
 </li>
+</ul>
+</li>
 <li>
 <p><strong>URL読込</strong>: 指定したURLのウェブページコンテンツを読み込み、その情報を基に回答を生成します。</p>
+<ul>
+<li>
 <p><strong>利用方法:</strong></p>
 <ol>
 <li>「データ参照先」ドロップダウンから「URL読込」を選択します。</li>
@@ -2222,13 +2429,13 @@
 </li>
 </ol>
 </li>
+</ul>
+</li>
 <li>
 <p><strong>カスタムデータ</strong>: 事前にお客様が登録した独自のドキュメントや資料（カスタムデータ）をAIが参照し、回答を生成します。</p>
 <ul>
 <li>カスタムデータの登録や管理に関する詳細は、<a href="../03_admin_guide/custom_data/custom_data_management.html">カスタムデータ管理</a>のページをご参照ください。</li>
-</ul>
-<p><strong>利用方法:</strong></p>
-<ol>
+<li><strong>利用方法:</strong><ol>
 <li>「データ参照先」ドロップダウンから「カスタムデータ」を選択し、その下に表示される「参照データフォルダ」ドロップダウンから、利用したいデータフォルダを選択します。</li>
 <li>「モードの条件入力」エリアに、カスタムデータを参照して実行させたいタスクに関するプロンプトを入力します。
     <img alt="カスタムデータ参照時のプロンプト入力" src="../images/mode_function_025.png" /></li>
@@ -2236,8 +2443,12 @@
     <img alt="カスタムデータ参照結果を考慮したAIの回答" src="../images/mode_function_026.png" /></li>
 </ol>
 </li>
+</ul>
+</li>
 <li>
 <p><strong>カスタムデータ:ナビゲーションチャット</strong>: 曖昧な質問からでも迷わず正解へ導く機能です。カスタムデータに対して、AIが関連するファイルを提示しながら対話を進めます。</p>
+<ul>
+<li>
 <p><strong>利用方法:</strong></p>
 <ol>
 <li>「データ参照先」ドロップダウンから「カスタムデータ:ナビゲーションチャット」を選択し、その下に表示される「参照データフォルダ」ドロップダウンから、利用したいデータフォルダを選択します。
@@ -2261,18 +2472,21 @@
 </ol>
 </li>
 </ul>
+</li>
+</ul>
 </div>
-<h2 id="_4">ファイル入力機能</h2>
+<h2 id="_7">ファイル入力機能</h2>
 <hr />
-<p>ファイル入力機能に対応しているAIモデル（現在Geminiシリーズのみ）では、画像・文書・音声・動画に加え、PowerPoint・Excel・Word・CSVの入力ができます。</p>
+<p>ファイル入力機能に対応しているAIモデルでは、画像・文書（PDF、テキスト、CSV、Markdown、PowerPoint、Excel、Word）の入力ができます。Geminiシリーズではさらに音声・動画の入力にも対応しています。</p>
 <p>※モデルごとに対応しているファイル形式やファイル数は異なります。<a href="../02_common_features/ai_model_comparison.html">AIモデル比較表</a>をご参照ください。</p>
 <div class="admonition warning">
 <p class="admonition-title">ファイルの変換と精度について</p>
 <ul>
 <li><strong>CSVファイル</strong>: テキストデータに変換して読み込まれます。</li>
-<li><strong>PowerPoint, Excel, Wordファイル</strong>: PDFに変換して読み込まれます。<ul>
-<li>PowerPointは、スライド枠外のオブジェクトは変換されません。</li>
-<li>内部的に「印刷」イメージでPDF化されるため、複雑なレイアウトや改ページの影響を受ける可能性があります。</li>
+<li><strong>Markdownファイル（.md）</strong>: テキストデータとして読み込まれます。</li>
+<li><strong>PowerPoint, Excel, Wordファイル</strong>: ファイル内のテキストと埋め込まれた画像を抽出して読み込まれます。<ul>
+<li>レイアウトや図形の配置そのものは送信されないため、複雑なレイアウトに依存した内容は正しく伝わらない場合があります。</li>
+<li>Excelの非表示シートは読み込まれません。</li>
 </ul>
 </li>
 </ul>
@@ -2308,18 +2522,20 @@
     <img alt="クリップボード貼付け後のモード実行" src="../images/mode_function_015.png" /></li>
 </ol>
 </details>
-<h2 id="_5">画像生成機能</h2>
+<h2 id="_8">画像生成機能</h2>
 <hr />
 <p>画像生成機能に対応しているAIモデル（現在 <code>Gemini 3.0 Pro Image</code>、<code>Gemini 2.5 Flash Image</code> のみ）では、プロンプトから画像を生成できます。</p>
+<ul>
+<li>
 <p><strong>利用例:</strong></p>
 <ol>
 <li>画像生成機能に対応しているモデルを選択し「モードの条件入力」エリアに、生成したい画像の内容を説明するプロンプトを入力します。
     <img alt="画像生成のプロンプト入力" src="../images/mode_function_027.png" /></li>
 <li>「モードを実行する」ボタンをクリックすると、確認ダイアログが表示されます。「同意して生成する」をクリックします。
     <img alt="画像生成の確認" src="../images/mode_function_028.png" /></li>
-<li>
-<p>AIがプロンプトに基づいて画像を生成します。
-    <img alt="生成された画像" src="../images/mode_function_029.png" /></p>
+<li>AIがプロンプトに基づいて画像を生成します。
+    <img alt="生成された画像" src="../images/mode_function_029.png" /></li>
+</ol>
 </li>
 <li>
 <p><strong>生成した画像の編集:</strong>
@@ -2329,8 +2545,8 @@
 <p><strong>入力した画像の編集:</strong>
     ファイル入力機能で画像をアップロードし、その画像に対して編集を指示することも可能です。「この画像の色を青に変えてください」のように、チャットで指示してください。</p>
 </li>
-</ol>
-<h2 id="_6">モードお気に入り機能</h2>
+</ul>
+<h2 id="_9">モードお気に入り機能</h2>
 <hr />
 <ol>
 <li>お気に入りに設定するモードの右にあるお気に入りボタン★をクリックします。
@@ -2338,7 +2554,21 @@
 <li>モード選択画面上部に「お気に入り」カテゴリが作成され、設定したモードが表示されます。
     <img alt="お気に入りモード表示" src="../images/mode_function_005.png" /></li>
 </ol>
-<h2 id="_7">モードの共有</h2>
+<h3 id="_10">お気に入りモードの並び替え</h3>
+<p>お気に入りに登録したモードは、ドラッグ操作で表示順を自由に並び替えることができます。よく使うモードを使いやすい位置に配置し、業務に合わせてカスタマイズいただけます。</p>
+<ol>
+<li>お気に入りの「お気に入りを並び替える」ボタンをクリックします。</li>
+<li>並び替えたいモードを、左側のハンドルをつかんでドラッグし、好きな位置に移動します。</li>
+<li>並び順は自動的に保存され、リロードや再ログインの後も保持されます。並び替えを終えるには「× 終了」をクリックします。</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">並び替えについて</p>
+<ul>
+<li>並び順はユーザーごとに個別に保存されます。ご自身の並び替えが他のユーザーの表示順に影響することはありません。</li>
+<li>並び替えは「お気に入り」に表示されるモードの順序に適用されます。</li>
+</ul>
+</div>
+<h2 id="_11">モードの共有</h2>
 <hr />
 <p>モード実行画面にある「URL共有」ボタンをクリックすることで、モードへの直接リンクをクリップボードにコピーできます。
 社内でのモード共有やマニュアルへの記載などが、より手軽に行えるようになります。</p>
@@ -2349,39 +2579,39 @@
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">アクセス権限について</p>
-<p>共有されたURLにアクセスしても、そのモードを利用する権限（個人モードなど）がないユーザーは閲覧できません。</p>
+<p>共有されたURLにアクセスしても、そのモードを利用する権限がないユーザーは閲覧できません。</p>
 </div>
-<h2 id="deepresearch">DeepResearch (プレビュー版)</h2>
+<h2 id="deep-research">Deep Research</h2>
 <hr />
-<div class="admonition warning">
-<p class="admonition-title">プレビュー版について</p>
-<p>本機能はプレビュー版です。管理者権限を持つユーザーのみ利用可能です。
-また、仕様は予告なく変更される場合があります。</p>
-</div>
 <p>DeepResearchは、AIが自律的にWeb検索と分析を行い、詳細なレポートを作成するリサーチエージェント機能です。
 複雑な調査タスクに対して、AIが検索計画の立案から実行、情報の整理・統合までを代行します。</p>
 <ol>
 <li>モード一覧から「AIとのチャット」モード（または任意のモード）を選択します。</li>
-<li>「モデル選択」ドロップダウンから「o3-deep-research」を選択します。<ul>
-<li>※管理者権限を持つユーザーにのみ表示されます。
-<img alt="o3-deep-research" src="../images/mode_function_032.png" /></li>
-</ul>
-</li>
+<li>「モデル選択」ドロップダウンから「o3-deep-research」を選択します。
+    <img alt="o3-deep-research" src="../images/mode_function_032.png" /></li>
 <li>「モードの条件入力」エリアに、調査したい内容を入力し、「モードを実行する」ボタンをクリックします。</li>
 <li>確認ダイアログが表示されます。内容を確認して「実行する」をクリックします。
     <img alt="確認ダイアログ" src="../images/mode_function_033.png" /></li>
 <li>AIが自律的にWeb検索と分析を行い、詳細なレポートを作成します。
     <img alt="レポート作成" src="../images/mode_function_034.png" /></li>
 </ol>
+<h3 id="_12">利用料金の目安</h3>
+<ul>
+<li><strong>利用料金（税抜）</strong>: 0.4円/文字</li>
+<li><strong>1実行あたりの平均提供価格</strong>: 約4,536円<ul>
+<li>平均合計文字数（約11,341文字）× 定価（0.4円/文字）として算出</li>
+</ul>
+</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">注意事項</p>
 <ul>
-<li><strong>待ち時間</strong>: 詳細な調査を行うため、回答までに10〜20分程度かかります。回答が来るまでは、このページを閉じたり他へ移動したりしないでください（別のタブやウィンドウはご利用いただけます）。</li>
+<li><strong>料金について</strong>: Deep Researchは長文の調査結果を出力するため、1回あたりのご利用料金が高額になる傾向がございます。実行前に料金の目安をご確認のうえご利用ください。</li>
+<li><strong>待ち時間</strong>: 詳細な調査を行うため、回答までに10〜20分程度かかります。</li>
 <li><strong>シングルターン</strong>: 1回のチャットで完結します。結果に対する追加の質問はできません。続けて調査を行う場合は「新しいチャット」を開始してください。</li>
-<li><strong>利用回数</strong>: 組織ごとに月間5回までの利用回数制限があります。現在の利用回数は<a href="../03_admin_guide/analytics/billing_history.html">請求履歴画面</a>で確認できます。</li>
 </ul>
 </div>
-<h2 id="_8">モード検索</h2>
+<h2 id="_13">モード検索</h2>
 <hr />
 <ol>
 <li>画面左上にある検索ボックスをクリックしてください。

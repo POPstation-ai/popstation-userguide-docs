@@ -148,6 +148,48 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -2021,7 +2063,7 @@
 <div class="admonition success">
 <p class="admonition-title">ユーザーグループについて</p>
 <ul>
-<li>ユーザーをグループ化し、グループごとに利用できる生成AIとアクセス可能なカスタムデータグループを設定することができます。</li>
+<li>ユーザーをグループ化し、グループごとに利用できる生成AIとアクセス可能なカスタムデータフォルダを設定することができます。</li>
 <li>全ユーザーはデフォルトで「全体」グループに所属しており、他のグループにも同時に所属することができます。</li>
 </ul>
 </div>
@@ -2031,8 +2073,8 @@
 <li>「全体」グループとは、デフォルトで存在するグループです。</li>
 <li>全ユーザーがこのグループに所属しており、このグループを削除したり、ユーザーを所属から外すことはできません。</li>
 <li>組織全体の設定を変更する際に使用します。</li>
-<li>個人単位で利用制限を掛ける場合には、「全体」グループから所属を外すのではなく、ユーザー管理画面から個別に制限モデル/制限カスタムデータグループを設定してください。</li>
-<li>グループ単位で利用制限を掛ける場合には、「全体」の許可モデル/許可カスタムデータグループをなしに設定したうえで、新規にグループを作成して許可モデル/許可カスタムデータグループの設定を行ってください。</li>
+<li>個人単位で利用制限を掛ける場合には、「全体」グループから所属を外すのではなく、ユーザー管理画面から個別に制限モデル/制限カスタムデータフォルダを設定してください。</li>
+<li>グループ単位で利用制限を掛ける場合には、「全体」の許可モデル/許可カスタムデータフォルダをなしに設定したうえで、新規にグループを作成して許可モデル/許可カスタムデータフォルダの設定を行ってください。</li>
 </ul>
 </details>
 <h2 id="_2">ユーザーグループ管理画面への遷移</h2>
@@ -2070,7 +2112,7 @@
 <p><img alt="user_group_management_006.png" src="../../images/user_group_management_006.png" /></p>
 </li>
 <li>
-<p>ユーザーグループ編集画面で、追加するユーザー、許可するAIモデルとカスタムデータグループにチェックを入れてください。</p>
+<p>ユーザーグループ編集画面で、追加するユーザー、許可するAIモデル、許可カスタムデータフォルダにチェックを入れてください。</p>
 <ul>
 <li>※特定のAIモデルでは動画・音声アップロード許可設定も表示されます。動画・音声を許可する場合はチェックを入れてください。</li>
 </ul>
@@ -2087,9 +2129,9 @@
 </li>
 </ol>
 <div class="admonition info">
-<p class="admonition-title">複数グループに所属する場合のモデル/カスタムデータグループの設定</p>
+<p class="admonition-title">複数グループに所属する場合のモデル/カスタムデータフォルダの設定</p>
 <ul>
-<li>ユーザーが複数のグループに所属している場合、<strong>各グループで許可されているAIモデルとカスタムデータグループをすべて利用できます</strong>。</li>
+<li>ユーザーが複数のグループに所属している場合、<strong>各グループで許可されているAIモデルとカスタムデータフォルダをすべて利用できます</strong>。</li>
 <li>例：グループAで「GPT-4o」、グループBで「Gemini 2.5 Pro」が許可されている場合、両グループに所属するユーザーは「GPT-4o」と「Gemini 2.5 Pro」の両方を利用できます。</li>
 </ul>
 </div>

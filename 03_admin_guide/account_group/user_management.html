@@ -148,6 +148,48 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -2090,7 +2132,7 @@
 </div>
 <h2 id="_2">ユーザー管理画面への遷移</h2>
 <hr />
-<p>メイン画面左下の「メニュー」「管理」から管理画面にアクセスし、画面左の「ユーザー管理」をクリックすると、ユーザー管理画面が表示されます。</p>
+<p>管理画面より「ユーザー管理」をクリックすると、ユーザー管理画面が表示されます。</p>
 <p><img alt="ユーザー管理画面" src="../../images/user_management_001.png" /></p>
 <details class="tip">
 <summary>ユーザー権限の絞り込み表示</summary>
@@ -2099,14 +2141,49 @@
 </details>
 <h2 id="_3">ユーザーの追加</h2>
 <hr />
-<p>ユーザーの追加は、<a href="account_registration.html">アカウント登録手順</a>をご参照ください。
-管理者とアカウント登録者の両方で手順が必要になります。</p>
-<h2 id="_4">ユーザーの設定変更</h2>
-<hr />
-<p>各ユーザーの権限や、制限するモデル/カスタムデータグループを変更することができます。</p>
 <ol>
 <li>
-<p>ユーザー管理画面から、設定を変更するユーザ欄右端にある「…」メニューから変更ボタンをクリックしてください。</p>
+<p>ユーザー管理画面の左上に表示されているユーザー追加ボタンをクリックしてください。</p>
+<p><img alt="ユーザー追加ボタン" src="../../images/user_management_003.png" /></p>
+</li>
+<li>
+<p>ユーザー追加画面が表示されます。</p>
+<p><img alt="ユーザー追加画面" src="../../images/user_management_004.png" /></p>
+</li>
+<li>
+<p>追加するユーザーのメールアドレスと権限欄の▽をクリックして対象ユーザーの権限を変更してください。その後、送信ボタンをクリックしてください。</p>
+<p>権限の詳細については、<a href="account_permissions.html">「アカウント権限」ページ</a>をご確認ください。</p>
+<p><img alt="ユーザー追加画面でのメールアドレスと権限設定" src="../../images/user_management_005.png" /></p>
+</li>
+<li>
+<p>ユーザーへ制限するモデルとカスタムデータフォルダを選択してください。</p>
+<p><img alt="制限するモデルの選択" src="../../images/user_management_006.png" /></p>
+<p><img alt="制限カスタムデータフォルダの選択" src="../../images/user_management_007.png" /></p>
+</li>
+<li>
+<p>入力が終わりましたら、送信ボタンをクリックしてください。</p>
+<p><img alt="ユーザー追加画面の送信ボタン" src="../../images/user_management_008.png" /></p>
+</li>
+<li>
+<p>新規ユーザーが追加されます。</p>
+<p><img alt="新規ユーザー追加後のユーザー管理画面" src="../../images/user_management_009.png" /></p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">初回パスワードの設定方法について</p>
+<p>新しく追加するユーザーは、追加時に発行される「パスワード設定用URL」からパスワードを設定します。</p>
+<ul>
+<li>受信できるメールアドレスのユーザーには、登録アドレス宛にURLが自動送信されます。</li>
+<li>受信できないメールアドレス（共有用・形式的なアドレスなど）のユーザーには、画面に表示されたURLを管理者が別の手段（口頭・社内チャット等）でお渡しください。</li>
+</ul>
+<p>変更前・変更後の流れや、すでに登録済みのユーザーの扱いなど詳細は、<a href="account_registration.html">「アカウント登録手順」ページ</a>の「ユーザーの登録方法の変更について」をご確認ください。</p>
+</div>
+<h2 id="_4">ユーザーの設定変更</h2>
+<hr />
+<p>各ユーザーの権限や、制限するモデル/カスタムデータフォルダを変更することができます。</p>
+<ol>
+<li>
+<p>ユーザー管理画面から、設定を変更するユーザ欄右端にある変更ボタンをクリックしてください。</p>
 <p><img alt="ユーザー設定変更ボタン" src="../../images/user_management_019.png" /></p>
 </li>
 <li>
@@ -2114,7 +2191,7 @@
 <p><img alt="ユーザー編集画面" src="../../images/user_management_020.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">個別ユーザーへの制限設定について</p>
-<p>ここで設定する「制限するモデル」「制限するカスタムデータグループ」は、<strong>グループで許可されている設定よりも優先されます</strong>。</p>
+<p>ここで設定する「制限モデル」「制限カスタムデータフォルダ」は、<strong>グループで許可されている設定よりも優先されます</strong>。</p>
 <p>例：ユーザーが所属するグループで「GPT-4o」が許可されていても、個別に「GPT-4o」を制限設定した場合、そのユーザーは「GPT-4o」を利用できません。</p>
 </div>
 </li>
@@ -2131,7 +2208,7 @@
 <hr />
 <ol>
 <li>
-<p>ユーザー管理画面から、削除するユーザ欄右端にある「…」メニューから削除ボタンをクリックしてください。</p>
+<p>ユーザー管理画面から、削除するユーザ欄の右端にある削除ボタンをクリックしてください。</p>
 <p><img alt="ユーザー削除ボタン" src="../../images/user_management_023.png" /></p>
 </li>
 <li>
@@ -2185,7 +2262,8 @@
 <p><strong>メール通知 (必須):</strong> 新規登録時や権限変更時に通知メールを送信するかどうかを設定します。<code>1</code>で「送る」、<code>0</code>で「送らない」を指定します。</p>
 </li>
 <li><strong>各種モデル制限:</strong> 各AIモデルの利用を制限するかどうかを設定します。<code>1</code>で「制限する」、<code>0</code>で「制限しない」を指定します。未入力の場合は「制限しない」設定になります。</li>
-<li><strong>制限カスタムデータグループ:</strong> ユーザーに利用を制限するカスタムデータグループ名を記載します。複数のグループを制限する場合は、カンマ区切りで指定します。未入力の場合は制限なしとなります。</li>
+<li><strong>音声・動画ファイル制限:</strong> 音声・動画ファイルの入力に対応しているモデル（Geminiシリーズ）では、各モデル制限列の直後に「（動画・音声）」の制限列が用意されています。ユーザーごとに音声・動画ファイルの利用可否を <code>1</code>（制限する）／<code>0</code>（制限しない）で設定できます。未入力の場合は「制限しない」設定になります。</li>
+<li><strong>制限カスタムデータフォルダ:</strong> ユーザーに利用を制限するカスタムデータフォルダ名を記載します。複数のフォルダを制限する場合は、カンマ区切りで指定します。未入力の場合は制限なしとなります。</li>
 <li><strong>新メールアドレス:</strong> メールアドレスを変更する場合に、新しいメールアドレスを指定します。入力された場合、確認メールが送信されます。※未入力の場合は変更されません。</li>
 </ul>
 </div>
@@ -2244,6 +2322,10 @@
 <li>
 <p>ファイルがアップロードされたら、画面右下の「送信」ボタンをクリックします。
     <img alt="「送信」ボタン" src="../../images/user_management_041.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">一括登録時のパスワード設定用URLについて</p>
+<p>CSVで新しいユーザーを一括追加した場合、追加したユーザーの「パスワード設定用URL」の一覧をCSVでダウンロードできます。受信できないメールアドレスのユーザーには、このCSVのURLを各ユーザーへ配布してください。詳細は<a href="account_registration.html">「アカウント登録手順」ページ</a>の「ユーザーの登録方法の変更について」をご確認ください。</p>
+</div>
 </li>
 </ol>
 <h2 id="_7">ユーザーパスワードの再設定</h2>
@@ -2269,7 +2351,7 @@
 <p>メールアドレスにパスワードリセットメールが届きます。</p>
 <ul>
 <li>件名：パスワード再設定のご案内</li>
-<li>送信メールアドレス：support@popstation.ai</li>
+<li>送信メールアドレス：info@popstation.com</li>
 </ul>
 </li>
 <li>
@@ -2297,7 +2379,7 @@
 </li>
 <li>
 <p>パスワード変更完了画面に遷移すると、パスワード変更は完了です。
-その後、ログインするには「popstation.ai に戻る」をクリックしてください。</p>
+その後、ログインするには「POPstation.ai に戻る」をクリックしてください。</p>
 <p><img alt="パスワード変更完了画面" src="../../images/user_management_032.png" /></p>
 </li>
 <li>
@@ -2311,7 +2393,7 @@
 <p>管理者がユーザーのメールアドレスを変更する手順です。</p>
 <ol>
 <li>
-<p>ユーザー管理画面から、対象ユーザ欄右端にある「…」メニューをクリックして、「メールアドレス変更」をクリックしてください。</p>
+<p>ユーザー管理画面から、対象ユーザー欄の右端にある「…」をクリックして、「メールアドレス変更」をクリックしてください。</p>
 </li>
 <li>
 <p>メールアドレス変更画面が表示されます。「新しいメールアドレス」を入力し、「確認メールを送信」をクリックしてください。</p>

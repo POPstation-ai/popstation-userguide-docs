@@ -148,6 +148,48 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -775,6 +817,17 @@
     <span class="md-ellipsis">
       
         PDFファイルの最大サイズ・ページ数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#officeexcelwordpowerpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Officeファイル（Excel・Word・PowerPoint）の制限
       
     </span>
   </a>
@@ -2142,6 +2195,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#officeexcelwordpowerpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Officeファイル（Excel・Word・PowerPoint）の制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#gemini" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2256,6 +2320,18 @@
 <tbody>
 <tr>
 <td>Google</td>
+<td>Gemini 3.5 Flash</td>
+<td>★★★</td>
+<td>★★☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>500,000</td>
+<td>2025年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Google</td>
 <td>Gemini 3.1 Pro</td>
 <td>★★★</td>
 <td>★☆☆</td>
@@ -2328,6 +2404,18 @@
 </tr>
 <tr>
 <td>OpenAI</td>
+<td>GPT-5.5</td>
+<td>★★★</td>
+<td>★★☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>150,000</td>
+<td>2025年8月</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>OpenAI</td>
 <td>GPT-5.4</td>
 <td>★★★</td>
 <td>★☆☆</td>
@@ -2349,18 +2437,6 @@
 <td>150,000</td>
 <td>2025年8月</td>
 <td>〇</td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>GPT-5.2</td>
-<td>★★★</td>
-<td>★☆☆</td>
-<td>〇</td>
-<td>〇</td>
-<td>×</td>
-<td>150,000</td>
-<td>2025年8月</td>
-<td>×</td>
 </tr>
 <tr>
 <td>OpenAI</td>
@@ -2400,6 +2476,18 @@
 </tr>
 <tr>
 <td>Anthropic</td>
+<td>Claude Opus 4.8</td>
+<td>★★★</td>
+<td>★☆☆</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>500,000</td>
+<td>2026年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Anthropic</td>
 <td>Claude Opus 4.7</td>
 <td>★★★</td>
 <td>★☆☆</td>
@@ -2412,18 +2500,6 @@
 </tr>
 <tr>
 <td>Anthropic</td>
-<td>Claude Opus 4.6</td>
-<td>★★★</td>
-<td>★☆☆</td>
-<td>〇</td>
-<td>〇</td>
-<td>×</td>
-<td>200,000</td>
-<td>2025年8月</td>
-<td>×</td>
-</tr>
-<tr>
-<td>Anthropic</td>
 <td>Claude Sonnet 4.6</td>
 <td>★★☆</td>
 <td>★★☆</td>
@@ -2432,6 +2508,18 @@
 <td>×</td>
 <td>200,000</td>
 <td>2026年1月</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>Claude Haiku 4.5</td>
+<td>★☆☆</td>
+<td>★★★</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td>200,000</td>
+<td>2025年2月</td>
 <td>×</td>
 </tr>
 <tr>
@@ -2449,7 +2537,7 @@
 <tr>
 <td>Google</td>
 <td>Gemini 3 Pro Image (Nano Banana Pro)</td>
-<td>★★☆</td>
+<td>★★★</td>
 <td>★☆☆</td>
 <td>〇</td>
 <td>〇</td>
@@ -2563,18 +2651,18 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>文書</strong></td>
-<td style="text-align: left;">pdf, txt, csv, pptx, docx, xlsx</td>
-<td style="text-align: left;">- PowerPoint, Excel, WordはPDFに自動変換されます<br>- PDFのページ数や1ファイルあたりのサイズはモデルによって異なります（下記参照）<br>- <strong>※Nano Banana 系（画像生成）はテキスト、CSVのみ対応</strong></td>
+<td style="text-align: left;">pdf, txt, csv, md, pptx, docx, xlsx</td>
+<td style="text-align: left;">- PowerPoint, Excel, Wordはファイル内のテキストと埋め込み画像を抽出して読み込まれます<br>- PDFのページ数や1ファイルあたりのサイズはモデルによって異なります（下記参照）<br>- <strong>※Nano Banana 系（画像生成）はテキスト、CSV、Markdownのみ対応</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>音声</strong></td>
 <td style="text-align: left;">mp3, wav</td>
-<td style="text-align: left;">- <strong>※Nano Banana 系（画像生成）は非対応</strong><br>- <strong>※Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, GPT-5.4, GPT-5.4-nano, GPT-5.2, GPT-4o, o3 は非対応</strong></td>
+<td style="text-align: left;">- <strong>※Nano Banana 系（画像生成）は非対応</strong><br>- <strong>※Claude Opus 4.8, Claude Opus 4.7, Claude Sonnet 4.6, Claude Haiku 4.5, GPT-5.5, GPT-5.4, GPT-5.4-nano, GPT-4o, o3 は非対応</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>動画</strong></td>
 <td style="text-align: left;">mov, mp4, avi, wmv, mpeg, mpg, flv</td>
-<td style="text-align: left;">- <strong>※Nano Banana 系（画像生成）は非対応</strong><br>- <strong>※Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, GPT-5.4, GPT-5.4-nano, GPT-5.2, GPT-4o, o3 は非対応</strong></td>
+<td style="text-align: left;">- <strong>※Nano Banana 系（画像生成）は非対応</strong><br>- <strong>※Claude Opus 4.8, Claude Opus 4.7, Claude Sonnet 4.6, Claude Haiku 4.5, GPT-5.5, GPT-5.4, GPT-5.4-nano, GPT-4o, o3 は非対応</strong></td>
 </tr>
 </tbody>
 </table>
@@ -2594,11 +2682,11 @@
 <td style="text-align: left;">7 MB</td>
 </tr>
 <tr>
-<td style="text-align: left;">Claude Opus 4.7 / Claude Opus 4.6 / Claude Sonnet 4.6</td>
+<td style="text-align: left;">Claude Opus 4.8 / Claude Opus 4.7 / Claude Sonnet 4.6 / Claude Haiku 4.5</td>
 <td style="text-align: left;">5 MB</td>
 </tr>
 <tr>
-<td style="text-align: left;">GPT-5.4 / GPT-5.4-nano / GPT-5.2 / GPT-4o / o3</td>
+<td style="text-align: left;">GPT-5.5 / GPT-5.4 / GPT-5.4-nano / GPT-4o / o3</td>
 <td style="text-align: left;">20 MB</td>
 </tr>
 </tbody>
@@ -2614,7 +2702,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Gemini 3.1 Pro / Gemini 3 Flash</td>
+<td style="text-align: left;">Gemini 3.1 Pro / Gemini 3 Flash / Gemini 3.5 Flash</td>
 <td style="text-align: left;">50 MB</td>
 <td style="text-align: left;">3,000ページ</td>
 </tr>
@@ -2634,12 +2722,12 @@
 <td style="text-align: left;">3ページ</td>
 </tr>
 <tr>
-<td style="text-align: left;">Claude Opus 4.7 / Claude Opus 4.6 / Claude Sonnet 4.6</td>
+<td style="text-align: left;">Claude Opus 4.8 / Claude Opus 4.7 / Claude Sonnet 4.6 / Claude Haiku 4.5</td>
 <td style="text-align: left;">32 MB</td>
 <td style="text-align: left;">600ページ</td>
 </tr>
 <tr>
-<td style="text-align: left;">GPT-5.4 / GPT-5.4-nano / GPT-5.2 / GPT-4o / o3</td>
+<td style="text-align: left;">GPT-5.5 / GPT-5.4 / GPT-5.4-nano / GPT-4o / o3</td>
 <td style="text-align: left;">50 MB</td>
 <td style="text-align: left;">コンテキスト長による</td>
 </tr>
@@ -2649,6 +2737,19 @@
 <p class="admonition-title">PDFのページ数について</p>
 <p>密度の高いPDF（小さい文字・複雑な表・多くの画像を含むなど）では、ページ数の上限に達する前にモデルのコンテキストウィンドウを使い切ってしまう場合があります。その場合は、PDFを分割するなどの対応をご検討ください。</p>
 </div>
+<h4 id="officeexcelwordpowerpoint">Officeファイル（Excel・Word・PowerPoint）の制限</h4>
+<p>Excel・Word・PowerPointのファイルは、ファイル内のテキストと埋め込み画像を抽出して読み込まれます。そのため、<strong>抽出後のテキスト量が、ご利用のAIモデルの「上限文字数」に収まる必要があります</strong>。上限文字数は本ページの「AIモデル比較表」をご確認ください（例: GPT-5.5 は 150,000文字）。</p>
+<div class="admonition warning">
+<p class="admonition-title">ファイルサイズが小さくても上限を超える場合があります</p>
+<p>Officeファイル、特にExcelは内部で圧縮して保存されているため、<strong>ファイルサイズと抽出後のテキスト量は比例しません</strong>。シート数や入力行数が多い場合は、数MB程度のファイルであっても抽出後のテキスト量が上限文字数を大きく超え、送信できないことがあります。</p>
+<p>なお、抽出後のテキスト量を送信前にご確認いただく方法は、現在ご提供しておりません。</p>
+</div>
+<p>送信できない場合は、以下の方法をお試しください。</p>
+<ol>
+<li><strong>シートを絞る:</strong> 必要な1シートのみのファイルにします。</li>
+<li><strong>行を絞る:</strong> 必要な行のみに絞り込みます。<strong>1,000行程度が目安</strong>ですが、列数や1セルあたりの文字数によって変動します。</li>
+<li><strong>ファイルを分割する:</strong> 上記でも送信できない場合は、複数のファイルに分割して送信します。</li>
+</ol>
 <h4 id="gemini">動画ファイルの長さ（Gemini 系のみ対応）</h4>
 <table>
 <thead>
@@ -2711,6 +2812,41 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align: left;">Gemini 3.5 Flash モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.5 Flash</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.006</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.5 Flash テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.006</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.5 Flash 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.5 Flash PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.5 Flash 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 3.5 Flash 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.3</td>
+</tr>
 <tr>
 <td style="text-align: left;">Gemini 3.1 Pro モデル・マルチモーダル利用料金</td>
 <td style="text-align: left;"></td>
@@ -2922,29 +3058,29 @@
 <td style="text-align: left;">¥0.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">GPT-5.2 モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;">GPT-5.5 モデル・マルチモーダル利用料金</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">GPT-5.2</td>
+<td style="text-align: left;">GPT-5.5</td>
 <td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
+<td style="text-align: left;">¥0.012</td>
 </tr>
 <tr>
-<td style="text-align: left;">GPT-5.2 テキストファイル入力</td>
+<td style="text-align: left;">GPT-5.5 テキストファイル入力</td>
 <td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
+<td style="text-align: left;">¥0.012</td>
 </tr>
 <tr>
-<td style="text-align: left;">GPT-5.2 画像入力</td>
+<td style="text-align: left;">GPT-5.5 画像入力</td>
 <td style="text-align: left;">画像</td>
-<td style="text-align: left;">¥3</td>
+<td style="text-align: left;">¥8</td>
 </tr>
 <tr>
-<td style="text-align: left;">GPT-5.2 PDF入力</td>
+<td style="text-align: left;">GPT-5.5 PDF入力</td>
 <td style="text-align: left;">ページ数</td>
-<td style="text-align: left;">¥3</td>
+<td style="text-align: left;">¥8</td>
 </tr>
 <tr>
 <td style="text-align: left;">GPT-5.4 モデル・マルチモーダル利用料金</td>
@@ -3052,6 +3188,31 @@
 <td style="text-align: left;">¥0.4</td>
 </tr>
 <tr>
+<td style="text-align: left;">Claude Opus 4.8 モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.8</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.8 テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.8 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.8 PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥10</td>
+</tr>
+<tr>
 <td style="text-align: left;">Claude Opus 4.7 モデル・マルチモーダル利用料金</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -3073,31 +3234,6 @@
 </tr>
 <tr>
 <td style="text-align: left;">Claude Opus 4.7 PDF入力</td>
-<td style="text-align: left;">ページ数</td>
-<td style="text-align: left;">¥10</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Opus 4.6 モデル・マルチモーダル利用料金</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Opus 4.6</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.015</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Opus 4.6 テキストファイル入力</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.015</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Opus 4.6 画像入力</td>
-<td style="text-align: left;">画像</td>
-<td style="text-align: left;">¥10</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Opus 4.6 PDF入力</td>
 <td style="text-align: left;">ページ数</td>
 <td style="text-align: left;">¥10</td>
 </tr>
@@ -3125,6 +3261,31 @@
 <td style="text-align: left;">Claude Sonnet 4.6 PDF入力</td>
 <td style="text-align: left;">ページ数</td>
 <td style="text-align: left;">¥5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Haiku 4.5 モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Haiku 4.5</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Haiku 4.5 テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.003</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Haiku 4.5 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Haiku 4.5 PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥2</td>
 </tr>
 <tr>
 <td style="text-align: left;">Gemini 3.1 Flash Image モデル・マルチモーダル利用料金</td>
@@ -3214,144 +3375,39 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">GPT-5.1</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Opus 4.5</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.015</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Sonnet 4.5</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
-</tr>
-<tr>
-<td style="text-align: left;">GPT-3.5-turbo</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.001</td>
-</tr>
-<tr>
-<td style="text-align: left;">GPT-4</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.015</td>
-</tr>
-<tr>
-<td style="text-align: left;">GPT-4 Turbo</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.01</td>
-</tr>
-<tr>
-<td style="text-align: left;">GPT-5</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
-</tr>
-<tr>
-<td style="text-align: left;">o1</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.015</td>
-</tr>
-<tr>
-<td style="text-align: left;">PaLM2</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.0001</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude 3 Sonnet</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude 3.5 Sonnet</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Sonnet 4</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.005</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude 3 Opus</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.015</td>
-</tr>
-<tr>
-<td style="text-align: left;">Claude Opus 4</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.015</td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Pro モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;">Gemini 3 Pro モデル・マルチモーダル利用料金</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 1.5 Pro</td>
+<td style="text-align: left;">Gemini 3 Pro</td>
 <td style="text-align: left;">文字</td>
 <td style="text-align: left;">¥0.003</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 1.5 Pro テキストファイル入力</td>
+<td style="text-align: left;">Gemini 3 Pro テキストファイル入力</td>
 <td style="text-align: left;">文字</td>
 <td style="text-align: left;">¥0.003</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 1.5 Pro 画像入力</td>
+<td style="text-align: left;">Gemini 3 Pro 画像入力</td>
 <td style="text-align: left;">画像</td>
 <td style="text-align: left;">¥2</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 1.5 Pro PDF入力</td>
+<td style="text-align: left;">Gemini 3 Pro PDF入力</td>
 <td style="text-align: left;">ページ数</td>
 <td style="text-align: left;">¥2</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 1.5 Pro 動画入力</td>
+<td style="text-align: left;">Gemini 3 Pro 動画入力</td>
 <td style="text-align: left;">秒数</td>
 <td style="text-align: left;">¥1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 1.5 Pro 音声入力</td>
+<td style="text-align: left;">Gemini 3 Pro 音声入力</td>
 <td style="text-align: left;">秒数</td>
 <td style="text-align: left;">¥1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Flash モデル・マルチモーダル利用料</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Flash</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.001</td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Flash テキストファイル入力</td>
-<td style="text-align: left;">文字</td>
-<td style="text-align: left;">¥0.001</td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Flash 画像入力</td>
-<td style="text-align: left;">画像</td>
-<td style="text-align: left;">¥1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Flash PDF入力</td>
-<td style="text-align: left;">ページ数</td>
-<td style="text-align: left;">¥1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Flash 動画入力</td>
-<td style="text-align: left;">秒数</td>
-<td style="text-align: left;">¥0.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Gemini 1.5 Flash 音声入力</td>
-<td style="text-align: left;">秒数</td>
-<td style="text-align: left;">¥0.1</td>
 </tr>
 <tr>
 <td style="text-align: left;">Gemini 2.0 Flash モデル・マルチモーダル利用料金</td>
@@ -3389,39 +3445,194 @@
 <td style="text-align: left;">¥0.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 3 Pro モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;">Gemini 1.5 Pro モデル・マルチモーダル利用料金</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 3 Pro</td>
+<td style="text-align: left;">Gemini 1.5 Pro</td>
 <td style="text-align: left;">文字</td>
 <td style="text-align: left;">¥0.003</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 3 Pro テキストファイル入力</td>
+<td style="text-align: left;">Gemini 1.5 Pro テキストファイル入力</td>
 <td style="text-align: left;">文字</td>
 <td style="text-align: left;">¥0.003</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 3 Pro 画像入力</td>
+<td style="text-align: left;">Gemini 1.5 Pro 画像入力</td>
 <td style="text-align: left;">画像</td>
 <td style="text-align: left;">¥2</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 3 Pro PDF入力</td>
+<td style="text-align: left;">Gemini 1.5 Pro PDF入力</td>
 <td style="text-align: left;">ページ数</td>
 <td style="text-align: left;">¥2</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 3 Pro 動画入力</td>
+<td style="text-align: left;">Gemini 1.5 Pro 動画入力</td>
 <td style="text-align: left;">秒数</td>
 <td style="text-align: left;">¥1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Gemini 3 Pro 音声入力</td>
+<td style="text-align: left;">Gemini 1.5 Pro 音声入力</td>
 <td style="text-align: left;">秒数</td>
 <td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash 動画入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemini 1.5 Flash 音声入力</td>
+<td style="text-align: left;">秒数</td>
+<td style="text-align: left;">¥0.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">PaLM2</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.0001</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5.2 モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5.2</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5.2 テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5.2 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥3</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5.2 PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥3</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5.1</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-5</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-4 Turbo</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.01</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-4</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT-3.5-turbo</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">o1</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.6 モデル・マルチモーダル利用料金</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.6</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.6 テキストファイル入力</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.6 画像入力</td>
+<td style="text-align: left;">画像</td>
+<td style="text-align: left;">¥10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.6 PDF入力</td>
+<td style="text-align: left;">ページ数</td>
+<td style="text-align: left;">¥10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4.5</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Opus 4</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude 3 Opus</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Sonnet 4.5</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Sonnet 4</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude 3.5 Sonnet</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude 3 Sonnet</td>
+<td style="text-align: left;">文字</td>
+<td style="text-align: left;">¥0.005</td>
 </tr>
 </tbody>
 </table>

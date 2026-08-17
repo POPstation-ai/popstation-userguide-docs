@@ -148,6 +148,48 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -1355,6 +1397,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作履歴の絞り込み・検索
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作履歴のCSVダウンロード
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1934,6 +1998,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作履歴の絞り込み・検索
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作履歴のCSVダウンロード
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1954,62 +2040,82 @@
 <h1 id="_1">操作履歴</h1>
 <div class="admonition success">
 <p class="admonition-title">操作履歴について</p>
-<p>操作履歴画面より、過去に実行した操作履歴を確認できます。</p>
+<p>操作履歴画面より、ログインやシステム設定の変更など、過去に実行された操作の履歴を一覧で確認・検索できます。</p>
 </div>
 <h2 id="_2">操作履歴の確認</h2>
 <hr />
 <p>管理画面から、「操作履歴」をクリックすると操作履歴画面が表示されます。</p>
-<p><img alt="operation_history_001.png" src="../../images/operation_history_001.png" /></p>
+<p>すべての操作履歴が1つの一覧にまとめて表示され、各行に以下の項目が表示されます。</p>
+<ul>
+<li><strong>操作日時</strong> / <strong>種別</strong> / <strong>操作</strong> / <strong>操作ユーザー</strong> / <strong>対象</strong> / <strong>詳細</strong> / <strong>IPアドレス</strong></li>
+</ul>
+<p><img alt="操作履歴画面の一覧表示" src="../../images/operation_history_002.png" /></p>
 <div class="admonition note">
-<p class="admonition-title">操作履歴で確認できる項目</p>
-<p>過去に実行した以下の操作履歴を確認できます。</p>
+<p class="admonition-title">操作履歴で確認できる操作の種別</p>
+<p>以下の種別の操作履歴を確認できます。</p>
 <ul>
 <li>
-<p><strong>ログインログ</strong></p>
-<p>システムへのログイン日時、ユーザー名、IPアドレスが記録されます。</p>
+<p><strong>ログイン</strong> / <strong>ログアウト</strong></p>
+<p>システムへのログイン・ログアウトが記録されます。</p>
 </li>
 <li>
-<p><strong>ログアウトログ</strong></p>
-<p>システムからのログアウト日時、ユーザー名、IPアドレスが記録されます。</p>
+<p><strong>システム設定変更</strong></p>
+<p>システム管理画面での設定変更が記録されます。</p>
 </li>
 <li>
-<p><strong>システム設定変更ログ</strong></p>
-<p>システム設定の変更日時、変更内容、変更を行ったユーザー名、IPアドレスが記録されます。</p>
+<p><strong>ユーザー追加・更新</strong> / <strong>ユーザー削除</strong></p>
+<p>ユーザーの追加、情報の更新、削除が記録されます。</p>
 </li>
 <li>
-<p><strong>ユーザー管理の追加・更新</strong></p>
-<p>新規ユーザーの追加や既存ユーザー情報の更新日時、変更内容、変更を行ったユーザー名、IPアドレスが記録されます。</p>
+<p><strong>カスタムデータアップロード</strong> / <strong>カスタムデータ削除</strong></p>
+<p>カスタムデータのアップロード・削除が記録されます。</p>
 </li>
 <li>
-<p><strong>ユーザー管理の削除</strong></p>
-<p>ユーザー削除日時、削除されたユーザー名、削除を行ったユーザー名、IPアドレスが記録されます。</p>
+<p><strong>SSO</strong></p>
+<p>SSO設定の作成・更新・有効化・無効化、メンバー同期などが記録されます。</p>
+<p>※SSOオプションをご契約の環境でのみ記録されます。</p>
 </li>
 <li>
-<p><strong>カスタムデータ管理アップロード</strong></p>
-<p>カスタムデータのアップロード日時、アップロードファイル名、アップロードを行ったユーザー名、IPアドレスが記録されます。</p>
+<p><strong>MFA</strong></p>
+<p>多要素認証（MFA）の有効化・無効化、認証成功などが記録されます。</p>
 </li>
 <li>
-<p><strong>カスタムデータ管理削除</strong></p>
-<p>カスタムデータの削除日時、削除されたデータ名、削除を行ったユーザー名、IPアドレスが記録されます。</p>
+<p><strong>お知らせ</strong></p>
+<p>お知らせの作成・更新・削除が記録されます。</p>
 </li>
 <li>
-<p><strong>お知らせ操作ログ</strong></p>
-<p>お知らせの作成・更新・削除などの操作日時、操作内容、操作を行ったユーザー名が記録されます。</p>
-</li>
-<li>
-<p><strong>多要素認証（MFA）操作ログ</strong></p>
-<p>多要素認証（MFA）の有効化・無効化などの操作日時、操作内容、操作を行ったユーザー名が記録されます。</p>
-</li>
-<li>
-<p><strong>トークン管理操作ログ</strong></p>
-<p>マスタートークンの再生成などの操作日時、操作内容、操作を行ったユーザー名が記録されます。</p>
+<p><strong>トークン</strong></p>
+<p>マスタートークンの再生成などが記録されます。</p>
+<p>※LGWAN環境でのみ記録されます。</p>
 </li>
 </ul>
 </div>
-<div class="admonition info">
-<p class="admonition-title">ログのCSVダウンロード</p>
-<p>各操作ログは、画面上の「CSVダウンロード」ボタンから、操作内容・実行者・対象・詳細・日時の項目を含むCSVファイルとして出力できます。</p>
-</div>
+<h2 id="_3">操作履歴の絞り込み・検索</h2>
+<hr />
+<p>画面上部の検索条件で、表示する履歴を絞り込むことができます。</p>
+<ol>
+<li>
+<p><strong>条件の指定:</strong> 以下の条件を指定できます。</p>
+<ul>
+<li><strong>期間（開始）／期間（終了）</strong>: 表示する期間を指定します（初期表示は直近7日間、最大366日間まで指定可能）。</li>
+<li><strong>操作ユーザー</strong>: メールアドレスの部分一致で絞り込みます。</li>
+<li><strong>IPアドレス</strong>: IPアドレスの部分一致で絞り込みます。</li>
+<li><strong>キーワード検索</strong>: 操作・対象・詳細の内容をキーワードで検索します。</li>
+<li><strong>種別</strong>: 表示したい操作種別にチェックを入れます（未選択の場合は全種別が表示されます）。</li>
+</ul>
+<p><img alt="操作履歴の検索条件" src="../../images/operation_history_003.png" /></p>
+</li>
+<li>
+<p><strong>適用:</strong> 「適用」ボタンをクリックすると、指定した条件で一覧が更新されます。「リセット」ボタンで条件を初期状態に戻せます。</p>
+</li>
+<li>
+<p><strong>表示件数の変更:</strong> 一覧の表示件数は20件／50件／100件から選択でき、条件に一致した総件数が「全 N 件」として表示されます。</p>
+</li>
+</ol>
+<h2 id="csv">操作履歴のCSVダウンロード</h2>
+<hr />
+<p>「CSVダウンロード」ボタンをクリックすると、現在の検索条件に一致する操作履歴をCSVファイルとしてダウンロードできます。</p>
+<p><img alt="CSVダウンロードボタン" src="../../images/operation_history_004.png" /></p>
 
 
 

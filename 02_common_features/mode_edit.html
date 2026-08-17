@@ -148,6 +148,48 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -745,7 +787,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        モードに埋め込めるパーツ
+        各パーツを設置するときの書き方のイメージ
       
     </span>
   </a>
@@ -756,27 +798,21 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        共通設定
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="共通設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        各パーツを設置するときの書き方のイメージ
+        モードに埋め込めるパーツ
       
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        共通設定
+      
+    </span>
+  </a>
   
 </li>
         
@@ -2105,7 +2141,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        モードに埋め込めるパーツ
+        各パーツを設置するときの書き方のイメージ
       
     </span>
   </a>
@@ -2116,27 +2152,21 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        共通設定
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="共通設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        各パーツを設置するときの書き方のイメージ
+        モードに埋め込めるパーツ
       
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        共通設定
+      
+    </span>
+  </a>
   
 </li>
         
@@ -2174,23 +2204,28 @@
 
 
 <h1 id="_1">モード編集</h1>
+<p><img src="../assets/external/242943381.fs1.hubspotusercontent-na2.net/hubfs/242943381/_レイヤー_1-2 (1).svg" width="70"></p>
 <div class="admonition success">
 <p class="admonition-title">モードについて</p>
-<p>「モード」とは、だれでも簡単にAIを使えるようにするための<strong>「専用のフォーム入力画面」</strong>です。</p>
+<p>「モード」とは、だれでも簡単にAIを使えるようにするための<strong>「AIへの依頼内容と入力項目をひとまとめにしたテンプレート」</strong>です。<br />
+モードを作成しておけば、次回からはフォームに必要な情報を入力するだけでOK！<br />
+<em> 毎回同じ指示を入力することなくAIを利用できます。<br />
+</em> プロンプトを考えたり入力したりする手間を減らし、誰でも同じ品質でAIを活用できます。<br />
+* あなただけの専用モードを作れば、AIを有能なアシスタントとして使うことができます。</p>
 <p><strong>🎯 例えばこんな時に使えます（活用シーンの例）</strong></p>
 <p>「モード編集」を使って専用の入力フォームを社内共有すると、繰り返し使うときだけでなく、AIを使い慣れていないメンバーでも、ボタン一つで定型業務を終わらせることができるようになります。</p>
 <p><strong>1. メールの文面作成（定型文の量産）</strong><br />
 「送信相手」「要件」「トーン」を選ぶだけで、一瞬でビジネスメールが完成します。<br />
 <strong>プロンプトの裏側：</strong> <code>{{相手}}宛てに、{{要件}}を伝えるメールを{{トーン}}な文章で作成してください。</code><br />
-<strong>設置するフォーム：</strong> テキストボックス（相手・要件）、ドロップダウン（トーン：丁寧／カジュアル）</p>
+<strong>フォームに設置するパーツ：</strong> テキスト（相手・要件）、ドロップダウン（トーン：丁寧／カジュアル）</p>
 <p><strong>2. 外国語への翻訳・ローカライズ</strong><br />
 「翻訳したい文章」を入力し、「ターゲット言語」を選ぶだけで、社内の誰もが同じ精度で翻訳できるようになります。<br />
 <strong>プロンプトの裏側：</strong> <code>以下のテキストを{{言語}}に翻訳してください。専門用語はそのまま残してください。：{{文章}}</code><br />
-<strong>設置するフォーム：</strong> テキストエリア（文章）、ドロップダウン（言語：英語／中国語／韓国語）</p>
+<strong>フォームに設置するパーツ：</strong> 複数行のテキスト（文章）、ドロップダウン（言語：英語／中国語／韓国語）</p>
 <p><strong>3. 記事やSNS投稿のキャッチコピー生成</strong><br />
 「商品名」と「ターゲット層」を入力し、追加で「アピールしたい強み」を入力させて、魅力的なキャッチコピーを複数提案させるフォームです。<br />
 <strong>プロンプトの裏側：</strong> <code>{{商品名}}を{{ターゲット}}に向けて訴求するキャッチコピーを5案考えてください。追加条件：{{追加のこだわり}}</code><br />
-<strong>設置するフォーム：</strong> テキストボックス（商品名）、ドロップダウン（ターゲット：20代女性／ビジネスマン）、入力オプション（追加のこだわり ※任意入力）</p>
+<strong>フォームに設置するパーツ：</strong> テキスト（商品名）、ドロップダウン（ターゲット：20代女性／ビジネスマン）、オプションテキスト（追加のこだわり ※任意入力）</p>
 <p>モード編集画面から、モードの追加・編集・削除ができます。<br />
 モード編集画面の入力に合わせて、テキストボックスやプルダウンなどが設定された入力フォームが自動で生成されます。生成されたフォームは「モード」として使うことができ、使う人がそのフォームに入力して送信すると、プロンプト欄の内容と合体してAIに送信されます。</p>
 </div>
@@ -2232,7 +2267,8 @@
 <summary>入力事項の説明</summary>
 <p>入力する内容は以下の項目です。(<strong>太字</strong>は必須事項です。)</p>
 <ol>
-<li><strong>タイトル</strong><ul>
+<li><strong>タイトル</strong>
+    <img alt="モードの編集画面　タイトル" src="../images/mode_edit_004_01.png" /><ul>
 <li>モードの名称です。</li>
 </ul>
 </li>
@@ -2344,29 +2380,43 @@
 <p><img alt="モードプロンプトの構成" src="../images/mode_edit_010_04.png" /></p>
 <p>プロンプト欄は、実行時のベースとなる<strong>「定型プロンプト文」</strong>と、動的に内容を差し替える<strong>「入力フォーム用のパーツ」</strong>で構成されます。<br />
 各パーツは <code>{ }</code> で囲む形で記述します。この <code>{ }</code> 内には、<strong>「入力フォームを自動生成するための『設定項目（パラメーター）』」</strong>を定義します。<br />
-ユーザーが画面上のフォームで入力・選択した内容は、実行時にこの <code>{ }</code> の部分へ自動的に組み込まれ、定型プロンプト文と合体してAIへ送信される仕組みです。<br />
-プロンプト欄に埋め込めるパーツには以下のような種類がありますので、状況に応じてご使用ください。</p>
-<h3 id="_8">モードに埋め込めるパーツ</h3>
+ユーザーが画面上のフォームで入力・選択した内容は、実行時にこの <code>{ }</code> の部分へ自動的に組み込まれ、定型プロンプト文と合体してAIへ送信される仕組みです。  </p>
+<hr />
+<h4 id="_8">各パーツを設置するときの書き方のイメージ</h4>
+<p>共通項目（<code>title</code>, <code>description</code>, <code>optional</code>）と、パーツのタイプ（<code>text</code>, <code>multi-line-text</code>, <code>select</code>）を <code>{ }</code> の中で組み合わせてプロンプト欄に入力します。</p>
 <ul>
-<li><strong>テキストボックス</strong></li>
-</ul>
-<p>テキストボックスを埋め込むことができます。プロンプトに改行のないテキストをユーザー入力欄として埋め込みたいときに使用してください。</p>
-<div class="language-text highlight"><span class="filename">モードプロンプトに貼り付けるコード：テキストボックス</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>#{title: &quot;テキストボックス&quot;, type:&quot;text&quot;}
-</span></code></pre></div>
-<details class="details">
-<summary>テキストボックスのフォームへの埋め込みイメージを確認する</summary>
-<p><img alt="モード画面に埋め込まれたテキストボックス" src="../images/mode_edit_011.png" /></p>
-</details>
-<ul>
-<li><strong>複数行のテキストボックス</strong></li>
-</ul>
-<p>改行可能なテキストボックスを埋め込むことができます。プロンプトに改行を含むテキストをユーザー入力欄として埋め込みたいときに使用してください
-<div class="language-text highlight"><span class="filename">モードプロンプトに貼り付けるコード：複数行のテキストボックス</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#{title: &quot;複数行のテキストボックス&quot;, type:&quot;multi-line-text&quot;}
+<li>
+<p><strong>入力が必須のテキストボックス：</strong><br />
+<img alt="入力が必須のテキストボックス" src="../images/mode_edit_010_01.png" style="border: 1px solid #dcdcdc; border-radius: 4px;" />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>#{title: &quot;文章&quot;, description: &quot;入力必須です&quot;, type: &quot;text&quot;}
 </span></code></pre></div></p>
-<details class="details">
-<summary>複数行のテキストボックスのフォームへの埋め込みイメージを確認する</summary>
-<p><img alt="モード画面に埋め込まれた複数行のテキストボックス" src="../images/mode_edit_012.png" /></p>
-</details>
+</li>
+<li>
+<p><strong>空欄でも送信できる（任意設定の）テキストボックス：</strong><br />
+<img alt="空欄でも送信できる（任意設定の）テキストボックス" src="../images/mode_edit_010_02.png" style="border: 1px solid #dcdcdc; border-radius: 4px;" />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#{title: &quot;追加のこだわり条件&quot;, description: &quot;あれば入力してください&quot;, optional: &quot;true&quot;, type: &quot;text&quot;}
+</span></code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h3 id="_9">モードに埋め込めるパーツ</h3>
+<p>プロンプト欄に埋め込めるパーツには以下のような種類がありますので、状況に応じてご使用ください。</p>
+<ul>
+<li>
+<p><strong>テキストボックス</strong>
+<img alt="モード画面に埋め込まれたテキストボックス" src="../images/mode_edit_011.png" />
+テキストボックスを埋め込むことができます。プロンプトに改行のないテキストをユーザー入力欄として埋め込みたいときに使用してください。
+<div class="language-text highlight"><span class="filename">モードプロンプトに貼り付けるコード：テキストボックス</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#{title: &quot;テキストボックス&quot;, type:&quot;text&quot;}
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>複数行のテキストボックス</strong>
+<img alt="モード画面に埋め込まれた複数行のテキストボックス" src="../images/mode_edit_012.png" />
+改行可能なテキストボックスを埋め込むことができます。プロンプトに改行を含むテキストをユーザー入力欄として埋め込みたいときに使用してください
+<div class="language-text highlight"><span class="filename">モードプロンプトに貼り付けるコード：複数行のテキストボックス</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>#{title: &quot;複数行のテキストボックス&quot;, type:&quot;multi-line-text&quot;}
+</span></code></pre></div></p>
+</li>
+</ul>
 <div class="admonition info">
 <p class="admonition-title">プロンプト内に「改行」は入れるべき？</p>
 <p>プロンプトには、<strong>適度に改行や空行を入れること</strong>をおすすめします。<br />
@@ -2376,18 +2426,15 @@ AIが「どこまでが前提条件で、どこからが具体的な指示か」
 AIが文章の区切りを見失い、指示の一部を読み飛ばしたり、意図しない解釈をしてしまったりする原因になります。</p>
 </div>
 <ul>
-<li><strong>プルダウン（ドロップダウンリスト）</strong></li>
-</ul>
-<p>実行画面に<strong>複数の選択肢（プルダウンメニュー）</strong>を表示させたいときに選びます。<br />
+<li><strong>プルダウン（ドロップダウンリスト）</strong>
+<img alt="モード画面に埋め込まれたプルダウン" src="../images/mode_edit_013.png" />
+  実行画面に<strong>複数の選択肢（プルダウンメニュー）</strong>を表示させたいときに選びます。<br />
   「翻訳する言語（英語／中国語）」や「出力のトーン（ビジネス／カジュアル）」など、入力者に自由入力ではなく<strong>決まった項目から選ばせたい場合</strong>に最適です。<br />
-  入力の手間を減らし、AIの回答を安定させることができます。</p>
-<div class="language-text highlight"><span class="filename">モードプロンプトに貼り付けるコード：プルダウン</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#{title: &quot;プルダウン&quot;, type: &quot;select&quot;, options:[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;]}
-</span></code></pre></div>
-<details class="details">
-<summary>プルダウンのフォームへの埋め込みイメージを確認する</summary>
-<p><img alt="モード画面に埋め込まれたプルダウン" src="../images/mode_edit_013.png" /></p>
-</details>
-<h3 id="_9">共通設定</h3>
+  入力の手間を減らし、AIの回答を安定させることができます。
+<div class="language-text highlight"><span class="filename">モードプロンプトに貼り付けるコード：プルダウン</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>#{title: &quot;プルダウン&quot;, type: &quot;select&quot;, options:[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;]}
+</span></code></pre></div></li>
+</ul>
+<h3 id="_10">共通設定</h3>
 <p><code>{ }</code> の中には、入力フォームの見た目や入力ルールをカスタマイズするための項目を書き込みます。以下の項目は、テキストボックスやドロップダウンなど<strong>すべてのパーツで共通して使用できます。</strong></p>
 <ul>
 <li><strong><code>title</code>（タイトル）：</strong>
@@ -2400,21 +2447,6 @@ AIが文章の区切りを見失い、指示の一部を読み飛ばしたり、
   この入力欄を<strong>「空欄のまま（任意）で送信してもOKにするか」</strong>を設定します。<br />
   例：<code>optional: "true"</code> と書くと、その入力欄は必須ではなくなり、フォームを使う人は何も入力せずにスキップして送信できるようになります。（※指定しない場合は自動的に「入力必須」になります）</li>
 </ul>
-<hr />
-<h4 id="_10">各パーツを設置するときの書き方のイメージ</h4>
-<p>共通項目（<code>title</code>, <code>description</code>, <code>optional</code>）と、それぞれの「タイプ（種類）」を <code>{ }</code> の中で組み合わせてプロンプト欄に入力します。</p>
-<ul>
-<li><strong>入力が必須のテキストボックス：</strong><br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>#{title: &quot;文章&quot;, description: &quot;入力必須です&quot;, type: &quot;text&quot;}
-</span></code></pre></div></li>
-</ul>
-<p><img alt="入力が必須のテキストボックス" src="../images/mode_edit_010_01.png" style="border: 1px solid #dcdcdc; border-radius: 4px;" /></p>
-<ul>
-<li><strong>空欄でも送信できる（任意設定の）テキストボックス：</strong><br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>#{title: &quot;追加のこだわり条件&quot;, description: &quot;あれば入力してください&quot;, optional: &quot;true&quot;, type: &quot;text&quot;}
-</span></code></pre></div></li>
-</ul>
-<p><img alt="空欄でも送信できる（任意設定の）テキストボックス" src="../images/mode_edit_010_02.png" style="border: 1px solid #dcdcdc; border-radius: 4px;" /></p>
 <hr />
 <h3 id="_11">サンプル記入ボタン</h3>
 <p>「テキストボックス」や「プルダウン」などの穴埋めパーツを、プロンプト欄にワンクリックで埋め込むことができるボタンです。（※例文が入力されるボタンではありません）<br />

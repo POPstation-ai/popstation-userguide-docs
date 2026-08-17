@@ -148,6 +148,48 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -2051,17 +2093,16 @@
 <ul>
 <li><strong>カスタムデータ</strong>: お客様がお持ちのドキュメントや資料など、POPstationが標準では学習していない独自の情報を指します。</li>
 <li><strong>データフォルダ</strong>: アップロードされたカスタムデータを格納する場所です。業務の用途ごとにデータフォルダを分けて管理することを推奨します。</li>
-<li><strong>カスタムデータグループ</strong>: 上記のデータフォルダをグループ化し、どのユーザーグループがアクセスできるかを制御するためのものです。(<a href="custom_data_group_management.html">カスタムデータグループ管理</a>参照)</li>
-<li><strong>ユーザーグループ</strong>: 特定の権限や役割を持つユーザーをまとめたグループです。(<a href="../account_group/user_group_management.html">ユーザーグループ管理</a>参照)</li>
-<li><strong>ユーザー</strong>: システムを利用する個々のユーザーです。
-これらの要素は、[カスタムデータ] ⇔ [データフォルダ] ⇔ [カスタムデータグループ] ⇔ [ユーザーグループ] ⇔ [ユーザー] という流れで紐づけられます。</li>
+<li><strong>ユーザーグループ</strong>: 特定の権限や役割を持つユーザーをまとめたグループです。どのユーザーグループがどのデータフォルダを利用できるかは、データフォルダの「許可ユーザーグループ」（本画面のデータフォルダ追加・変更）、またはユーザーグループの「許可カスタムデータフォルダ」（<a href="../account_group/user_group_management.html">ユーザーグループ管理</a>）で設定します。どちらの画面からでも同じ紐づけを編集できます。</li>
+<li><strong>ユーザー</strong>: システムを利用する個々のユーザーです。</li>
 </ul>
+<p>これらの要素は、[カスタムデータ] ⇔ [データフォルダ] ⇔ [ユーザーグループ] ⇔ [ユーザー] という流れで紐づけられます。</p>
 <h2 id="_3">カスタムデータ登録画面への遷移</h2>
 <hr />
 <p>カスタムデータの登録するためには、カスタムデータ登録画面に移動する必要があります。</p>
 <ol>
 <li>
-<p>メイン画面左下の「メニュー」「管理」から管理画面へアクセスし、画面左側のカスタムデータ登録をクリックしてください。
+<p>管理画面からカスタムデータ登録をクリックしてください。
     <img alt="custom_data_management_001.png" src="../../images/custom_data_management_001.png" /></p>
 <details class="info">
 <summary>カスタムデータ管理者の場合</summary>
@@ -2070,7 +2111,7 @@
 </details>
 </li>
 <li>
-<p>カスタムデータ登録画面が表示されます。
+<p>カスタムデータ管理画面が表示されます。
     <img alt="custom_data_management_003.png" src="../../images/custom_data_management_003.png" /></p>
 </li>
 </ol>
@@ -2089,18 +2130,23 @@
     <img alt="custom_data_management_005.png" src="../../images/custom_data_management_005.png" /></p>
 </li>
 <li>
-<p>データフォルダ名を入力し、データフォルダと紐づける<strong>カスタムデータグループ</strong>を選択してください。
-    <img alt="custom_data_management_006.png" src="../../images/custom_data_management_006.png" /></p>
+<p>データフォルダ名を入力し、「許可ユーザーグループ」でこのフォルダを利用できるユーザーグループを選択してください（検索して複数選択できます）。
+    <img alt="データフォルダ追加画面の入力項目" src="../../images/custom_data_management_006.png" /></p>
 <div class="admonition warning">
-<p class="admonition-title">データフォルダとカスタムデータグループとの連携</p>
+<p class="admonition-title">データフォルダを利用可能にするには</p>
 <ul>
-<li>新しくデータフォルダを追加するだけでは、そのフォルダ内のカスタムデータはまだ利用できません。</li>
-<li>追加したデータフォルダを利用するには、必ず<a href="custom_data_group_management.html">カスタムデータグループ</a>に紐付ける必要があります。</li>
-<li>カスタムデータグループを新規作成していない場合、デフォルトでは「全体共通」グループのみが存在します。このグループに紐づけるとユーザー全員がそのデータフォルダを利用可能になります。</li>
-<li>データフォルダの利用者範囲に制限を掛けるためには、新しくカスタムデータグループを作成し、そのカスタムデータグループと利用するユーザーグループと紐づけてください。</li>
-<li>[カスタムデータ] ⇔ [データフォルダ] ⇔ [カスタムデータグループ] ⇔ [ユーザーグループ] ⇔ [ユーザー] という紐づけになります。</li>
+<li>データフォルダを追加しただけでは、そのフォルダ内のカスタムデータはまだ利用できません。「許可ユーザーグループ」を1つ以上設定してください。</li>
+<li>「許可ユーザーグループ」で選択したユーザーグループに所属するユーザーが、チャットの参照候補としてこのフォルダを利用できます。全ユーザーに利用させる場合は、デフォルトで存在する「全体」グループを選択してください。</li>
+<li>作成後も、一覧の各フォルダの「⋮」メニュー →「変更」から「許可ユーザーグループ」を変更できます。</li>
+<li>管理者・ユーザー管理者は、<a href="../account_group/user_group_management.html">ユーザーグループ管理</a>画面の「許可カスタムデータフォルダ」からも同じ紐づけを設定できます。どちらの画面からでも編集できます。</li>
+<li>[カスタムデータ] ⇔ [データフォルダ] ⇔ [ユーザーグループ] ⇔ [ユーザー] という紐づけになります。</li>
 </ul>
 </div>
+<details class="info">
+<summary>カスタムデータ管理者の方へ</summary>
+<p>カスタムデータ管理者は、この「許可ユーザーグループ」の設定により、フォルダの作成から利用可能な状態にするまでを本画面だけで完結できます。</p>
+<p>なお、自分が所属していないユーザーグループだけに紐づけて保存すると、そのフォルダは自分のカスタムデータ一覧に表示されなくなり、以後の紐づけ変更は、紐づけ先グループに所属するカスタムデータ管理者、または管理者・ユーザー管理者に依頼する必要があります。確認メッセージが表示された場合はご注意ください。</p>
+</details>
 </li>
 <li>
 <p>保存ボタンをクリックしてください。
@@ -2118,13 +2164,18 @@
 <div class="admonition info">
 <p class="admonition-title">カスタムデータの対応ファイルについて</p>
 <ul>
-<li>ファイル形式：pdf, html, txt, pptx, docx, xlsx, csv<ul>
+<li>ファイル形式：<ul>
+<li>文書：pdf, html, txt, pptx, docx, xlsx, csv</li>
+<li>画像：png, jpg, jpeg</li>
+</ul>
+</li>
+<li>補足事項：<ul>
 <li>pdfファイルは最大2000ページまで</li>
 <li>txtファイル、csvファイルはUTF-8形式のみ対応</li>
 <li>csvファイルはテキストデータとして読み込まれます</li>
 </ul>
 </li>
-<li>ファイル容量：1ファイル200MBまで</li>
+<li>ファイル容量：アップロード可能な最大サイズはアップロード画面に表示されます（通常は1ファイル200MBまで。ご利用環境により異なる場合があります）</li>
 </ul>
 </div>
 <p>カスタムデータファイルのアップロードを行う場合、以下の手順を行ってください。</p>
