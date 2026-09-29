@@ -1706,6 +1706,45 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
+        カスタムデータ一覧の検索・並べ替え
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="カスタムデータ一覧の検索・並べ替え">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        表示順の手動並べ替え
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既存データフォルダの図表読み取りへの移行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         カスタムデータのダウンロード
       
     </span>
@@ -2057,6 +2096,45 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
+        カスタムデータ一覧の検索・並べ替え
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="カスタムデータ一覧の検索・並べ替え">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        表示順の手動並べ替え
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既存データフォルダの図表読み取りへの移行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         カスタムデータのダウンロード
       
     </span>
@@ -2149,6 +2227,21 @@
 </details>
 </li>
 <li>
+<p>「図表読み取り」の設定を確認してください。初期状態でチェックが入っています。</p>
+<p><img alt="図表読み取りの設定" src="../../images/custom_data_management_022.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">図表読み取り（埋め込み画像・図表も読み取る）</p>
+<p>チェックを入れると、PDF や Office ファイル（Word／Excel／PowerPoint）に埋め込まれた画像・グラフ・図表・写真の内容も検索・回答の対象になります。図表が中心の資料でも、内容を踏まえた回答が得られるようになります。<strong>通常はチェックを入れたまま（推奨）でご利用ください。</strong></p>
+<p>チェックを外すと、従来どおり本文・表のテキストだけを検索の対象とします。<strong>ファイルの読み込み方式そのものが変わる</strong>ため、<strong>これまでと同じ動作を維持したい場合に限って</strong>チェックを外してください。画面には、画像を読み込むことによる次の違いが表示されます。</p>
+<ul>
+<li>図表内の細かい文字や数値は、読み取りきれない場合があります。</li>
+<li>画像を読み込む分、利用量（利用料）が増えます。</li>
+</ul>
+<p>なお、作成後に「読み取る」へ変更することはできますが、<strong>元に戻すことはできません</strong>。</p>
+<p>図表読み取りに対応したデータフォルダでは、チャットの回答に<strong>根拠となった資料の画像</strong>が表示されます（<a href="custom_data_mode.html">カスタムデータモード</a>をご参照ください）。</p>
+</div>
+</li>
+<li>
 <p>保存ボタンをクリックしてください。
     <img alt="custom_data_management_007.png" src="../../images/custom_data_management_007.png" /></p>
 </li>
@@ -2222,7 +2315,87 @@
 <li>エラー：データの処理に失敗しました。エラーになっているファイルを再アップロードしてください。</li>
 </ul>
 </div>
-<h2 id="_6">カスタムデータのダウンロード</h2>
+<h2 id="_6">カスタムデータ一覧の検索・並べ替え</h2>
+<hr />
+<p>データフォルダが増えてきた場合は、一覧の上部から絞り込み・並べ替えができます。</p>
+<p><img alt="一覧の検索・並べ替え" src="../../images/custom_data_management_019.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">絞り込み・並べ替えの各項目</p>
+<ul>
+<li><strong>フォルダ名検索</strong>: データフォルダ名の一部を入力して絞り込みます。</li>
+<li><strong>ステータス</strong>: 「すべて」「利用可能」「処理待ち」「学習中」「エラー」から選んで絞り込みます。</li>
+<li><strong>表示順</strong>: 一覧の並び順を切り替えます。選択肢は次の2群に分かれています。<ul>
+<li><strong>保存される並び順</strong>:「設定した並び順」（下記のドラッグ＆ドロップで設定した順番）</li>
+<li><strong>一時的な並び順</strong>:「名前順」「登録が新しい順」「ステータス順」「ファイル数順」「参照回数順」「図表読み取り順」（画面を見るときだけの並び替えで、保存されません）</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="_7">表示順の手動並べ替え</h3>
+<p>「表示順」が「設定した並び順」のとき、一覧のグリップ（⣿）をドラッグ＆ドロップすると、データフォルダを任意の順番に並べ替えられます。グリップの右側にある上下の矢印ボタン（「上へ移動」「下へ移動」）でも、1つずつ入れ替えられます。キーボード操作の場合はこちらをご利用ください。</p>
+<div class="admonition note">
+<p class="admonition-title">並び順について</p>
+<ul>
+<li>設定した並び順は組織全体で共有され、<strong>チャット画面の参照データ選択にも反映されます</strong>。</li>
+<li>新しく追加したフォルダは先頭に表示されます。</li>
+<li>フォルダ名やステータスで絞り込んでいる間は、並べ替えできません。絞り込みを解除してから操作してください。</li>
+<li>一部のフォルダのみ閲覧できる権限の場合は、並べ替えできません。</li>
+<li>保存中は、グリップと矢印ボタンが一時的に操作できなくなります。</li>
+</ul>
+</div>
+<h2 id="_8">既存データフォルダの図表読み取りへの移行</h2>
+<hr />
+<p>一覧の「図表読み取り」列で、そのデータフォルダが埋め込み画像・図表を読み取れる状態かを確認できます。対象となるのは、PDF および Office ファイル（Word／Excel／PowerPoint）に埋め込まれた画像・グラフ・図表です。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">表示</th>
+<th style="text-align: left;">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟩 対応</td>
+<td style="text-align: left;">ファイル内の埋め込み画像・グラフ・図表も検索・回答の対象になっています。</td>
+</tr>
+<tr>
+<td style="text-align: left;">⬜ 非対応</td>
+<td style="text-align: left;">従来の読み込み方式で学習されたフォルダです。本文・表のテキストのみが検索対象で、埋め込み画像は対象外です。下記の手順で対応に切り替えられます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟦 移行中</td>
+<td style="text-align: left;">図表読み取りへの移行を実行中です。括弧内は処理済みファイル数／全ファイル数です。</td>
+</tr>
+</tbody>
+</table>
+<p>「⬜ 非対応」のフォルダは、以下の手順で図表読み取りに切り替えられます。</p>
+<ol>
+<li>
+<p>対象のデータフォルダの右側にある「⋮」メニューをクリックし、「図表読み取りへ移行」を選択します。</p>
+<p><img alt="図表読み取りへ移行メニュー" src="../../images/custom_data_management_020.png" /></p>
+</li>
+<li>
+<p>「図表読み取りへ移行しますか？」の確認画面が表示されます。内容を確認し、「移行を開始」をクリックします。</p>
+<p><img alt="図表読み取りへの移行確認" src="../../images/custom_data_management_021.png" /></p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">移行前にご確認ください</p>
+<ul>
+<li><strong>移行後に「非対応」へ戻すことはできません。</strong> 初めての場合は、ファイル数の少ないフォルダでお試しのうえ、本命のフォルダを移行することをおすすめします。</li>
+<li>所要時間の目安は「ファイル数 × 約3〜6分」です。混雑状況によりさらに時間がかかる場合があります。</li>
+<li>移行中も、そのフォルダは通常どおり検索・回答に利用できます（完了時に自動で切り替わります）。</li>
+<li>移行中は、そのフォルダへのファイルの追加・削除、およびフォルダの削除ができません。</li>
+<li><strong>移行完了（「🟩 対応」表示）後も、検索結果に反映されるまでさらに数十分〜数時間かかる場合があります。</strong> その間、そのフォルダの検索が一時的にヒットしないことがあります。</li>
+<li>ファイルの読み込み方式そのものが変わるため、移行前とまったく同じ結果になるとは限りません。図表内の細かい文字や数値は、読み取りきれない場合があります。</li>
+<li>画像を読み込む分、利用量（利用料）が増えます。</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">移行に失敗した場合</p>
+<p>「図表読み取り」列が「⬜ 非対応」に戻り、赤いアイコンが表示された場合は、前回の移行が失敗しています。「⋮」メニューの「図表読み取りへ移行」から再試行してください。</p>
+</div>
+<h2 id="_9">カスタムデータのダウンロード</h2>
 <hr />
 <p>登録済みのカスタムデータを一括でダウンロード（ZIP形式）することができます。</p>
 <ol>

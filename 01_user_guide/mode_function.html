@@ -652,22 +652,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deep-research" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deep Research
+        リサーチエージェント
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deep Research">
+    <nav class="md-nav" aria-label="リサーチエージェント">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        利用料金の目安
+        利用方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#researchgemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        法令 Research（Gemini）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-researchgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Research（GPT）
       
     </span>
   </a>
@@ -680,7 +702,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         モード検索
@@ -2260,22 +2282,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deep-research" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deep Research
+        リサーチエージェント
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deep Research">
+    <nav class="md-nav" aria-label="リサーチエージェント">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        利用料金の目安
+        利用方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#researchgemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        法令 Research（Gemini）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-researchgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Research（GPT）
       
     </span>
   </a>
@@ -2288,7 +2332,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         モード検索
@@ -2368,10 +2412,15 @@
 <p>モード実行画面の「データ参照先」ドロップダウンを使用することで、回答生成に外部データソースを活用できます。
     <img alt="データ参照先ドロップダウン" src="../images/mode_function_020.png" /></p>
 <div class="admonition info">
+<p class="admonition-title">モードの実行後もデータ参照先を切り替えられます</p>
+<p>モードを実行してチャットが始まった後も、メッセージ入力欄の上部に表示される切替バーから、データ参照先（カスタムデータ／Web検索／URL読込）を変更できます。会話をやり直す必要はありません。詳しくは<a href="chat_function.html">チャット機能</a>の「会話の途中でのデータ参照先の切り替え」をご参照ください。</p>
+<p>※ナビゲーションチャットは対話の流れを保持する仕組みのため、切り替えの対象外です。</p>
+</div>
+<div class="admonition info">
 <p class="admonition-title">選択可能なデータ参照先について</p>
 <ul>
 <li>
-<p><strong>なし</strong>: 外部データソースを利用せずに、AIモデルが持つ知識のみで回答を生成します。</p>
+<p><strong>参照データなし</strong>: 外部データソースを利用せずに、AIモデルが持つ知識のみで回答を生成します。</p>
 </li>
 <li>
 <p><strong>Web検索</strong>: リアルタイムのWeb検索結果を回答生成の参考にします。</p>
@@ -2499,7 +2548,7 @@
 </ul>
 </div>
 <p><img alt="ファイル入力エリア" src="../images/mode_function_009.png" /></p>
-<p>データの添付方法は<strong>「ファイルのアップロード」</strong>と<strong>「クリップボードからの貼り付け」</strong>の2種類あります。</p>
+<p>データの添付方法は<strong>「ファイルのアップロード」</strong>と<strong>「クリップボードからの貼り付け」</strong>の2種類あります。また、エクスプローラー（Finder）などからファイルを<strong>ドラッグ＆ドロップ</strong>して添付することもできます。</p>
 <details class="note">
 <summary>「ファイルのアップロード」の場合</summary>
 <ol>
@@ -2520,6 +2569,21 @@
     <img alt="クリップボードからの画像貼付けエリア" src="../images/mode_function_014.png" /></li>
 <li>モードの条件を入力して、「モードを実行する」ボタンをクリックしてください。
     <img alt="クリップボード貼付け後のモード実行" src="../images/mode_function_015.png" /></li>
+</ol>
+</details>
+<details class="note">
+<summary>「ドラッグ＆ドロップ」の場合</summary>
+<ol>
+<li>添付したいファイルをエクスプローラー（Finder）などからモードの実行画面へドラッグします。「ここにドロップして添付」と表示されます。
+    <img alt="ドラッグ＆ドロップでの添付" src="../images/mode_function_037.png" /></li>
+<li>そのままドロップすると、ファイルが添付されます。複数ファイルをまとめてドロップすることもできます。</li>
+<li>
+<p>モードの条件を入力して、「モードを実行する」ボタンをクリックしてください。</p>
+</li>
+<li>
+<p>ファイル入力に対応していないAIモデルを選択している場合は、ドロップしても添付されません。</p>
+</li>
+<li>対応していない拡張子・サイズ上限を超えるファイルは添付されず、画面にメッセージが表示されます。</li>
 </ol>
 </details>
 <h2 id="_8">画像生成機能</h2>
@@ -2581,37 +2645,80 @@
 <p class="admonition-title">アクセス権限について</p>
 <p>共有されたURLにアクセスしても、そのモードを利用する権限がないユーザーは閲覧できません。</p>
 </div>
-<h2 id="deep-research">Deep Research</h2>
+<h2 id="_12">リサーチエージェント</h2>
 <hr />
-<p>DeepResearchは、AIが自律的にWeb検索と分析を行い、詳細なレポートを作成するリサーチエージェント機能です。
-複雑な調査タスクに対して、AIが検索計画の立案から実行、情報の整理・統合までを代行します。</p>
+<p>リサーチエージェントは、AIが自ら調査を行い、<strong>根拠を示した調査レポート</strong>を作成する機能です。複雑な調査タスクに対して、AIが調査計画の立案から実行、情報の整理・統合までを代行します。</p>
+<p>モデル選択の一覧では、<strong>「リサーチエージェント」</strong>という区分（一覧の最後尾）にまとめて表示されます。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">モデル名</th>
+<th style="text-align: left;">得意分野</th>
+<th style="text-align: left;">回答までの目安</th>
+<th style="text-align: left;">利用料金（税抜）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">法令 Research（Gemini）</td>
+<td style="text-align: left;">法令に特化し、根拠となる条文を示した調査レポートを作成します</td>
+<td style="text-align: left;">1〜3分程度</td>
+<td style="text-align: left;">¥0.006 / 文字</td>
+</tr>
+<tr>
+<td style="text-align: left;">Deep Research（GPT）</td>
+<td style="text-align: left;">論理的な分析と技術調査に強く、Web上の情報を幅広く調査します</td>
+<td style="text-align: left;">10〜20分程度</td>
+<td style="text-align: left;">¥0.4 / 文字</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">利用方法</h3>
 <ol>
 <li>モード一覧から「AIとのチャット」モード（または任意のモード）を選択します。</li>
-<li>「モデル選択」ドロップダウンから「o3-deep-research」を選択します。
-    <img alt="o3-deep-research" src="../images/mode_function_032.png" /></li>
+<li>「モデル選択」から「リサーチエージェント」の区分を開き、「法令 Research（Gemini）」または「Deep Research（GPT）」を選択します。区分はモデル一覧の最後尾に表示されます（チャット画面・モード実行画面のいずれでも同じ一覧です）。
+    <img alt="リサーチエージェントの選択" src="../images/mode_function_032.png" /></li>
 <li>「モードの条件入力」エリアに、調査したい内容を入力し、「モードを実行する」ボタンをクリックします。</li>
 <li>確認ダイアログが表示されます。内容を確認して「実行する」をクリックします。
     <img alt="確認ダイアログ" src="../images/mode_function_033.png" /></li>
-<li>AIが自律的にWeb検索と分析を行い、詳細なレポートを作成します。
+<li>AIが自律的に調査と分析を行い、調査レポートを作成します。
     <img alt="レポート作成" src="../images/mode_function_034.png" /></li>
 </ol>
-<h3 id="_12">利用料金の目安</h3>
+<h3 id="researchgemini">法令 Research（Gemini）</h3>
+<p><a href="https://laws.e-gov.go.jp/">e-Gov法令検索</a>のデータをもとに関連する法令を調べ、<strong>根拠となる条文を出典として示した調査レポート</strong>を作成します。</p>
+<ul>
+<li><strong>利用料金（税抜）</strong>: 0.006円/文字（入力文字数と出力文字数の合計）</li>
+<li><strong>1実行あたりの平均提供価格</strong>: 約50円</li>
+<li><strong>回答までの目安</strong>: 1〜3分程度</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">法令データの取り扱いについて</p>
+<ul>
+<li>法令データは<strong>週次で更新</strong>しています。最新の法令が反映されていない場合がございます。</li>
+<li>生成された内容の参照元法令が正しいかは、<strong>お客様ご自身の責任においてご確認</strong>くださいますようお願いいたします。</li>
+</ul>
+</div>
+<h3 id="deep-researchgpt">Deep Research（GPT）</h3>
+<p>AIが自律的にWeb検索と分析を行い、詳細な調査レポートを作成します。論理的な分析や技術調査を得意としています。</p>
 <ul>
 <li><strong>利用料金（税抜）</strong>: 0.4円/文字</li>
 <li><strong>1実行あたりの平均提供価格</strong>: 約4,536円<ul>
 <li>平均合計文字数（約11,341文字）× 定価（0.4円/文字）として算出</li>
 </ul>
 </li>
+<li><strong>回答までの目安</strong>: 10〜20分程度</li>
 </ul>
 <div class="admonition warning">
-<p class="admonition-title">注意事項</p>
+<p class="admonition-title">ご利用にあたっての注意事項</p>
 <ul>
-<li><strong>料金について</strong>: Deep Researchは長文の調査結果を出力するため、1回あたりのご利用料金が高額になる傾向がございます。実行前に料金の目安をご確認のうえご利用ください。</li>
-<li><strong>待ち時間</strong>: 詳細な調査を行うため、回答までに10〜20分程度かかります。</li>
+<li><strong>料金について</strong>: リサーチエージェントは長文の調査結果を出力するため、1回あたりのご利用料金が高額になる傾向がございます。実行前に料金の目安をご確認のうえご利用ください。</li>
+<li><strong>待ち時間</strong>: 詳細な調査を行うため、回答までにお時間をいただきます。</li>
 <li><strong>シングルターン</strong>: 1回のチャットで完結します。結果に対する追加の質問はできません。続けて調査を行う場合は「新しいチャット」を開始してください。</li>
+<li><strong>ファイル添付</strong>: リサーチエージェントは、ファイルの添付には対応しておりません。</li>
+<li><strong>利用許可</strong>: 初期設定では「利用不可」です。ご利用いただくには、管理者さまによる許可設定が必要です（<a href="../03_admin_guide/account_group/user_group_management.html">ユーザーグループ管理</a>）。</li>
 </ul>
 </div>
-<h2 id="_13">モード検索</h2>
+<h2 id="_14">モード検索</h2>
 <hr />
 <ol>
 <li>画面左上にある検索ボックスをクリックしてください。

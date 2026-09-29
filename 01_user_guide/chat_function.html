@@ -616,6 +616,39 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
+        会話の途中でのデータ参照先の切り替え
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サイドバー幅の調整
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aihtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIが作成したHTMLのプレビュー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         プロンプトテンプレート機能
       
     </span>
@@ -625,7 +658,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         テンプレートの利用
@@ -636,7 +669,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         マイテンプレートの登録
@@ -652,7 +685,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         チャット中断機能
@@ -663,7 +696,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         会話の仕組み
@@ -2151,6 +2184,39 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
+        会話の途中でのデータ参照先の切り替え
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サイドバー幅の調整
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aihtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIが作成したHTMLのプレビュー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         プロンプトテンプレート機能
       
     </span>
@@ -2160,7 +2226,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         テンプレートの利用
@@ -2171,7 +2237,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         マイテンプレートの登録
@@ -2187,7 +2253,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         チャット中断機能
@@ -2198,7 +2264,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         会話の仕組み
@@ -2324,6 +2390,17 @@
 <p>チャット送信欄のクリップアイコンをクリックし、ファイルを選択すると、ファイルをアップロードできます。
     <img alt="chat_function_004.png" src="../images/chat_function_004.png" /></p>
 <details class="note">
+<summary>ドラッグ＆ドロップでのファイル添付</summary>
+<p>エクスプローラー（Finder）などからファイルをチャット画面へドラッグすると、「ここにドロップして添付」と表示されます。そのままドロップすると、クリップアイコンから選択した場合と同じようにファイルが添付されます。</p>
+<p><img alt="ドラッグ＆ドロップでの添付" src="../images/chat_function_018.png" /></p>
+<ul>
+<li>複数ファイルをまとめてドロップできます。</li>
+<li>モードの実行画面（モード選択後の入力画面）でも同じようにドロップして添付できます。</li>
+<li>ファイル入力に対応していないAIモデルを選択している場合は、ドロップしても添付されません。</li>
+<li>対応していない拡張子・サイズ上限を超えるファイルは添付されず、画面にメッセージが表示されます。</li>
+</ul>
+</details>
+<details class="note">
 <summary>クリップボードからの画像入力機能</summary>
 <p>クリップボードから画像を入力することもできます。</p>
 <p><img alt="chat_function_005.png" src="../images/chat_function_005.png" /></p>
@@ -2351,10 +2428,75 @@
 <p class="admonition-title">検索のオンオフ切替機能が利用できるとき</p>
 <p>この検索のオンオフ切替機能は、「カスタムデータ」「Web検索」「URL読込」のいずれかのデータ参照先が選択されている場合にのみ表示されます。</p>
 </div>
-<h2 id="_8">プロンプトテンプレート機能</h2>
+<h2 id="_8">会話の途中でのデータ参照先の切り替え</h2>
+<hr />
+<p>会話を続けたまま、データ参照先（カスタムデータ／Web検索／URL読込）を切り替えられます。新しいチャットを開始し直す必要はありません。</p>
+<ol>
+<li>
+<p><strong>切替バーの表示:</strong> 会話が始まると、メッセージ入力欄の上部に参照先の切替バーが表示されます。</p>
+<p><img alt="会話継続中の参照先切替バー" src="../images/chat_function_019.png" /></p>
+</li>
+<li>
+<p><strong>参照先の選択:</strong> 「データ参照先」から、カスタムデータ・Web検索・URL読込のいずれかを選択します。</p>
+</li>
+<li>
+<p><strong>フォルダの選択:</strong> カスタムデータを選んだ場合は、続けて「フォルダ選択」から参照するデータフォルダを選びます。フォルダが多い場合は、検索して絞り込めます。選択したフォルダは切替バーにチップとして表示されます。</p>
+</li>
+<li>
+<p><strong>そのまま送信:</strong> 切り替えた後の送信から、新しい参照先での検索結果を踏まえて回答が生成されます。それまでの会話の流れはそのまま引き継がれます。</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">参照先の切り替えについて</p>
+<ul>
+<li>モードを実行中のチャットでも切り替えられます。</li>
+<li>一時的に検索だけを止めたい場合は、参照先を変更せずに前述の「検索のオンオフ切替機能」をご利用ください。参照先の設定は保持されたまま検索のみが停止します。</li>
+<li>ナビゲーションチャットや、参照先の切り替えに対応していないAIモデル（画像生成モデル・リサーチエージェント）では切替バーは表示されません。</li>
+</ul>
+</div>
+<h2 id="_9">サイドバー幅の調整</h2>
+<hr />
+<p>チャット画面の左右のサイドバーは、幅をドラッグで調整できます。モード名やチャット名が長く途中で切れてしまう場合などに、見やすい幅へ広げてご利用ください。</p>
+<ol>
+<li>
+<p><strong>境界にカーソルを合わせる:</strong> サイドバーと中央のチャットエリアの境界にマウスカーソルを合わせると、カーソルの形が変わります。</p>
+</li>
+<li>
+<p><strong>ドラッグして調整:</strong> 左右にドラッグすると、サイドバーの幅が変わります。</p>
+</li>
+<li>
+<p><strong>既定の幅に戻す:</strong> 境界をダブルクリックすると、既定の幅に戻ります（キーボード操作の場合は、境界を選択した状態で Enter キーまたは Space キー）。</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">サイドバー幅について</p>
+<ul>
+<li>調整できる幅は、左サイドバーが 280〜640px、右サイドバーが 280〜560px です。</li>
+<li>調整した幅はブラウザに保存され、次回以降も同じ幅で表示されます。</li>
+<li>チャットエリアが狭くなりすぎないよう、画面サイズに応じて広げられる上限は自動的に調整されます。</li>
+</ul>
+</div>
+<h2 id="aihtml">AIが作成したHTMLのプレビュー</h2>
+<hr />
+<p>AIがHTMLを作成した場合、その場で<strong>実際の見た目のまま</strong>確認できます。スライドやレイアウトを含む出力の仕上がりを、ファイルに保存することなくご確認いただけます。</p>
+<p><img alt="HTMLプレビューの表示" src="../images/chat_function_020.png" /></p>
+<ul>
+<li><strong>表示の切り替え:</strong> コードブロックの上部で「プレビュー」と「コード」を切り替えられます。<strong>初期表示はプレビュー</strong>です。</li>
+<li><strong>全画面表示:</strong> 「全画面表示」ボタンをクリックすると、プレビューを大きく表示できます。</li>
+<li><strong>ダウンロード:</strong> 「HTML をダウンロード」ボタンから、HTMLファイルとして保存できます。</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">「スライド作成」モードとあわせてご利用ください</p>
+<p>基本モードの「スライド作成」と組み合わせると、資料のたたき台を作成し、その場で見た目を確認できます。モードについては<a href="mode_function.html">モード機能</a>をご参照ください。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">回答の生成中の表示について</p>
+<p>回答の生成中はプレビューを表示せず、生成が完了してから描画します。生成の途中で見た目が崩れたり、表示がちらついたりすることを防ぐためです。生成中に「プレビュー」を選択した場合は、その時点の内容で表示します。</p>
+</div>
+<h2 id="_10">プロンプトテンプレート機能</h2>
 <hr />
 <p>よく使う質問や指示を「プロンプトテンプレート」としてワンクリックでメッセージ欄に呼び出せる機能です。あらかじめ用意されたプリセットに加えて、ご自身のテンプレート（マイテンプレート）を登録できます。</p>
-<h3 id="_9">テンプレートの利用</h3>
+<h3 id="_11">テンプレートの利用</h3>
 <ol>
 <li>
 <p><strong>プロンプトテンプレートの起動:</strong> チャット画面左下のボタンをクリックするか、「Ctrl + /」キーを押すと、プロンプトテンプレート画面が表示されます。</p>
@@ -2368,7 +2510,7 @@
 <p><strong>送信と回答:</strong> 選択したテンプレートの内容は自動的にメッセージ欄に入力されます。必要に応じて内容を調整のうえ、送信ボタンをクリックしてください。</p>
 </li>
 </ol>
-<h3 id="_10">マイテンプレートの登録</h3>
+<h3 id="_12">マイテンプレートの登録</h3>
 <ol>
 <li>
 <p><strong>登録フォームの表示:</strong> プロンプトテンプレート画面下部の「+ 新しいテンプレートを追加」ボタンをクリックします。</p>
@@ -2397,7 +2539,7 @@
 <li>定型の報告フォーマットや、よく使う指示文をマイテンプレートに登録しておくと、毎回入力し直す手間が省けます。</li>
 </ul>
 </details>
-<h2 id="_11">チャット中断機能</h2>
+<h2 id="_13">チャット中断機能</h2>
 <hr />
 <p>AIの回答を待っている間に、内容を変更したくなったり、別のタスクに取り掛かりたくなる場合があります。</p>
 <p>そのような場合に柔軟に対応できるよう「チャット中断」機能を提供しています。</p>
@@ -2418,7 +2560,7 @@
 <p class="admonition-title">注意点</p>
 <p>回答を中断しても、すべて回答を生成した場合と利用料金は変わりませんのでご注意ください。</p>
 </div>
-<h2 id="_12">会話の仕組み</h2>
+<h2 id="_14">会話の仕組み</h2>
 <hr />
 <p>以下のような仕組みで、AIと会話をしています。</p>
 <p><img alt="chat_function_011.png" src="../images/chat_function_011.png" /></p>

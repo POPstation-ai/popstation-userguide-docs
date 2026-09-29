@@ -1373,7 +1373,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        チャットログの検索
+        チャットログの絞り込み・検索
       
     </span>
   </a>
@@ -1395,7 +1395,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        チャットログのカラム説明
+        月別ダウンロードのカラム説明
       
     </span>
   </a>
@@ -2013,7 +2013,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        チャットログの検索
+        チャットログの絞り込み・検索
       
     </span>
   </a>
@@ -2035,7 +2035,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        チャットログのカラム説明
+        月別ダウンロードのカラム説明
       
     </span>
   </a>
@@ -2068,49 +2068,152 @@
 <hr />
 <ol>
 <li>
-<p>管理画面左側から、AIチャットログをクリックすると、チャットログ画面が表示されます。（最新100件のみ）</p>
+<p>管理画面左側から、AIチャットログをクリックすると、チャットログ画面が表示されます。初期表示は<strong>直近7日間</strong>のログです。</p>
 <p><img alt="ai_chat_log_001.png" src="../../images/ai_chat_log_001.png" /></p>
 </li>
 <li>
-<p>各履歴の詳細を閲覧するためには、右端に表示されている「▽」をクリックしてください。</p>
+<p>一覧には、日時・ユーザー・モデル・送信・返信・文字数（送信/返信）・添付・RAG参照が表示されます。送信・返信は冒頭の抜粋が表示されます。</p>
+</li>
+<li>
+<p>各履歴の全文を閲覧するためには、行をクリックしてください。「送信全文」「返信全文」に加えて、セッションID・ターン番号が表示されます。本文は「コピー」ボタンでクリップボードにコピーできます。</p>
 <p><img alt="ai_chat_log_002.png" src="../../images/ai_chat_log_002.png" /></p>
 </li>
+<li>
+<p>一覧の下部で、ページの切り替えと表示件数（20件／50件／100件）の変更ができます。</p>
+</li>
 </ol>
-<h2 id="_2">チャットログの検索</h2>
+<h2 id="_2">チャットログの絞り込み・検索</h2>
 <hr />
-<ol>
-<li>
-<p>チャットログ画面上部の入力フォームに検索するキーワードを入力します。</p>
-<ul>
-<li>キーワード例：チャット名、モード名、日付、メールアドレス、モデル名、本文</li>
-</ul>
+<p>画面上部の条件を指定して「適用」をクリックすると、条件に一致するログが表示されます。</p>
 <p><img alt="ai_chat_log_003.png" src="../../images/ai_chat_log_003.png" /></p>
-</li>
-<li>
-<p>検索結果が表示されます。</p>
-<p><img alt="ai_chat_log_004.png" src="../../images/ai_chat_log_004.png" /></p>
-</li>
-<li>
-<p>キーワードを含むログが見つからなかった場合、「検索結果が見つかりませんでした」と表示されます</p>
-<p><img alt="ai_chat_log_005.png" src="../../images/ai_chat_log_005.png" /></p>
-</li>
-</ol>
+<div class="admonition info">
+<p class="admonition-title">指定できる条件</p>
+<ul>
+<li><strong>期間（開始）／期間（終了）</strong>: 対象期間を指定します（日本時間の日付で判定されます）。指定できる期間は最大366日までです。</li>
+<li><strong>ユーザー（部分一致）</strong>: メールアドレスの一部を入力して絞り込みます。</li>
+<li><strong>キーワード検索（送信・返信本文）</strong>: 送信本文・返信本文に含まれる語句で検索します。表示中のページだけでなく、<strong>指定期間の全件</strong>が検索対象です。</li>
+<li><strong>モデル</strong>: 対象のAIモデルを絞り込みます。ボタンをクリックすると Gemini / GPT / Claude / その他 のグループ別に選択肢が表示され、複数選択できます。モデル名で絞り込むこともできます。未選択の場合はすべてのモデルが対象です（ボタンに「モデル: 全モデル」と表示されます）。</li>
+</ul>
+</div>
+<ul>
+<li>条件をもとに戻す場合は「リセット」をクリックしてください。</li>
+<li>条件に一致するログがない場合は、件数が0件と表示されます。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">絞り込み結果のCSV出力</p>
+<p>「絞り込み結果をCSV出力」をクリックすると、指定中の条件に一致するログをCSVファイルとしてその場でダウンロードできます。</p>
+<p>対象件数が10,000件を超える場合はエラーとなります。期間を絞り込むか、次の「チャットログのダウンロード」から月単位で申請してください。</p>
+<p>出力される項目は次の18列です。<strong>後述の「月別ダウンロードのカラム説明」とは項目が異なります</strong>のでご注意ください。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">列名</th>
+<th style="text-align: left;">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">日時</td>
+<td style="text-align: left;">会話が行われた日時（日本時間）</td>
+</tr>
+<tr>
+<td style="text-align: left;">ユーザー</td>
+<td style="text-align: left;">会話を行ったユーザーのメールアドレス</td>
+</tr>
+<tr>
+<td style="text-align: left;">モデル</td>
+<td style="text-align: left;">会話で使用されたAIモデル名</td>
+</tr>
+<tr>
+<td style="text-align: left;">送信本文</td>
+<td style="text-align: left;">ユーザーが送信した本文（全文）</td>
+</tr>
+<tr>
+<td style="text-align: left;">返信本文</td>
+<td style="text-align: left;">AIが返答した本文（全文）</td>
+</tr>
+<tr>
+<td style="text-align: left;">送信文字数</td>
+<td style="text-align: left;">送信した文字数（従量課金の基準）</td>
+</tr>
+<tr>
+<td style="text-align: left;">返信文字数</td>
+<td style="text-align: left;">返答された文字数（従量課金の基準）</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付ファイル</td>
+<td style="text-align: left;">添付されたファイル名（複数ある場合は「 / 」区切り）</td>
+</tr>
+<tr>
+<td style="text-align: left;">参照カスタムデータ</td>
+<td style="text-align: left;">参照したデータフォルダ名（複数ある場合は「 / 」区切り）</td>
+</tr>
+<tr>
+<td style="text-align: left;">セッションID</td>
+<td style="text-align: left;">チャット（セッション）ごとの識別ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">ターン番号</td>
+<td style="text-align: left;">同一チャット内でのやり取りの回数</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付画像枚数</td>
+<td style="text-align: left;">添付された画像の枚数</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付PDFページ数</td>
+<td style="text-align: left;">添付されたPDFのページ数</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付音声秒数</td>
+<td style="text-align: left;">添付された音声の長さ（秒）</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付動画秒数</td>
+<td style="text-align: left;">添付された動画の長さ（秒）</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付テキスト文字数</td>
+<td style="text-align: left;">添付されたテキストファイルの文字数</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付件数</td>
+<td style="text-align: left;">添付されたファイルの件数</td>
+</tr>
+<tr>
+<td style="text-align: left;">添付課金数量未確定件数</td>
+<td style="text-align: left;">課金数量がまだ確定していない添付ファイルの件数</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">添付ファイルの料金内訳について</p>
+<p>末尾の7列は、料金の内訳（請求明細と同じ区分ごとの数量）と添付ファイルの件数です。ご利用状況の分析にお役立ていただけます。</p>
+<p>添付ファイルの課金数量は、アップロード後にシステムが順次確定します。確定前のファイルは「添付課金数量未確定件数」に数えられ、各区分の数量には含まれません（「0件だった」ことと「まだ確定していない」ことを区別するためです）。</p>
+</div>
+</div>
 <h2 id="_3">チャットログのダウンロード</h2>
 <hr />
-<p>チャットログのダウンロードを行いたい場合、ログダウンロードをクリックしてください。</p>
+<p>1か月分のチャットログをまとめてダウンロードする場合は、以下の手順で申請してください。</p>
 <ol>
 <li>
-<p>ログダウンロードボタンをクリックしてください。</p>
+<p>画面右上の「月別ダウンロードを申請」ボタンをクリックしてください。</p>
 <p><img alt="ai_chat_log_006.png" src="../../images/ai_chat_log_006.png" /></p>
 </li>
 <li>
-<p>ダウンロードする月を選択し、ダウンロード申請ボタンをクリックしてください。</p>
+<p>「月別ログダウンロードの申請」画面が表示されます。ダウンロードしたい月を選択し、「ダウンロード申請」ボタンをクリックしてください。</p>
 <p><img alt="ai_chat_log_007.png" src="../../images/ai_chat_log_007.png" /></p>
-<p><img alt="ai_chat_log_008.png" src="../../images/ai_chat_log_008.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">申請前にご確認ください</p>
+<ul>
+<li>ファイルの準備には時間がかかります。準備ができ次第メールでお知らせしますので、<a href="../download_management.html">ダウンロード管理</a>画面から取得してください。</li>
+<li>ダウンロードは<strong>1回のみ有効</strong>です（取得後にファイルは削除されます）。</li>
+<li><strong>申請したご本人のみ</strong>ダウンロードできます。</li>
+</ul>
+</div>
 </li>
 <li>
-<p>画面下部にダウンロード申請完了の文字が表示されます。</p>
-<p><img alt="ai_chat_log_009.png" src="../../images/ai_chat_log_009.png" /></p>
+<p>申請完了のメッセージが表示されます。</p>
 </li>
 <li>
 <p>登録されているメールアドレスにPOPstationからメールが送られます。</p>
@@ -2132,9 +2235,10 @@
 <p>チャットログデータがダウンロードされます。</p>
 </li>
 </ol>
-<h2 id="_4">チャットログのカラム説明</h2>
+<h2 id="_4">月別ダウンロードのカラム説明</h2>
 <hr />
-<p>チャットログには以下の情報が含まれています。各カラムの詳細は下記の通りです。</p>
+<p>「月別ダウンロードを申請」でダウンロードしたチャットログのファイルには、以下の情報が含まれています。各カラムの詳細は下記の通りです。</p>
+<p>なお、「絞り込み結果をCSV出力」で出力されるファイルは項目が異なります（前章の一覧をご参照ください）。</p>
 <div class="admonition info">
 <p class="admonition-title">チャットログの各カラム説明</p>
 <ul>
@@ -2160,6 +2264,13 @@
 <li>ナビゲーションチャット以外では空白になります。</li>
 </ul>
 </li>
+<li><strong>Attachment Image Count（添付画像枚数）</strong>: 添付された画像の枚数。</li>
+<li><strong>Attachment PDF Pages（添付PDFページ数）</strong>: 添付されたPDFのページ数。</li>
+<li><strong>Attachment Audio Seconds（添付音声秒数）</strong>: 添付された音声の長さ（秒）。</li>
+<li><strong>Attachment Video Seconds（添付動画秒数）</strong>: 添付された動画の長さ（秒）。</li>
+<li><strong>Attachment Text Chars（添付テキスト文字数）</strong>: 添付されたテキストファイルの文字数。</li>
+<li><strong>Attachment File Count（添付件数）</strong>: 添付されたファイルの件数。</li>
+<li><strong>Attachment Unconfirmed Count（添付課金数量未確定件数）</strong>: 課金数量がまだ確定していない添付ファイルの件数。確定前のファイルは各区分の数量には含まれません。</li>
 </ul>
 </div>
 
