@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="ja" data-base="/popstation-userguide-docs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>モードに参照資料を付ける｜POPstation ユーザーガイド</title><meta name="description" content="手順書や規程などのファイルをモードの「参照資料」に登録すると、そのモードで送信するたびに自動で添付されます。"><link rel="icon" type="image/png" href="/popstation-userguide-docs/favicon.png"><!--
+      描画の前に環境を決める（?env= を優先し、選んだ環境はブラウザに記憶する）。
+      ここで決めておくと、環境ごとの出し分けが表示の途中で切り替わらない。
+    --><script>(function(){const visibleEnvs = ["internet"];
+
+      (function () {
+        // 非表示の環境（src/data/envs.json）は選べない。記憶していても、インターネットに戻す
+        var key = "qtg-env";
+        var env = null;
+        try {
+          var q = new URLSearchParams(location.search).get("env");
+          if (q && visibleEnvs.indexOf(q) >= 0) {
+            env = q;
+            localStorage.setItem(key, q);
+          } else {
+            env = localStorage.getItem(key);
+          }
+        } catch (e) {}
+        document.documentElement.dataset.env = env && visibleEnvs.indexOf(env) >= 0 ? env : "internet";
+      })();
+    })();</script><link rel="stylesheet" href="/popstation-userguide-docs/_astro/nav.BuVXtoaE.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="sidebar" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button><a class="brand" href="/popstation-userguide-docs/index.html">POPstation <span>ユーザーガイド</span></a><button class="search-open" type="button" data-search-open><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span class="search-open-label">ガイド内を検索</span><kbd>Ctrl K</kbd></button></header><div class="layout"><nav id="sidebar" class="sidebar" aria-label="ガイドの目次"><details class="nav-chapter"><summary>はじめに</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/start/overview.html">POPstationでできること</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/screen.html">画面の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/first-question.html">最初の質問を送る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/try-mode.html">モードを使ってみる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/next-pages.html">次に読むページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/admin-first-steps.html">管理者が最初にやること</a></li></ul></div></details><details class="nav-chapter"><summary>ログインとアカウント</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/account/signin.html">ログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/signup.html">招待からアカウントを登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/mfa.html">多要素認証でログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/forgot-password.html">パスワードを忘れたとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-password.html">パスワードを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-email.html">メールアドレスを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/logout.html">ログアウトする</a></li></ul></div></details><details class="nav-chapter" open><summary>使い方</summary><div class="nav-group"><p class="nav-group-title">チャットする</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/send-and-stop.html">質問を送る・止める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/ng-detected.html">NGワードや機密情報が見つかったとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/copy-and-edit.html">回答をコピーする・質問を直して送り直す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/save-answer.html">回答をファイルに保存する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/choose-model.html">AIモデルを選ぶ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/attach-files.html">ファイルを添付して質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/voice-input.html">音声で入力する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-data.html">カスタムデータを使って質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/web-search.html">Web検索・URL読込を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-instruction.html">カスタム指示を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/prompt-templates.html">プロンプトテンプレートを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/deep-research.html">Deep Research・法令 Researchを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/image-generation.html">画像を生成する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/read-answers.html">回答の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/navigation-chat.html">ナビゲーションチャットを使う</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを使う</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/run-mode.html">モードを実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/favorite-modes.html">モードをお気に入りに登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-mode-url.html">モードのURLを共有する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを作る・管理する</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/create-mode.html">モードを作る</a></li><li class="nav-item current"><a href="/popstation-userguide-docs/usage/mode-reference-files.html" aria-current="page">モードに参照資料を付ける</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/edit-mode.html">モードを編集・複製・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/mode-share-scope.html">モードの共有範囲を決める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/bulk-modes.html">モードをまとめて操作する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/find-modes.html">モードを探す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">履歴と書き出し</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-history.html">チャット履歴を探す・ピン留めする・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-folders.html">チャット履歴をフォルダで整理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-chat.html">チャットを共有する・共有を取り消す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rename-chat.html">チャットの名前を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rerun-mode.html">条件を変えて再実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/export-chat.html">チャットを書き出す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">自分の設定・お知らせ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/mypage.html">マイページ（ユーザー名・カスタム指示）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/notifications.html">お知らせを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/widget.html">ウィジェットから使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/google-drive.html">Google ドライブと連携する</a></li></ul></div></details><details class="nav-chapter"><summary>管理者ガイド</summary><div class="nav-group"><p class="nav-group-title">はじめに</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/roles.html">管理者のロールとできること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザー</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/add-user.html">ユーザーを追加する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/edit-user.html">ユーザーの設定を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/delete-user.html">ユーザーを削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/csv-bulk.html">CSVでまとめて登録・更新・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/resend-invitation.html">招待を送り直す・パスワード設定URLを再発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/reset-password.html">パスワードを再設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/unlock-login.html">ログインロックを解除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/change-email.html">メールアドレスを変更する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/mfa.html">多要素認証（MFA）を設定する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザーグループ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/user-groups.html">ユーザーグループを作る・編集する・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">カスタムデータ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-folders.html">フォルダを作る・名前を変える・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-files.html">ファイルを登録・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-groups.html">フォルダを使えるグループを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-public-scope.html">カスタムデータを全員に公開できる人を管理者に限る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-image-reading.html">図表の読み取りに対応させる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-order-search.html">フォルダを並べ替える・探す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-download.html">カスタムデータをまとめてダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-admin-role.html">カスタムデータ管理者ができること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モード・システム設定</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-categories.html">モードカテゴリを管理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ng-words.html">NGワード・機密情報のチェックを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ip-restriction.html">IPアクセス制限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/default-model-region.html">既定のAIモデルと海外リージョンモデルの利用を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-experience.html">チャットの表示と会話履歴の長さを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/monthly-cost-limit.html">月額の利用上限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-groups.html">1人あたりの月額上限を設定する（課金グループ）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/google-drive.html">Google ドライブの利用を許可する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/api-keys.html">業務システムから使えるAPIキーを発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-creation-limit.html">モードの作成を制限する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/logo-time-saving-contact.html">組織ロゴ・時間削減・お問い合わせ導線を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/notifications.html">お知らせを配信する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">利用状況と請求</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/dashboard.html">ダッシュボードを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/analytics.html">ユーザー分析を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-logs.html">AIチャットログを見る・ダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/action-logs.html">操作履歴を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-histories.html">請求履歴を見る</a></li></ul></div></details><details class="nav-chapter"><summary>活用Tips</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/tips/ai-basics.html">生成AIのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/prompt-tips.html">質問（プロンプト）のコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/markdown.html">マークダウン記法の基本</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/choose-model.html">AIモデルの選び方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/mode-prompt.html">モードプロンプトの書き方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/rag-prompt.html">カスタムデータ用RAGプロンプトの書き方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/custom-data-tips.html">カスタムデータを上手に使うコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/use-cases.html">業務別の使い方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/copyright.html">生成AIと著作権</a></li></ul></div></details><details class="nav-chapter"><summary>仕様</summary><div class="nav-group"><p class="nav-group-title">画面別：利用者向け</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat.html">チャット画面</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/modes.html">モード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-edit.html">モードの作成・編集</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications.html">お知らせ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mypage.html">マイページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/widget.html">ウィジェット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chats.html">共有中のチャット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chat.html">共有されたチャット</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：ログインまわり</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/login.html">ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/signup.html">アカウント登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-verify.html">認証コードの入力</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/confirm-email-change.html">メールアドレス変更の確認</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/auth-error.html">認証エラー</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：管理画面</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/dashboard.html">ダッシュボード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/analytics.html">ユーザー分析</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/system-settings.html">システム管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-settings.html">MFA設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications-admin.html">お知らせ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data.html">カスタムデータ登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data-detail.html">カスタムデータ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat-logs.html">AIチャットログ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/action-logs.html">操作履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-histories.html">請求履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/users.html">ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/user-groups.html">ユーザーグループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-categories.html">モードカテゴリ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-groups.html">課金グループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/api-credentials.html">API連携</a></li></ul></div><div class="nav-group"><p class="nav-group-title">横断の一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/roles.html">ロールと権限の一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/contract.html">契約・プランによる違いの一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/chat-flow.html">チャットのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/custom-data-files.html">カスタムデータに登録できるファイル</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/limits.html">利用上限と決済失敗時の扱い</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/csv-formats.html">CSVの形式</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/authentication.html">認証の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/public-api.html">公開APIの仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/requirements.html">動作環境</a></li></ul></div></details><details class="nav-chapter"><summary>困ったとき</summary><div class="nav-group"><p class="nav-group-title">エラーメッセージ一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/login.html">エラーメッセージ：ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/chat-send.html">エラーメッセージ：チャット送信</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/send-limits.html">エラーメッセージ：送信の制限</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-search.html">エラーメッセージ：カスタムデータとWeb検索</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/ng-words.html">エラーメッセージ：NGワード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/attachments.html">エラーメッセージ：添付</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/voice.html">エラーメッセージ：音声</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/deep-research.html">エラーメッセージ：Deep Research</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/modes.html">エラーメッセージ：モード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-register.html">エラーメッセージ：カスタムデータの登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/user-management.html">エラーメッセージ：ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/csv.html">エラーメッセージ：CSV</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/billing.html">エラーメッセージ：請求</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/settings.html">エラーメッセージ：設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/widget.html">エラーメッセージ：ウィジェット</a></li></ul></div><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/generic-error.html">「エラーが発生しました」と出たとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/nothing-happens.html">何も表示されない・反応しないとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/faq.html">よくある質問</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/contact.html">お問い合わせ方法</a></li></ul></div></details><details class="nav-chapter"><summary>お知らせ</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/news/release-notes.html">リリースノート</a></li><li class="nav-item"><a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a></li></ul></div></details></nav><main id="main" class="content" data-pagefind-body><!-- 検索の絞り込みに使う値 --><span hidden data-pagefind-filter="章:使い方"></span><span hidden data-pagefind-filter="対象:一般ユーザー"></span><span hidden data-pagefind-filter="対象:カスタムデータ管理者"></span><span hidden data-pagefind-filter="対象:ユーザー管理者"></span><span hidden data-pagefind-filter="対象:管理者"></span><span hidden data-pagefind-filter="環境:インターネット"></span><span hidden data-pagefind-meta="title:モードに参照資料を付ける"></span><ol class="breadcrumb" data-pagefind-ignore><li><a href="/popstation-userguide-docs/index.html">トップ</a></li><li>使い方</li><li>モードを作る・管理する</li></ol><h1>モードに参照資料を付ける</h1><div class="page-tags" data-pagefind-ignore><span class="tag tag-role">対象：全ユーザー</span></div><p class="lead">手順書や規程などのファイルをモードの「参照資料」に登録すると、そのモードで送信するたびに自動で添付されます。</p><div class="prose"><p>手順書や規程などのファイルをモードの「参照資料」に登録しておくと、そのモードで送信するたびに、登録したファイルが自動で添付されます。モードを使う人が毎回ファイルを添付しなくても、資料を踏まえた回答が得られます。</p>
+<h2 id="始める前に">始める前に</h2>
+<ul>
+<li>参照資料を付けられるのは、カスタムモードだけです。基本モードには付けられません。</li>
+<li>参照資料を付けられるのは、そのモードを作る人と、そのモードを編集できる人です（<a href="/popstation-userguide-docs/usage/edit-mode.html">モードを編集・複製・削除する</a>）。</li>
+<li>参照資料は、送信のたびに添付ファイルとして送られます。<strong>送信のたびに、添付ファイルの利用料金がかかります</strong>（下の「利用料金について」）。</li>
+</ul>
+<h2 id="手順">手順</h2>
+<div class="steps"><ol>
+<li>
+<p>左端のメインサイドバーの「メニュー」を押し、「モード管理」を選びます。「モード管理」の画面が開きます。</p>
+</li>
+<li>
+<p>「カスタムモード」のタブで、「モード追加」を押します。すでにあるモードに付けるときは、そのモードの行の「…」から「編集」を選びます。</p>
+</li>
+<li>
+<p>「参照資料」の欄の「資料を追加」を押し、登録するファイルを選びます。複数のファイルをまとめて選べます。</p>
+<figure class="screenshot" data-pagefind-ignore=""><a href="/popstation-userguide-docs/screenshots/usage/mode-reference-files-1.webp" target="_blank" rel="noopener" aria-label="画像を元の大きさで開く"><img src="/popstation-userguide-docs/screenshots/usage/mode-reference-files-1.webp" alt="「カスタムモード機能の追加」の画面の「参照資料」の欄。ラベル「参照資料」の右に ⓘ、登録したファイル名の一覧（右にごみ箱のボタン）、「資料を追加」ボタンとその右の「2 / 20 件」、欄の下の説明文「このモードで送信するたびに、ここに登録したファイルが自動で添付され、AI が毎回参照します。」が見えている状態" width="478" height="81" loading="lazy" decoding="async"></a></figure>
+</li>
+<li>
+<p>選んだファイルの名前が、欄の中に並びます。「資料を追加」の右に、登録した件数が「2 / 20 件」のように表示されます。外すときは、ファイル名の右にあるごみ箱のボタンを押します。</p>
+</li>
+<li>
+<p>「追加」を押します。編集のときは「保存」を押します。</p>
+</li>
+</ol></div>
+<p>参照資料は、モードを保存したときに登録されます。保存せずに画面を閉じると、追加したファイルも外したファイルも反映されません。</p>
+<p>ラベル「参照資料」の右の ⓘ にマウスを乗せるか、Tab キーで ⓘ に移ると、登録できる件数・利用者が添付できる数・選べなくなるAIモデル・利用料金の説明が表示されます。</p>
+<h2 id="登録できるファイル">登録できるファイル</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>件数</td><td>1つのモードに20件まで。20件登録すると「資料を追加」は押せなくなります</td></tr><tr><td>形式・1ファイルの大きさ</td><td>チャットに添付できるファイルと同じです（<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）</td></tr><tr><td>保存期間</td><td>モードに付いている間は、チャットの添付ファイルの30日の自動削除の対象になりません。参照資料から外したファイルや、削除したモードに付いていたファイルは、ほかの添付ファイルと同じく、登録した日から30日を過ぎると削除されます（<a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a>）</td></tr></tbody></table>
+<h2 id="モードを使う人から見た動き">モードを使う人から見た動き</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>場面</th><th>動き</th></tr></thead><tbody><tr><td>「モードの実行」の画面、チャット詳細、チャットの入力欄の上</td><td>「このモードには参照資料が N 件付いています（送信のたびに自動で添付されます）。追加で添付できるのは M 件までです。」と表示されます。参照資料だけで、そのAIモデルで添付できる件数に達しているときは、「このモードには参照資料が N 件付いています（送信のたびに自動で添付されます）。この AI モデルでは、ほかのファイルを添付できません。」と表示されます</td></tr><tr><td>送信するとき</td><td>参照資料が自動で添付されます。チャットの画面の質問の欄には、参照資料は表示されません</td></tr><tr><td>AIモデルを選ぶとき</td><td>「モードの実行」の画面とチャット詳細の「モデル選択」には、ファイル添付に対応していて、添付できるファイルの数が参照資料の件数以上のAIモデルだけが表示されます。たとえば、添付できるファイルが3件までのAIモデルは、参照資料が4件以上のモードでは表示されません。モードの「モデル」や「利用可能なモデル」で選んでいても、表示されません</td></tr><tr><td>自分でファイルを添付するとき</td><td>添付できる件数は、AIモデルごとの上限から、参照資料の件数を引いた数になります。0件になるときは、添付ボタンの説明に「参照資料で添付できる件数の上限に達しているため、ファイルを添付できません。」と表示されます</td></tr><tr><td>参照資料が渡らないAIモデルを選んでいるとき</td><td>入力欄の上に「選択中のモデルでは参照資料が渡りません。参照資料はファイル添付に対応したモデルでのみ渡ります。対応していないモデルはこのモードでは選択できません。」と表示されます</td></tr></tbody></table>
+<figure class="screenshot" data-pagefind-ignore=""><a href="/popstation-userguide-docs/screenshots/usage/mode-reference-files-2.webp" target="_blank" rel="noopener" aria-label="画像を元の大きさで開く"><img src="/popstation-userguide-docs/screenshots/usage/mode-reference-files-2.webp" alt="参照資料が2件付いたモードの「モードの実行」の画面。「モデル選択」の下に「このモードには参照資料が 2 件付いています（送信のたびに自動で添付されます）。追加で添付できるのは … 件までです。」と表示された状態" width="315" height="226" loading="lazy" decoding="async"></a></figure>
+<h2 id="利用料金について">利用料金について</h2>
+<ul>
+<li>参照資料は、送信のたびに添付ファイルとして送られます。そのため、やり取りの回数に比例して、添付ファイルの利用料金が増えます。</li>
+<li>ナビゲーションチャット（データ参照先が「カスタムデータ：ナビゲーションチャット」のモード）では、1往復あたり2回ぶん加算されます。</li>
+</ul>
+<p>モードの画面では、「参照資料」の右の ⓘ に「送信のたびに、参照資料ぶんの添付ファイルの利用料金がかかります。ナビゲーションチャットでは、1 回のやり取りで 2 回分かかります。」と表示されます。</p>
+<h2 id="知っておくと便利なこと">知っておくと便利なこと</h2>
+<ul>
+<li>「利用可能なモデル」では、ファイル添付に対応したAIモデル（一覧の「ファイル入力対応（マルチモーダル）」の区分など）を1つ以上選んでおきます。</li>
+<li>参照資料だけでAIモデルの1回の送信の上限を超えるモードは、保存できません。たとえば、Gemini の通常のAIモデルは1回の送信で動画10件・音声1件まで、Claude は画像とPDFの合計がおよそ21MBまでです。保存しようとすると、どのAIモデルのどの上限かが表示され、画面は閉じません。参照資料を減らすか、「利用可能なモデル」からそのAIモデルを外すと保存できます。</li>
+<li>モードを複製すると、複製したモードにも同じ参照資料が付いた状態で画面が開きます。</li>
+<li>参照資料に登録した手順書などを新しい版に替えるときは、古いファイルをごみ箱のボタンで外し、新しいファイルを追加して保存します。</li>
+</ul>
+<h2 id="うまくいかないとき">うまくいかないとき</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>表示</th><th>原因と対処</th></tr></thead><tbody><tr><td>参照資料は 20 件まで登録できます（追加すると N 件になります）。選ぶファイルを減らしてください。</td><td>登録済みの件数と、選んだファイルの件数を合わせると20件を超えます。選ぶファイルを減らしてください。選んだファイルはどれも追加されていません</td></tr><tr><td>参照資料が「…」の 1 回の送信の上限を超えています（動画は 10 件まで・登録 N 件）。参照資料を減らすか、利用モデルから「…」を外してください。</td><td>参照資料の動画が、そのAIモデルで1回に送れる件数を超えています。画面は閉じず、モードは保存されていません。動画を減らすか、「利用可能なモデル」からそのAIモデルを外して、もう一度保存してください</td></tr><tr><td>参照資料が「…」の 1 回の送信の上限を超えています（音声は 1 件まで・登録 N 件）。参照資料を減らすか、利用モデルから「…」を外してください。</td><td>参照資料の音声が、そのAIモデルで1回に送れる件数を超えています。画面は閉じず、モードは保存されていません。音声を減らすか、「利用可能なモデル」からそのAIモデルを外して、もう一度保存してください</td></tr><tr><td>参照資料が「…」の 1 回の送信の上限を超えています（画像と PDF の合計は 21 MB まで・登録 …）。参照資料を減らすか、利用モデルから「…」を外してください。</td><td>参照資料の画像とPDFの大きさの合計が、そのAIモデルで1回に送れる量を超えています。画面は閉じず、モードは保存されていません。画像やPDFを減らすか、「利用可能なモデル」からそのAIモデルを外して、もう一度保存してください</td></tr><tr><td>「…」は対応していないファイル形式です。</td><td>添付できない形式のファイルです。<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>にある形式にしてください</td></tr><tr><td>ファイルサイズが上限（…）を超えています</td><td>1ファイルの大きさの上限を超えています。上限以下のファイルにしてください</td></tr><tr><td>エラーが発生しました／「…」はサイズ上限（…）を超えています。上限以下のファイルを指定してください。</td><td>保存するときの確認で、上限を超えるファイルが見つかりました。画面は閉じますが、モードは保存されていません。ファイルを替えて、もう一度保存してください</td></tr><tr><td>エラーが発生しました／「…」のアップロードが確認できませんでした。もう一度アップロードしてください。</td><td>保存するときに、ファイルを確かめられませんでした。画面は閉じますが、モードは保存されていません。モードを開き直し、そのファイルを外してから追加し直して保存してください</td></tr><tr><td>「資料を追加」が押せない</td><td>すでに20件登録しているか、ファイルをアップロードしている途中です</td></tr><tr><td>ファイルの確認が終わるまでお待ちください／参照資料の確認が完了してから保存してください。…</td><td>追加した資料の確認が終わる前に、保存を押しました。モードは保存されていません。確認が終わるまで待ってから、もう一度保存してください</td></tr></tbody></table>
+<p>ほかの表示は、<a href="/popstation-userguide-docs/help/modes.html">エラーメッセージ：モード</a>をご覧ください。</p></div><nav class="pager" aria-label="前後のページ" data-pagefind-ignore><a class="pager-prev" href="/popstation-userguide-docs/usage/create-mode.html"><span>前へ</span>モードを作る</a><a class="pager-next" href="/popstation-userguide-docs/usage/edit-mode.html"><span>次へ</span>モードを編集・複製・削除する</a></nav></main><aside class="toc" aria-label="このページの目次"><p class="toc-title">このページの目次</p><ul><li class="toc-depth-2"><a href="#始める前に">始める前に</a></li><li class="toc-depth-2"><a href="#手順">手順</a></li><li class="toc-depth-2"><a href="#登録できるファイル">登録できるファイル</a></li><li class="toc-depth-2"><a href="#モードを使う人から見た動き">モードを使う人から見た動き</a></li><li class="toc-depth-2"><a href="#利用料金について">利用料金について</a></li><li class="toc-depth-2"><a href="#知っておくと便利なこと">知っておくと便利なこと</a></li><li class="toc-depth-2"><a href="#うまくいかないとき">うまくいかないとき</a></li></ul></aside></div><dialog class="search-dialog" aria-label="ガイド内を検索"><form method="dialog" class="search-form" role="search"><div class="search-input-row"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><input type="search" name="q" placeholder="例：ユーザー削除、ファイル 上限、パスワード" autocomplete="off" aria-label="検索する言葉"><button type="submit" class="search-close" value="close" aria-label="閉じる">Esc</button></div><div class="search-filters"><label class="search-filter-env" hidden><input type="checkbox" name="env" checked> <span data-env-filter-label>ご利用の環境に関係するページだけ</span></label><label>対象<select name="role"><option value="">すべて</option><option value="一般ユーザー">一般ユーザー</option><option value="カスタムデータ管理者">カスタムデータ管理者</option><option value="ユーザー管理者">ユーザー管理者</option><option value="管理者">管理者</option></select></label><div class="search-chapters" role="group" aria-label="章で絞り込む"><label class="chip"><input type="checkbox" name="chapter" value="はじめに">はじめに</label><label class="chip"><input type="checkbox" name="chapter" value="ログインとアカウント">ログインとアカウント</label><label class="chip"><input type="checkbox" name="chapter" value="使い方">使い方</label><label class="chip"><input type="checkbox" name="chapter" value="管理者ガイド">管理者ガイド</label><label class="chip"><input type="checkbox" name="chapter" value="活用Tips">活用Tips</label><label class="chip"><input type="checkbox" name="chapter" value="仕様">仕様</label><label class="chip"><input type="checkbox" name="chapter" value="困ったとき">困ったとき</label><label class="chip"><input type="checkbox" name="chapter" value="お知らせ">お知らせ</label></div></div></form><p class="search-status" aria-live="polite"></p><ol class="search-results"></ol></dialog><script type="module" src="/popstation-userguide-docs/_astro/Search.astro_astro_type_script_index_0_lang.CFnn-6hv.js"></script><script type="module">var e=document.querySelector(`[data-env-select]`),t=document.documentElement;e&&(e.value=t.dataset.env||`internet`,e.addEventListener(`change`,()=>{t.dataset.env=e.value;try{localStorage.setItem(`qtg-env`,e.value)}catch{}document.dispatchEvent(new CustomEvent(`qtg:env`,{detail:e.value}))}));for(let t of e?document.querySelectorAll(`.env-tabs`):[]){let n=[...t.querySelectorAll(`:scope > .env-panel`)],r=document.createElement(`div`);r.className=`env-tab-bar`,r.setAttribute(`role`,`tablist`);for(let t of n){let n=document.createElement(`button`);n.type=`button`,n.className=`env-tab`,n.dataset.envTab=t.dataset.envPanel,n.textContent=t.dataset.label||``,n.addEventListener(`click`,()=>{e&&(e.value=t.dataset.envPanel||`internet`,e.dispatchEvent(new Event(`change`)))}),r.append(n)}t.prepend(r)}var n=document.querySelector(`.nav-toggle`);n?.addEventListener(`click`,()=>{let e=document.body.classList.toggle(`nav-open`);n.setAttribute(`aria-expanded`,String(e))});</script></body></html><script type="module" src="/popstation-userguide-docs/_astro/Doc.astro_astro_type_script_index_0_lang.C0bxyGav.js"></script>

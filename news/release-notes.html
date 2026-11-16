@@ -1,0 +1,1013 @@
+<!DOCTYPE html><html lang="ja" data-base="/popstation-userguide-docs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>リリースノート｜POPstation ユーザーガイド</title><meta name="description" content="POPstationの更新履歴です。"><link rel="icon" type="image/png" href="/popstation-userguide-docs/favicon.png"><!--
+      描画の前に環境を決める（?env= を優先し、選んだ環境はブラウザに記憶する）。
+      ここで決めておくと、環境ごとの出し分けが表示の途中で切り替わらない。
+    --><script>(function(){const visibleEnvs = ["internet"];
+
+      (function () {
+        // 非表示の環境（src/data/envs.json）は選べない。記憶していても、インターネットに戻す
+        var key = "qtg-env";
+        var env = null;
+        try {
+          var q = new URLSearchParams(location.search).get("env");
+          if (q && visibleEnvs.indexOf(q) >= 0) {
+            env = q;
+            localStorage.setItem(key, q);
+          } else {
+            env = localStorage.getItem(key);
+          }
+        } catch (e) {}
+        document.documentElement.dataset.env = env && visibleEnvs.indexOf(env) >= 0 ? env : "internet";
+      })();
+    })();</script><link rel="stylesheet" href="/popstation-userguide-docs/_astro/nav.BuVXtoaE.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="sidebar" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button><a class="brand" href="/popstation-userguide-docs/index.html">POPstation <span>ユーザーガイド</span></a><button class="search-open" type="button" data-search-open><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span class="search-open-label">ガイド内を検索</span><kbd>Ctrl K</kbd></button></header><div class="layout"><nav id="sidebar" class="sidebar" aria-label="ガイドの目次"><details class="nav-chapter"><summary>はじめに</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/start/overview.html">POPstationでできること</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/screen.html">画面の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/first-question.html">最初の質問を送る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/try-mode.html">モードを使ってみる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/next-pages.html">次に読むページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/admin-first-steps.html">管理者が最初にやること</a></li></ul></div></details><details class="nav-chapter"><summary>ログインとアカウント</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/account/signin.html">ログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/signup.html">招待からアカウントを登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/mfa.html">多要素認証でログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/forgot-password.html">パスワードを忘れたとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-password.html">パスワードを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-email.html">メールアドレスを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/logout.html">ログアウトする</a></li></ul></div></details><details class="nav-chapter"><summary>使い方</summary><div class="nav-group"><p class="nav-group-title">チャットする</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/send-and-stop.html">質問を送る・止める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/ng-detected.html">NGワードや機密情報が見つかったとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/copy-and-edit.html">回答をコピーする・質問を直して送り直す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/save-answer.html">回答をファイルに保存する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/choose-model.html">AIモデルを選ぶ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/attach-files.html">ファイルを添付して質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/voice-input.html">音声で入力する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-data.html">カスタムデータを使って質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/web-search.html">Web検索・URL読込を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-instruction.html">カスタム指示を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/prompt-templates.html">プロンプトテンプレートを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/deep-research.html">Deep Research・法令 Researchを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/image-generation.html">画像を生成する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/read-answers.html">回答の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/navigation-chat.html">ナビゲーションチャットを使う</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを使う</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/run-mode.html">モードを実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/favorite-modes.html">モードをお気に入りに登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-mode-url.html">モードのURLを共有する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを作る・管理する</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/create-mode.html">モードを作る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/mode-reference-files.html">モードに参照資料を付ける</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/edit-mode.html">モードを編集・複製・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/mode-share-scope.html">モードの共有範囲を決める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/bulk-modes.html">モードをまとめて操作する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/find-modes.html">モードを探す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">履歴と書き出し</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-history.html">チャット履歴を探す・ピン留めする・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-folders.html">チャット履歴をフォルダで整理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-chat.html">チャットを共有する・共有を取り消す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rename-chat.html">チャットの名前を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rerun-mode.html">条件を変えて再実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/export-chat.html">チャットを書き出す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">自分の設定・お知らせ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/mypage.html">マイページ（ユーザー名・カスタム指示）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/notifications.html">お知らせを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/widget.html">ウィジェットから使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/google-drive.html">Google ドライブと連携する</a></li></ul></div></details><details class="nav-chapter"><summary>管理者ガイド</summary><div class="nav-group"><p class="nav-group-title">はじめに</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/roles.html">管理者のロールとできること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザー</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/add-user.html">ユーザーを追加する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/edit-user.html">ユーザーの設定を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/delete-user.html">ユーザーを削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/csv-bulk.html">CSVでまとめて登録・更新・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/resend-invitation.html">招待を送り直す・パスワード設定URLを再発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/reset-password.html">パスワードを再設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/unlock-login.html">ログインロックを解除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/change-email.html">メールアドレスを変更する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/mfa.html">多要素認証（MFA）を設定する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザーグループ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/user-groups.html">ユーザーグループを作る・編集する・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">カスタムデータ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-folders.html">フォルダを作る・名前を変える・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-files.html">ファイルを登録・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-groups.html">フォルダを使えるグループを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-public-scope.html">カスタムデータを全員に公開できる人を管理者に限る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-image-reading.html">図表の読み取りに対応させる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-order-search.html">フォルダを並べ替える・探す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-download.html">カスタムデータをまとめてダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-admin-role.html">カスタムデータ管理者ができること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モード・システム設定</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-categories.html">モードカテゴリを管理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ng-words.html">NGワード・機密情報のチェックを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ip-restriction.html">IPアクセス制限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/default-model-region.html">既定のAIモデルと海外リージョンモデルの利用を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-experience.html">チャットの表示と会話履歴の長さを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/monthly-cost-limit.html">月額の利用上限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-groups.html">1人あたりの月額上限を設定する（課金グループ）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/google-drive.html">Google ドライブの利用を許可する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/api-keys.html">業務システムから使えるAPIキーを発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-creation-limit.html">モードの作成を制限する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/logo-time-saving-contact.html">組織ロゴ・時間削減・お問い合わせ導線を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/notifications.html">お知らせを配信する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">利用状況と請求</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/dashboard.html">ダッシュボードを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/analytics.html">ユーザー分析を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-logs.html">AIチャットログを見る・ダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/action-logs.html">操作履歴を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-histories.html">請求履歴を見る</a></li></ul></div></details><details class="nav-chapter"><summary>活用Tips</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/tips/ai-basics.html">生成AIのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/prompt-tips.html">質問（プロンプト）のコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/markdown.html">マークダウン記法の基本</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/choose-model.html">AIモデルの選び方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/mode-prompt.html">モードプロンプトの書き方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/rag-prompt.html">カスタムデータ用RAGプロンプトの書き方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/custom-data-tips.html">カスタムデータを上手に使うコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/use-cases.html">業務別の使い方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/copyright.html">生成AIと著作権</a></li></ul></div></details><details class="nav-chapter"><summary>仕様</summary><div class="nav-group"><p class="nav-group-title">画面別：利用者向け</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat.html">チャット画面</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/modes.html">モード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-edit.html">モードの作成・編集</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications.html">お知らせ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mypage.html">マイページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/widget.html">ウィジェット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chats.html">共有中のチャット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chat.html">共有されたチャット</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：ログインまわり</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/login.html">ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/signup.html">アカウント登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-verify.html">認証コードの入力</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/confirm-email-change.html">メールアドレス変更の確認</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/auth-error.html">認証エラー</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：管理画面</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/dashboard.html">ダッシュボード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/analytics.html">ユーザー分析</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/system-settings.html">システム管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-settings.html">MFA設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications-admin.html">お知らせ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data.html">カスタムデータ登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data-detail.html">カスタムデータ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat-logs.html">AIチャットログ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/action-logs.html">操作履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-histories.html">請求履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/users.html">ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/user-groups.html">ユーザーグループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-categories.html">モードカテゴリ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-groups.html">課金グループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/api-credentials.html">API連携</a></li></ul></div><div class="nav-group"><p class="nav-group-title">横断の一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/roles.html">ロールと権限の一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/contract.html">契約・プランによる違いの一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/chat-flow.html">チャットのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/custom-data-files.html">カスタムデータに登録できるファイル</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/limits.html">利用上限と決済失敗時の扱い</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/csv-formats.html">CSVの形式</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/authentication.html">認証の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/public-api.html">公開APIの仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/requirements.html">動作環境</a></li></ul></div></details><details class="nav-chapter"><summary>困ったとき</summary><div class="nav-group"><p class="nav-group-title">エラーメッセージ一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/login.html">エラーメッセージ：ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/chat-send.html">エラーメッセージ：チャット送信</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/send-limits.html">エラーメッセージ：送信の制限</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-search.html">エラーメッセージ：カスタムデータとWeb検索</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/ng-words.html">エラーメッセージ：NGワード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/attachments.html">エラーメッセージ：添付</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/voice.html">エラーメッセージ：音声</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/deep-research.html">エラーメッセージ：Deep Research</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/modes.html">エラーメッセージ：モード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-register.html">エラーメッセージ：カスタムデータの登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/user-management.html">エラーメッセージ：ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/csv.html">エラーメッセージ：CSV</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/billing.html">エラーメッセージ：請求</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/settings.html">エラーメッセージ：設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/widget.html">エラーメッセージ：ウィジェット</a></li></ul></div><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/generic-error.html">「エラーが発生しました」と出たとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/nothing-happens.html">何も表示されない・反応しないとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/faq.html">よくある質問</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/contact.html">お問い合わせ方法</a></li></ul></div></details><details class="nav-chapter" open><summary>お知らせ</summary><div class="nav-group"><ul><li class="nav-item current"><a href="/popstation-userguide-docs/news/release-notes.html" aria-current="page">リリースノート</a></li><li class="nav-item"><a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a></li></ul></div></details></nav><main id="main" class="content" data-pagefind-body><!-- 検索の絞り込みに使う値 --><span hidden data-pagefind-filter="章:お知らせ"></span><span hidden data-pagefind-filter="対象:一般ユーザー"></span><span hidden data-pagefind-filter="対象:カスタムデータ管理者"></span><span hidden data-pagefind-filter="対象:ユーザー管理者"></span><span hidden data-pagefind-filter="対象:管理者"></span><span hidden data-pagefind-filter="環境:インターネット"></span><span hidden data-pagefind-meta="title:リリースノート"></span><ol class="breadcrumb" data-pagefind-ignore><li><a href="/popstation-userguide-docs/index.html">トップ</a></li><li>お知らせ</li></ol><h1>リリースノート</h1><div class="page-tags" data-pagefind-ignore><span class="tag tag-role">対象：全ユーザー</span></div><p class="lead">POPstationの更新履歴です。</p><div class="prose"><p>POPstationの更新履歴です。新しいものから順に並べています。機能の廃止や、操作の手順が変わったものは、<a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a>にも詳しく書いています。</p>
+<h2 id="2026年10月10日">2026年10月10日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>最新のAIモデルを6種類追加</p>
+<p>用途とコストに応じてお選びいただけます。</p>
+<ul>
+<li>GPT-6 Astra：GPT系の最上位モデル。専門的で難易度の高い業務向け</li>
+<li>GPT-6 Sol：性能とコストのバランスがよく、業務の自動化向け</li>
+<li>GPT-6 Luna：低コスト・高速。大量の定型処理向け</li>
+<li>Gemini 3.8 Flash：Flash系の最新モデル。長文のPDFの読み取りに強く、動画・音声にも対応</li>
+<li>Claude Opus 5.5：Claude系の最上位モデル。時間のかかる複雑な作業向け</li>
+<li>Claude Sonnet 5.5：速度と精度のバランスに優れ、日常的な資料作成向け</li>
+</ul>
+<p>※「管理者」以外の権限の方がご利用いただくには、管理者さまによる利用許可設定（ユーザーグループ管理画面の「許可モデル」）が必要です。</p>
+<p>※各モデルの特徴・料金は<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>をご確認ください。</p>
+</li>
+<li>
+<p>Gemini 3.5 Flashの提供を再開</p>
+<p>2026年9月に提供を終了したGemini 3.5 Flashを、国内で処理するモデルとして、再び提供を始めました。システム管理の「海外リージョンモデル禁止」をオンにしている組織でも、Geminiをご利用いただけます。</p>
+<p>※ご利用いただけるかは、ユーザーグループの「許可モデル」の設定によります。</p>
+</li>
+<li>
+<p>一部AIモデルの提供終了</p>
+<p>次の6つのモデルの提供を終了しました。後継モデルは、いずれも提供を終了したモデルと同等以上の精度を備えており、料金は同額もしくはそれ以下です。後継モデルへの切り替えをお願いいたします。</p>
+<ul>
+<li>GPT-5.4 → 後継：GPT-5.6 Terra</li>
+<li>o3 → 後継：GPT-6 Luna</li>
+<li>GPT-4o → 後継：GPT-6 Luna</li>
+<li>Gemini 2.5 Pro → 後継：Gemini 3.1 Pro</li>
+<li>Gemini 2.5 Flash → 後継：Gemini 3.5 Flash Lite</li>
+<li>Gemini 2.5 Flash Thinking → 後継：Gemini 3.5 Flash Lite</li>
+</ul>
+<p>※「海外リージョンモデル禁止」をオンにしている場合、Gemini 2.5系の後継はGemini 3.5 Flashとなり、テキスト・画像・PDFの料金は提供を終了したモデルを上回ります。</p>
+<p>※後継モデルへは自動では切り替わりません。提供を終了したモデルを使っていたチャット・既定のAIモデル・モードの扱いは、<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「提供を終了したモデル」をご確認ください。</p>
+<p>※ユーザー情報CSVのAIモデルの列も変わります。詳しくは<a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a>をご確認ください。</p>
+</li>
+<li>
+<p>AIの回答をWord・Excelで保存できるように</p>
+<p>回答はWord、回答中の表はExcel・CSVのファイルとして保存し、そのまま編集できます。コピーして貼り付け直さなくても、報告書や表のたたき台をすぐに作れます。詳しくは<a href="/popstation-userguide-docs/usage/save-answer.html">回答をファイルに保存する</a>をご確認ください。</p>
+</li>
+<li>
+<p>チャットをURLで共有できるように</p>
+<p>チャット履歴の「⋮」メニューの「共有」からURLを発行すると、AIとのやり取りを、同僚への相談や引き継ぎにそのまま共有できます。発行したURLは、ご利用の組織のPOPstationにログインできる方のみが閲覧できます。詳しくは<a href="/popstation-userguide-docs/usage/share-chat.html">チャットを共有する・共有を取り消す</a>をご確認ください。</p>
+</li>
+<li>
+<p>チャット履歴をフォルダで整理できるように</p>
+<p>チャット履歴を業務や案件ごとにフォルダにまとめられるため、過去のやり取りを探しやすくなります。詳しくは<a href="/popstation-userguide-docs/usage/chat-folders.html">チャット履歴をフォルダで整理する</a>をご確認ください。</p>
+</li>
+<li>
+<p>Google ドライブのファイルを取り込めるように（インターネットの環境のみ）</p>
+<p>Google ドライブ上のファイルを、そのままカスタムデータに追加したり、チャットに添付したりできます。パソコンに一度ダウンロードしてアップロードし直す手間がなくなります。</p>
+<p>※管理者さまが「システム管理」で許可するとご利用いただけます。詳しくは<a href="/popstation-userguide-docs/usage/google-drive.html">Google ドライブと連携する</a>をご確認ください。</p>
+</li>
+<li>
+<p>モードに「参照資料」を登録できるように</p>
+<p>手順書や規程などをモードに登録しておくと、送信のたびに自動で添付されます。毎回添付しなくても、組織のルールを踏まえた回答が得られます。1つのモードに5件まで登録できます。</p>
+<p>※送信のたびに、添付ファイルの利用料金がかかります。ナビゲーションチャットでは、1往復あたり2回ぶん加算されます。</p>
+<p>※参照資料を登録したモードでは、ファイル添付に対応したAIモデルだけを選べます。詳しくは<a href="/popstation-userguide-docs/usage/mode-reference-files.html">モードに参照資料を付ける</a>をご確認ください。</p>
+</li>
+<li>
+<p>ナビゲーションチャットに「ウィジェット機能」と「担当者への連絡」を追加</p>
+<p>ナビゲーションチャット（カスタムデータの情報を根拠に、AIが対話で答えへ案内するモード）に、次の2つを追加しました。</p>
+<ul>
+<li>ウィジェット機能：別ウィンドウの小さな画面で使える機能です。普段お使いの業務システムなどの横に開いておけば、作業の手を止めずに、手順や規程についてすぐに質問できます</li>
+<li>担当者への連絡：AIで解決しなかった質問を、やり取りの内容ごと、組織内の担当者へメールで引き継げます。ウィジェットからも、通常のチャット画面からもご利用いただけます</li>
+</ul>
+<p>※「担当者への連絡」は、モードの「フィードバック通知設定」で通知を有効にし、通知先のメールアドレスを登録したモードでご利用いただけます。</p>
+</li>
+<li>
+<p>「基本モード」に、自治体の業務向けのモードを追加（自治体のお客さま向け）</p>
+<p>広報記事やあいさつ文の作成、法令・条例の解釈相談など、自治体の業務に合わせたモードを「基本モード」に追加しました。目的に合ったモードを選んで入力するだけで、文書のたたき台や検討の材料を短時間で用意できます。</p>
+<p>※最終的な判断と内容の確認は職員の方が行い、各組織の利用ルールに沿ってご利用ください。</p>
+</li>
+<li>
+<p>ユーザーガイドを刷新</p>
+<p>目的別の章立てに改め、キーワード検索にも対応しました。</p>
+<p>※トップページのアドレスは変わりませんが、各ページのアドレスが変わりました。組織内の資料などから各ページへリンクしている場合は、リンク先の更新をお願いいたします。詳しくは<a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a>をご確認ください。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="13">
+<li>
+<p>業務システムなどからPOPstationに質問できるAPIを提供</p>
+<p>管理メニューの「API連携」（アップデートのお知らせでは「公開API認証情報」とご案内していました）でAPIキーを発行すると、業務システムからPOPstationに質問を送り、回答を受け取れます。文章の要約や下書きなどを、普段お使いのシステムに組み込めます。</p>
+<p>※利用料金・利用上限は、画面からのご利用と同じです。詳しくは<a href="/popstation-userguide-docs/admin/operations/api-keys.html">業務システムから使えるAPIキーを発行する</a>をご確認ください。</p>
+</li>
+<li>
+<p>ユーザー1人あたりの月額上限を設定できるように</p>
+<p>管理メニューの「課金グループ管理」で、課金グループごとに「1人あたりの月額上限（円・税込）」を設定できます。上限に達した方だけ送信を止められるため、一部の方のご利用で組織全体の上限に達することを防ぎやすくなります。詳しくは<a href="/popstation-userguide-docs/admin/operations/billing-groups.html">1人あたりの月額上限を設定する（課金グループ）</a>をご確認ください。</p>
+</li>
+<li>
+<p>組織全体の利用金額が上限に近づいたらメールで通知</p>
+<p>当月の組織全体の利用金額が、「システム管理」の「1ヶ月の上限金額」（ご契約によっては「パッケージ金額」）の80%・90%・100%に達すると、「上限通知先」に登録したメールアドレスへお知らせします。詳しくは<a href="/popstation-userguide-docs/admin/operations/monthly-cost-limit.html">月額の利用上限を設定する</a>をご確認ください。</p>
+</li>
+<li>
+<p>カスタムデータを全員に公開できる人を、管理者に限る設定を追加</p>
+<p>「システム管理」の「カスタムデータを全員に公開できるのを管理者のみにする」をオンにすると、カスタムデータ管理者は、データフォルダを「全体」グループ（全ユーザーが所属するグループ）に公開できなくなります。限られた方向けの資料が、誤って全員に公開されることを防げます。詳しくは<a href="/popstation-userguide-docs/admin/operations/custom-data-public-scope.html">カスタムデータを全員に公開できる人を管理者に限る</a>をご確認ください。</p>
+</li>
+<li>
+<p>その他の改善</p>
+<ul>
+<li>「ユーザー管理」画面で、登録がお済みでない方を「登録状態」で絞り込み、招待メールをまとめて再送できるように</li>
+<li>ダッシュボードで、過去の月の利用状況を確認できるように（前月との比較や、月ごとのご報告に）</li>
+</ul>
+</li>
+</ol>
+<h2 id="2026年9月12日">2026年9月12日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>最新AIモデルを4種類追加</p>
+<p>用途とコストに応じてお選びいただけます。</p>
+<ul>
+<li>GPT-5.6 Sol：GPT系の最上位。長時間の自律的な作業や、難易度の高いコーディングに強いモデル</li>
+<li>GPT-5.6 Terra：最上位に迫る精度を、およそ半分のコストで。日常業務全般の主力モデル</li>
+<li>GPT-5.6 Luna：GPT-5.6系で最も低コスト。多言語の短い依頼を大量に処理する用途に向いたモデル</li>
+<li>Gemini 3.7 Flash：複雑なPDFの読解と、Web・UIの生成に強いモデル。コーディング性能も向上し、画像・動画・音声にも対応</li>
+</ul>
+<p>※新モデルのご利用には、管理者さまによる利用許可設定（ユーザーグループ管理画面の「許可モデル」）が必要です。</p>
+<p>※各モデルの性能・利用料金は<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>をご確認ください。</p>
+</li>
+<li>
+<p>「法令 Research（Gemini）」の提供を開始</p>
+<p>e-Gov法令検索のデータをもとに関連する法令を調べ、根拠となる条文を示した調査レポートを作成します。回答までは1〜3分程度です。</p>
+<p>あわせて「o3 Deep Research」を「Deep Research（GPT）」へ改称し、両機能をモデル選択リストの「リサーチエージェント」区分にまとめて表示します。</p>
+<p>※調査内容に応じて出力文字数が変動するため、1回あたりのご利用料金が高額になる傾向があります。</p>
+<p>※法令データは週次で更新しています。最新の法令は、お客さまご自身の責任においてご確認ください。</p>
+<p>※ご利用には管理者さまによる利用許可設定が必要です。詳しくは<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>をご確認ください。</p>
+</li>
+<li>
+<p>一部AIモデルの提供終了</p>
+<p>次の6つのモデルの提供を終了しました。後継モデルへの切り替えをお願いいたします。</p>
+<ul>
+<li>Claude Opus 4.7・Claude Opus 4.8 → 後継：Claude Opus 5</li>
+<li>Claude Sonnet 4.6 → 後継：Claude Sonnet 5</li>
+<li>Gemini 3.5 Flash → 後継：Gemini 3.6 Flash</li>
+<li>Gemini 3.1 Flash Lite → 後継：Gemini 3.5 Flash Lite</li>
+<li>Gemini 2.5 Flash Image → 後継：Gemini 3.1 Flash Lite Image</li>
+</ul>
+<p>※後継モデルの利用料金は現在と同額です。</p>
+<p>※提供を終了したモデルが設定されているモードやチャットの扱いは、<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「提供を終了したモデル」をご確認ください。</p>
+</li>
+<li>
+<p>カスタムデータ：回答の根拠となった資料の画像を表示</p>
+<p>回答がどの図表にもとづいているかを、その場でご確認いただけます。</p>
+<p>※2026年8月のアップデートで追加した「画像・グラフ・表の読み取り」に対応したカスタムデータフォルダが対象です。</p>
+</li>
+<li>
+<p>AIが作成したHTMLをその場でプレビュー表示</p>
+<p>スライドやレイアウトを含む出力を、実際の見た目のまま確認できます。あわせて基本モードに「スライド作成」モードを追加しましたので、ぜひ組み合わせてご利用ください。</p>
+</li>
+<li>
+<p>チャットで添付できる音声ファイルの形式を拡大</p>
+<p>m4a・aac・flac・ogg・opusに対応し、録音した音声をそのまま議事録作成などにご利用いただけます。</p>
+<p>※音声添付に対応したGeminiのモデル（Gemini 3.1 Pro・Gemini 3.7 Flash・Gemini 3.5 Flash Liteなど）に限ります。</p>
+</li>
+<li>
+<p>新しいAIモデルを、モードで自動的に許可しない設定を追加</p>
+<p>モードの「利用可能なモデル」では、そのモードで選べるAIモデルを絞り込めます。これまでは新しいモデルが追加されると、すべてのモードで自動的に選べるようになっていました。今回追加した「新しく追加されたモデルを自動的に許可する」をオフにすると、以降に追加されるモデルはそのモードでは選べなくなります。</p>
+<p>※画像生成専用のモードなど、使用するモデルを限定して運用されている場合にご活用ください。</p>
+<p>※初期設定はオンです。すでに許可済みのモデルには影響しません。</p>
+</li>
+<li>
+<p>その他の改善</p>
+<ul>
+<li>モードのプロンプトに書式の誤りがある場合、修正が必要な行と該当箇所を表示します（これまでは誤りの有無のみのお知らせでした）</li>
+<li>チャット入力欄の高さをドラッグで広げられるように。長文のご入力時に、全体を見ながら編集いただけます</li>
+<li>回答に含まれる長いコード（16行以上）を既定で折りたたむようにし、配色も見やすく調整しました</li>
+</ul>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="9">
+<li>
+<p>モード管理画面を刷新</p>
+<p>組織内のすべてのモードを共有範囲・作成者とあわせて一覧でき、並べ替え・検索・表示件数の変更に対応しました。公開・非公開の切り替え、カテゴリ・共有範囲の変更、削除は複数まとめて実行できます。</p>
+</li>
+<li>
+<p>管理画面からユーザーのログインロックを解除できるように</p>
+<p>パスワードを連続して誤りロックがかかった場合に、サポート窓口へご依頼いただくことなく管理者さまだけで解除できます。</p>
+</li>
+<li>
+<p>その他の改善</p>
+<ul>
+<li>一般ユーザーさまへの「お問い合わせ」ボタンを非表示にする設定を追加（初期設定は表示）</li>
+<li>AIチャットログのエクスポートに、料金の内訳（テキスト・画像・PDFなどの種別とその数量）と添付ファイル件数を追加</li>
+<li>管理画面のレイアウト・余白を統一</li>
+</ul>
+</li>
+</ol>
+<h2 id="2026年8月8日">2026年8月8日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>最新AIモデルを5種類追加</p>
+<p>用途に応じて使い分けいただけます。</p>
+<ul>
+<li>Claude Opus 5：最高水準の推論力を備えた、Claudeの最上位モデル</li>
+<li>Claude Sonnet 5：精度と応答速度を両立した、Claudeの新しい標準モデル</li>
+<li>Gemini 3.6 Flash：「Gemini 3.5 Flash」後継のGoogle最新モデル。動画・音声にも対応</li>
+<li>Gemini 3.5 Flash Lite：低コスト・高速応答の軽量モデル。動画・音声にも対応</li>
+<li>Gemini 3.1 Flash Lite Image：画像生成を手頃な料金でご利用いただける軽量モデル</li>
+</ul>
+<p>※新モデルのご利用には、管理者さまによる利用許可設定（ユーザーグループ管理画面の「許可モデル」）が必要です。</p>
+<p>※各モデルの性能・利用料金は<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>をご確認ください。</p>
+</li>
+<li>
+<p>カスタムデータ：PDFやOfficeファイル内の画像・グラフ・表の読み取りに対応</p>
+<p>資料内の図表や写真も「画像のまま」理解して検索・回答に反映されるため、図表中心の資料でも精度の高い回答が得られるようになりました。データフォルダの登録時に「図表読み取り」で選択いただけます（初期状態は「対応」）。</p>
+<p>※既存のデータフォルダも、管理画面から図表読み取りへ移行できます。詳しくは<a href="/popstation-userguide-docs/admin/operations/custom-data-image-reading.html">図表の読み取りに対応させる</a>をご確認ください。</p>
+</li>
+<li>
+<p>チャットの途中で「データ参照先」を切り替えられるように</p>
+<p>新しいチャットを開始することなく、会話の流れを保ったままデータ参照先（カスタムデータ・Web検索・URL読込）を切り替えられるようになりました。モードを実行中のチャットでもご利用いただけます。</p>
+</li>
+<li>
+<p>ファイル添付がドラッグ＆ドロップに対応</p>
+<p>チャット・モードのファイル添付で、ファイルをドラッグ＆ドロップして添付できるようになりました。</p>
+</li>
+<li>
+<p>チャット画面の左右サイドバー幅をドラッグで調整可能に</p>
+<p>調整した幅はブラウザに保存され、次回以降も同じ幅で表示されます。境界をダブルクリックすると既定の幅に戻ります。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="7">
+<li>
+<p>参照する会話履歴を制限する設定を追加（利用料の抑制）</p>
+<p>AIに入力する過去のやり取りを、直近の指定往復数（1往復＝質問と回答の1組）までに制限できるようになりました。長い会話での利用料の増加を抑えられます。システム管理画面から設定いただけます（初期設定は制限なし）。</p>
+</li>
+<li>
+<p>ユーザー分析画面に利用料金の内訳表示を追加</p>
+<p>ユーザー別・モデル別・カテゴリ別（文字・画像・PDFなど請求明細と同じ区分）に利用料金を確認できるようになりました。予算管理やご利用状況の把握にお役立ていただけます。</p>
+</li>
+<li>
+<p>AIチャットログ画面を刷新</p>
+<p>期間・ユーザー・モデルでの絞り込みと、全件を対象としたキーワード検索に対応し、表示速度も向上しました。絞り込み結果をその場でCSV出力することもできます。</p>
+</li>
+<li>
+<p>カスタムデータ一覧の検索・並べ替えに対応</p>
+<p>フォルダ名検索・ステータスでの絞り込み・並べ替えに対応しました。設定した並び順は、チャット画面でカスタムデータを選ぶときの並び順にも反映されます。</p>
+</li>
+<li>
+<p>モードカテゴリの表示順をドラッグ＆ドロップで変更可能に</p>
+</li>
+<li>
+<p>モデル一覧の精度・速度表示の切り替え設定を追加</p>
+<p>チャットのモデル選択などに表示される精度・速度の星評価について、表示・非表示をシステム管理画面から切り替えられるようになりました。</p>
+</li>
+</ol>
+<h2 id="2026年7月11日">2026年7月11日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>カスタムデータに画像ファイルを登録できるように</p>
+<p>画像ファイル単体をカスタムデータに登録いただけるようになりました（対応形式：PNG・JPG・JPEG）。</p>
+</li>
+<li>
+<p>「プロンプトテンプレート」をご自身で登録できるように</p>
+<p>よく使う質問や指示を「プロンプトテンプレート」としてご自身で登録できるようになりました。これは、これまでの「追加質問入力」機能を「プロンプトテンプレート」に名称変更したものです。チャットの入力欄からすぐに呼び出せ、毎回入力し直す手間が省けます。</p>
+</li>
+<li>
+<p>マイページに「カスタム指示」機能を追加</p>
+<p>「所属・役職」「呼び名」「回答文体の好み」など、毎回のチャットでAIに伝えたい情報をあらかじめ設定できるようになりました。プロンプトへの都度入力が不要になります。</p>
+</li>
+<li>
+<p>チャットのファイル入力でMarkdown（.md）形式に対応</p>
+<p>チャットのファイル入力（文書ファイル）で、Markdown（.md）形式のファイルを添付できるようになりました。</p>
+</li>
+<li>
+<p>Officeファイル（Word・Excel・PowerPoint）の読み込み方式を変更</p>
+<p>チャットのファイル入力で、Officeファイルはファイル内のテキストと埋め込まれた画像を抽出して読み込む方式に変わりました（従来のPDF変換方式から変更）。あわせて、Excelの非表示シートは読み込まれないようになりました。</p>
+</li>
+<li>
+<p>Web検索機能の改善（GPT・Claude系モデル）</p>
+<p>GPT・Claude系モデルでのWeb検索を改善しました。長文のプロンプトでも、内容に沿った検索結果が得られるようになりました。</p>
+</li>
+<li>
+<p>一部AIモデルの提供終了</p>
+<p>次のモデルの提供を終了しました。</p>
+<ul>
+<li>Claude Opus 4.6</li>
+<li>GPT-5.2</li>
+</ul>
+<p>※提供を終了したモデルが設定されているモードやチャットの扱いは、<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「提供を終了したモデル」をご確認ください。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="8">
+<li>
+<p>「カスタムデータグループ」の廃止</p>
+<p>カスタムデータへのアクセス紐づけから「カスタムデータグループ」を廃止し、よりシンプルになりました。</p>
+<ul>
+<li>変更前：カスタムデータフォルダ → カスタムデータグループ → ユーザーグループ → ユーザー</li>
+<li>変更後：カスタムデータフォルダ → ユーザーグループ → ユーザー</li>
+</ul>
+<p>既存の設定は自動で引き継がれ、お客さま側での作業は不要で、アクセスできるデータの範囲も変わりません。</p>
+<p>※管理画面の項目名やユーザー一括登録CSVのフォーマットも変わりました（旧フォーマットは使えません）。詳しくは<a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a>の「カスタムデータグループの廃止について」をご確認ください。</p>
+</li>
+<li>
+<p>「海外リージョンモデルの利用を禁止する」設定の適用範囲を変更</p>
+<p>システム管理の「海外リージョンモデルの利用を禁止する」設定が有効な場合、これまで制限対象外だった管理者にも制限が適用されるようになりました（対象のモデルは表示・利用できません）。</p>
+</li>
+<li>
+<p>チャットログ・操作履歴のダウンロード日時を日本標準時（JST）に変更</p>
+<p>AIチャットログおよび操作履歴のダウンロードデータの日時が、日本標準時（JST）で出力されるようになりました（従来は協定世界時（UTC））。</p>
+</li>
+</ol>
+<h2 id="2026年6月27日">2026年6月27日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>最新AIモデルを4種類追加</p>
+<ul>
+<li>Gemini 3.5 Flash：上位モデル級の知能と高速応答を両立した最新モデル</li>
+<li>GPT-5.5：ユーザーの意図を的確にくみ取る、OpenAIの最新の高精度モデル</li>
+<li>Claude Opus 4.8：最高水準のコーディング性能と誠実な応答を両立した最上位モデル</li>
+<li>Claude Haiku 4.5：高速・低コストながら高い推論力を備えた軽量モデル</li>
+</ul>
+</li>
+</ol>
+<h2 id="2026年6月6日">2026年6月6日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>チャット入力欄での音声入力機能を追加</p>
+<p>マイクに話しかけるだけで、発話内容がそのままチャット入力欄にテキスト入力されるようになりました。キーボード入力の手間を省き、思いついた内容をスピーディに対話へ反映できます。</p>
+</li>
+<li>
+<p>最新AIモデルを2種類追加</p>
+<ul>
+<li>GPT-5.4：高度な推論能力を備えた最新の高性能モデル</li>
+<li>GPT-5.4-nano：軽量・高速で、コストパフォーマンスに優れたモデル</li>
+</ul>
+</li>
+<li>
+<p>「Claude Opus 4.7」のファイル入力に対応</p>
+<p>先日追加したモデル「Claude Opus 4.7」で、新たに画像・PDFファイルの入力がご利用いただけるようになりました。</p>
+</li>
+<li>
+<p>お気に入りモードの並び替えに対応</p>
+<p>サイドパネルに表示されるお気に入りモードの並び順を、ドラッグ操作で自由に並び替えできるようになりました。</p>
+</li>
+<li>
+<p>一部AIモデルのGA版（正式版）への移行</p>
+<p>これまでプレビュー版として提供していた次のモデルが、GA版（正式版）に移行しました。モデル名や使い方に変更はなく、引き続きご利用いただけます。</p>
+<ul>
+<li>Gemini 3.1 Flash Lite</li>
+<li>Gemini 3 Pro Image（Nano Banana Pro）</li>
+<li>Gemini 3.1 Flash Image（Nano Banana 2）</li>
+</ul>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="6">
+<li>
+<p>ログ機能の拡充</p>
+<p>操作履歴の記録対象に「お知らせ機能」「多要素認証（MFA）」「トークン管理」などの操作を追加しました。</p>
+</li>
+<li>
+<p>ユーザー一括登録時の音声・動画ファイル利用制限の設定</p>
+<p>ユーザー管理画面の一括登録（CSV）機能で、ユーザーごとに音声・動画ファイルの利用可否を設定できるようになりました。</p>
+</li>
+<li>
+<p>請求履歴画面：0円項目の非表示オプションを追加</p>
+<p>請求履歴画面で、金額が0円の項目を非表示にするオプションを追加しました。</p>
+</li>
+<li>
+<p>業務削減時間ダッシュボードの設定保存に対応</p>
+<p>業務削減時間ダッシュボードで、「1回あたりの削減時間」の設定を保存できるようになりました。</p>
+</li>
+<li>
+<p>ユーザーの登録方法の変更</p>
+<p>新しく追加するユーザーの初回パスワードの設定方法が、「サインアップ画面」での設定から、ユーザー追加時に発行される「パスワード設定用URL」からの設定に変わりました。すでに登録済みのユーザーの操作・ログイン方法に変更はありません。</p>
+<p>※詳しくは<a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a>の「ユーザーの登録方法の変更について」をご確認ください。</p>
+</li>
+</ol>
+<h2 id="2026年5月2日">2026年5月2日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>リサーチエージェント機能（o3 Deep Research）の一般提供開始</p>
+<p>これまで管理者限定だった高度な調査・分析機能を、一般ユーザーさまもご利用いただけるようになりました。複雑な調査タスクをAIが自律的に実行します。</p>
+</li>
+<li>
+<p>「おまかせモデル」を追加</p>
+<p>質問内容に応じて、ユーザーが利用可能なモデルの中から最適なAIモデルを自動で選択します。</p>
+</li>
+<li>
+<p>「基本モード」と「カスタムモード」の導入</p>
+<p>サイドパネルのモード一覧が「基本」「カスタム」の2つのタブに整理されました。</p>
+<ul>
+<li>基本モード：POPstationが提供する基本的なモード（編集不可・自動更新）</li>
+<li>カスタムモード：お客さまが作成したオリジナルのモード</li>
+</ul>
+</li>
+<li>
+<p>画像・PDFファイル入力の対応モデルを拡充</p>
+<p>これまでGeminiモデルのみ対応していた画像・PDFファイル入力が、Claude Opus 4.6・Claude Sonnet 4.6・GPT-5.2・GPT-4o・o3でもご利用いただけるようになりました。</p>
+</li>
+<li>
+<p>最新AIモデル「Claude Opus 4.7」を追加</p>
+<p>最高レベルの論理的思考力と文章作成能力を持つ最新モデルです。</p>
+</li>
+<li>
+<p>新規チャット画面の利便性向上</p>
+<p>チャット送信欄から「利用するAIモデル」や「データ参照先」を直接選択・変更できるようになりました。</p>
+</li>
+<li>
+<p>モード操作権限の拡張</p>
+<p>モード作成者が、他のユーザーに対してモードの「編集・複製」を許可できるようになりました。</p>
+</li>
+<li>
+<p>カスタムデータ検索用（RAG）システムプロンプトのカスタマイズ</p>
+<p>カスタムデータを参照して回答を生成する際のシステムプロンプトを、モードごとに変更・調整できるようになりました。</p>
+</li>
+<li>
+<p>チャット履歴のピン留め機能</p>
+<p>よく使うチャット履歴を一覧の上部にピン留めできるようになりました。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="10">
+<li>
+<p>多要素認証（MFA）機能を追加</p>
+<p>ログイン時にメールに届く認証コードを用いた多要素認証をご利用いただけるようになりました。ユーザーごとにオン・オフを個別に設定できます。</p>
+</li>
+</ol>
+<h2 id="2026年3月28日">2026年3月28日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>最新のAIモデルを3種類追加</p>
+<ul>
+<li>Gemini 3.1 Flash Image Preview（Nano Banana 2）：高品質な画像生成とマルチモーダル解析を高速に両立した最新の画像生成モデル</li>
+<li>Gemini 3.1 Flash Lite Preview：Gemini 3 Flashよりもさらに軽量・高速で、コストパフォーマンスに優れたGoogle最新モデル</li>
+<li>Claude Sonnet 4.6：進化したコーディング能力と正確な指示遂行が可能なAnthropic最新モデル</li>
+</ul>
+</li>
+<li>
+<p>一部AIモデルの提供終了と後継モデルへの移行</p>
+<p>次のモデルの提供を終了しました。今後は、同価格でより高性能な後継モデルをご利用ください。</p>
+<ul>
+<li>Claude Opus 4.5 → 後継：Claude Opus 4.6</li>
+<li>Claude Sonnet 4.5 → 後継：Claude Sonnet 4.6</li>
+<li>GPT-5.1 → 後継：GPT-5.2</li>
+</ul>
+<p>※提供を終了したモデルが設定されていた場合の扱いは、<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「提供を終了したモデル」をご確認ください。</p>
+</li>
+<li>
+<p>モードの公開範囲設定機能を追加</p>
+<p>ご自身で作成したモードを、特定の範囲にのみ共有できるようになりました。特定のチーム内や個別のメンバー間で柔軟にナレッジを共有できます。設定できる範囲は「組織全体」「指定のユーザーグループ」「指定のユーザー」「モード作成者のみ」です。</p>
+</li>
+<li>
+<p>「複数カスタムデータフォルダ」への同時参照に対応</p>
+<p>1つのチャットで、複数のカスタムデータフォルダを同時に参照できるようになりました。異なるカテゴリの資料を横断的に検索・参照した回答ができます。</p>
+</li>
+<li>
+<p>UI（ユーザーインターフェース）の利便性を向上</p>
+<ul>
+<li>「新規チャット」ボタンの追加：サイドバーから素早く新しい対話を開始できるようになりました</li>
+<li>「モデル選択リスト」の改善：モデル選択時に各モデルの特徴（精度・速度等）がリスト上に記載され、用途に合わせたモデル選びがよりスムーズになりました</li>
+</ul>
+</li>
+<li>
+<p>「PDFエクスポート機能」を追加</p>
+<p>チャット履歴をPDF形式で保存できるようになりました。対話内容を印刷して確認する場合や、業務上の証跡として保管する際にご活用ください。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="7">
+<li>
+<p>ユーザーのメールアドレス変更機能</p>
+<p>ユーザー管理画面より、ユーザーの登録メールアドレスを変更できるようになりました。</p>
+</li>
+<li>
+<p>機密情報フィルタリングの個別設定機能</p>
+<p>機密情報フィルタリングの適用・不適用を個別設定できるようになりました。</p>
+</li>
+</ol>
+<h2 id="2026年3月20日">2026年3月20日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>AIモデル「Gemini 3 Pro Preview」の提供終了</p>
+</li>
+<li>
+<p>AIモデル「Gemini 3.1 Pro Preview」を追加</p>
+<p>従来の「Gemini 3 Pro Preview」に代わる最新のプレビュー版モデルです。</p>
+</li>
+</ol>
+<h2 id="2026年2月28日">2026年2月28日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新しいAIモデルを3種類追加</p>
+<ul>
+<li>Gemini 3 Flash Preview：優れた知能と圧倒的なスピードを両立した最新モデル</li>
+<li>GPT-5.2：大量の情報を一度に読み込むことが得意な最新モデル</li>
+<li>Claude Opus 4.6：非常に高い知能を持つ最高峰のモデル</li>
+</ul>
+</li>
+<li>
+<p>プロンプトの修正・再送信機能</p>
+<p>送信済みのメッセージを直接編集して再送信できるようになりました。プロンプトの微調整や「やり直し」がスムーズに行えます。</p>
+</li>
+<li>
+<p>モードの複製機能</p>
+<p>既存のモード設定をコピーして新しいモードを作成できる機能を追加しました。モード一覧のメニューから「複製」を選択するだけで、設定内容を引き継いだ状態で編集を開始できます。</p>
+</li>
+<li>
+<p>お知らせ欄を追加</p>
+<p>メイン画面（ダッシュボード）に「お知らせ」欄を新設しました。メンテナンス情報や管理者からの周知事項を直接確認いただけます。</p>
+</li>
+<li>
+<p>チャット履歴の並び替え順を変更</p>
+<p>履歴の表示順を「メッセージの送信日時順」に変更しました。直近でやり取りしたチャットが上位に表示され、作業の再開が容易になります。</p>
+</li>
+<li>
+<p>ファイル添付上限を拡大</p>
+<p>1チャットあたりのファイル添付上限を、従来の10個から最大20個に拡大しました。</p>
+<p>※一部のモデル（Gemini 2.5 Flash Image・Gemini 3 Pro Imageなど）では、モデル側の制限により上限が異なります。詳しくは<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>をご確認ください。</p>
+</li>
+</ol>
+<h2 id="2026年1月31日">2026年1月31日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>一部AIモデルの提供終了と後継モデルへの移行</p>
+<p>次のモデルの提供を終了しました。今後は、同価格でより高性能な後継モデルをご利用ください。</p>
+<ul>
+<li>GPT-5 → 後継：GPT-5.1</li>
+<li>Claude Sonnet 4 → 後継：Claude Sonnet 4.5</li>
+<li>Claude Opus 4 → 後継：Claude Opus 4.5</li>
+</ul>
+<p>※提供を終了したモデルが設定されていた場合の扱いは、<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「提供を終了したモデル」をご確認ください。</p>
+</li>
+<li>
+<p>カスタムデータ機能（v1）の提供終了</p>
+<p>旧バージョン（v1）のカスタムデータの提供を終了しました。v1のデータフォルダは自動的に削除され、利用できなくなります。今後は新バージョン（v2）をご利用ください。</p>
+</li>
+</ol>
+<h2 id="2025年12月20日">2025年12月20日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新しいAIモデルを5種類追加</p>
+<ul>
+<li>Gemini 3 Pro Preview：高度な推論能力を持つGoogleの最新フラッグシップモデル</li>
+<li>Gemini 3 Pro Image Preview：高品質な画像生成モデル</li>
+<li>GPT-5.1：人間らしい自然な対話が可能なモデル</li>
+<li>Claude Opus 4.5：非常に高い知能を持つ最高峰モデル</li>
+<li>Claude Sonnet 4.5：長文読解やプログラミングに優れたモデル</li>
+</ul>
+</li>
+<li>
+<p>モード共有用URL生成機能を追加</p>
+<p>モード実行画面に「URL共有」ボタンを追加しました。ボタンを押すだけで、そのモードへの直接リンクがクリップボードにコピーされます。</p>
+</li>
+<li>
+<p>モードごとの利用可能モデル設定</p>
+<p>モード作成・編集時に、そのモードで利用可能なAIモデルを指定できるようになりました。意図しないモデルの利用を防ぐことができます。</p>
+</li>
+</ol>
+<h2 id="2025年11月29日">2025年11月29日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>ナビゲーションチャット機能を追加</p>
+<p>曖昧な質問からでも迷わず正解へ導く新機能です。カスタムデータに対して、AIが関連するファイルを提示しながら対話を進めます。</p>
+</li>
+<li>
+<p>ファイル入力機能の拡張</p>
+<p>Excel・PowerPoint・Wordファイル（.xlsx・.pptx・.docx）およびCSVファイル（.csv）の入力に対応しました。より多様なファイル形式をAIに読み込ませることができます。</p>
+</li>
+<li>
+<p>カスタムデータでCSVに対応</p>
+<p>カスタムデータとしてCSVファイルを登録できるようになりました。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="4">
+<li>
+<p>Deep Research（プレビュー版）を追加</p>
+<p>AIが自律的にWeb検索と分析を行い、詳細なレポートを作成するリサーチエージェント機能を追加しました（管理者限定）。</p>
+</li>
+<li>
+<p>カスタムデータ一括ダウンロード機能</p>
+<p>登録済みのカスタムデータをZIP形式で一括ダウンロードできるようになりました。</p>
+</li>
+<li>
+<p>動画・音声アップロード制限機能</p>
+<p>ユーザー・グループごとに、Gemini 2.5モデルでの動画・音声ファイルのアップロードを制限できるようになりました。</p>
+</li>
+<li>
+<p>個人モード作成制限の設定拡張</p>
+<p>一般ユーザーのみを対象に、個人モードの作成のみに制限する設定を追加しました。</p>
+</li>
+</ol>
+<h2 id="2025年11月8日">2025年11月8日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>Web検索機能の強化</p>
+<p>特定のモデル（Gemini 2.5 Pro・Gemini 2.5 Flash・Gemini 2.5 Flash Thinking）で、長文のプロンプトでも意図を理解したWeb検索ができるようになりました。それ以外のモデルは、従来どおりプロンプトに含まれる単語をもとにWeb検索を行います。</p>
+</li>
+</ol>
+<h2 id="2025年10月25日">2025年10月25日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>GPT-5を追加</p>
+<p>強力な思考力と推論能力を持つ最新モデルです。課題の深掘りや専門分野の相談、プログラミングなどに最適です。</p>
+</li>
+<li>
+<p>画像生成モデル「Gemini 2.5 Flash Image」を追加</p>
+<p>テキスト指示で高品質な画像を生成・編集できる、POPstation初の画像生成モデルです。プレゼン資料のイラスト作成や画像のスタイル変更などにご活用いただけます。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="3">
+<li>
+<p>ユーザー一括更新機能の仕様変更</p>
+<ul>
+<li>全アカウント情報の一括ダウンロードに対応：ダウンロードする管理者の権限によらず、組織全体のユーザー情報をダウンロードできるようになりました</li>
+<li>ダウンロード項目に全項目を追加：ユーザー管理画面から設定できるすべての項目（No.、登録状態、メールアドレス、権限、ユーザーグループ名、メール通知、各種モデル制限、制限カスタムデータグループ）をダウンロードできるようになりました</li>
+<li>ダウンロード形式をExcelからCSVに変更：さまざまなツールでデータを扱いやすくなりました</li>
+</ul>
+</li>
+</ol>
+<h2 id="2025年9月20日">2025年9月20日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>Gemini 1.5 Pro・Gemini 1.5 Flashの提供終了</p>
+<p>提供元のサービス終了に伴い、提供を終了しました。同じ料金体系でありながら、より高性能な後継モデルであるGemini 2.5 Pro・Gemini 2.5 Flashへの移行をお願いいたします。</p>
+</li>
+<li>
+<p>o1の提供終了</p>
+<p>o1の提供を終了しました。低価格でより高性能な後継モデルo3への移行をお願いいたします。</p>
+</li>
+</ol>
+<h2 id="2025年8月30日">2025年8月30日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>カスタムデータ機能のバージョンアップ（v1→v2）による精度向上</p>
+<p>カスタムデータ機能がv2にバージョンアップし、検索精度が向上しました。より適切な回答を生成できるようになりました。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="2">
+<li>
+<p>カスタムデータ機能の利便性向上（v2）</p>
+<ul>
+<li>ファイルアップロードの速度が向上し、待ち時間が大幅に短縮されました</li>
+<li>同名ファイルの上書き更新が可能になり、データ管理が効率化されました</li>
+<li>カスタムデータ登録画面に「バージョン」列が追加され、v1とv2のデータフォルダを簡単に識別できます</li>
+</ul>
+<p>※2026年1月30日（金）までに、v1からv2へのデータ移行をお願いいたします。期限を過ぎると、v1のデータフォルダは自動的に削除されます。</p>
+</li>
+<li>
+<p>ユーザー管理画面のパフォーマンス改善</p>
+<ul>
+<li>ページネーション機能の導入（1ページあたり100件表示）により、大規模組織でのユーザー管理がスムーズになりました</li>
+<li>画面の表示速度が向上しました</li>
+</ul>
+</li>
+</ol>
+<h2 id="2025年8月2日">2025年8月2日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新しいAIモデル「o3」を追加</p>
+<p>プログラミングなどの複雑な思考を要する問題解決能力に特化した、強力・高性能な推論モデルです（o1の精度向上版）。</p>
+</li>
+<li>
+<p>一部AIモデルの提供終了</p>
+<p>次のモデルの提供を終了しました。今後は、同価格でご利用いただける後継の精度向上モデルをご利用ください。</p>
+<ul>
+<li>Claude 3 Opus → 後継：Claude Opus 4</li>
+<li>Claude 3.5 Sonnet → 後継：Claude Sonnet 4</li>
+<li>Gemini 2.0 Flash → 後継：Gemini 2.5 Flash</li>
+</ul>
+</li>
+</ol>
+<h2 id="2025年6月30日">2025年6月30日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新しいAIモデルを4種類追加</p>
+<ul>
+<li>Gemini 2.5 Pro：マルチモーダル対応の最上位推論モデル</li>
+<li>Gemini 2.5 Flash：高速・低コストな日常利用向けモデル</li>
+<li>Claude Opus 4：専門的な分析や研究開発に特化したモデル</li>
+<li>Claude Sonnet 4：長文の読解・作成が得意な高コスパモデル</li>
+</ul>
+</li>
+<li>
+<p>GPT-4oが日本リージョンで利用可能に</p>
+</li>
+<li>
+<p>GPT-3.5 Turboの提供終了</p>
+<p>代替モデルとして、GPT-4oまたはGemini 2.5 Flashをご検討ください。</p>
+</li>
+<li>
+<p>Gemini 2.0 Flashの動画・音声の利用料金を値下げ</p>
+</li>
+<li>
+<p>チャット機能を強化</p>
+<ul>
+<li>「AIとのチャット」モードを一覧の最上部に固定しました。より直感的にご利用いただけます</li>
+<li>チャット画面から検索（RAG）のオン・オフを切り替えられるようになりました</li>
+</ul>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="6">
+<li>
+<p>業務削減時間ダッシュボードを追加</p>
+<p>AI利用による業務削減時間を分析・可視化し、投資対効果（ROI）の把握を支援します。</p>
+</li>
+</ol>
+<h2 id="2025年5月31日">2025年5月31日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>モード機能の強化</p>
+<ul>
+<li>モード管理画面に作成者（メールアドレス）と更新日時が表示されるようになりました</li>
+<li>モード実行画面に、RAGの情報ソース（カスタムデータ・URL検索・Web検索）を選択できるドロップダウンを設置し、どのモードからでもRAG機能をご利用いただけるようになりました</li>
+</ul>
+</li>
+<li>
+<p>GPT-4・GPT-4-32kの提供終了</p>
+<p>提供元のサービス終了に伴い、GPT-4・GPT-4-32kの提供を終了しました。モデルのリージョンを気にされないお客さまはGPT-4oを、日本リージョンを希望されるお客さまはGemini 1.5 Pro・Gemini 1.5 Flashをご利用ください。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="3">
+<li>
+<p>ユーザー追加Excelの仕様変更</p>
+<ul>
+<li>今回より、Excelでユーザーの一括追加・更新・削除ができるようになりました</li>
+<li>ダウンロードしたExcelファイルを編集してアップロードするだけで、ユーザー情報が更新されます</li>
+<li>削除したいユーザーはExcelファイルから削除してください</li>
+</ul>
+</li>
+</ol>
+<h2 id="2025年4月17日">2025年4月17日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>一部AIモデルの提供終了</p>
+<p>次のモデルの提供を終了しました。GPT-4 Turboは提供元のサービス終了に伴うもので、Claude 3 Sonnetは、同価格で提供しているClaude 3.5 Sonnetが性能的に上位互換であるためです。</p>
+<ul>
+<li>GPT-4 Turbo → 後継：GPT-4o（日本リージョンをご希望の場合はGPT-4・GPT-4-32k）</li>
+<li>Claude 3 Sonnet → 後継：Claude 3.5 Sonnet</li>
+</ul>
+</li>
+</ol>
+<h2 id="2025年3月30日">2025年3月30日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新しいAIモデル「Gemini 2.0 Flash」を追加</p>
+<p>Gemini 1.5 Flashの後継モデルです。画像などの理解をサポートするマルチモーダル対応モデルで、過去モデルと比べ処理速度が2倍に向上しています。</p>
+</li>
+<li>
+<p>ユーザーガイドを更新</p>
+<p>レイアウトや構成を見直し、より分かりやすいユーザーガイドに刷新しました。パソコン・スマートフォン・タブレットなど、さまざまなデバイスで快適にご覧いただけます。</p>
+</li>
+</ol>
+<h2 id="2025年3月15日">2025年3月15日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新しいAIモデル「o1」を追加</p>
+<p>コーディング、数学など、複雑な思考を要する問題解決能力に特化したモデルです。</p>
+</li>
+</ol>
+<h2 id="2025年2月1日">2025年2月1日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>チャットメッセージの表示形式の改善</p>
+<p>リストや箇条書き（*、-、+、1. 2. など）が正しく表示されるように修正しました。</p>
+</li>
+<li>
+<p>チャット画面の表示改善</p>
+<ul>
+<li>チャット欄のサイズが固定ではなくなり、ウィンドウサイズに合わせて自動的に調整されるようになりました</li>
+<li>サイドメニューを閉じると、チャット欄が画面の余白部分を活用し、より広く表示されます</li>
+<li>質問とPOPstationの回答が見分けやすいよう、ユーザーの発言は右側に、POPstationの回答は左側に表示されるようになりました</li>
+</ul>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="3">
+<li>
+<p>ユーザー分析機能のCSVダウンロード</p>
+<p>ユーザー分析機能の表をCSV形式でダウンロードできるようになりました。</p>
+</li>
+<li>
+<p>個人モード限定オプションを追加</p>
+<p>システム管理画面に、一般ユーザーが個人モードのみを作成できるように制限するオプションを追加しました。</p>
+</li>
+</ol>
+<h2 id="2024年11月26日">2024年11月26日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>個人用モード機能</p>
+<p>自分だけが見られるプライベートなモードを作成できるようになりました。</p>
+</li>
+<li>
+<p>チャットメッセージ欄からのファイル入力に対応</p>
+<p>チャット中に、メッセージ送信欄からファイルを選択してアップロードできるようになりました。</p>
+</li>
+<li>
+<p>クリップボードからの画像ファイル入力に対応</p>
+<p>コピーした画像をそのまま貼り付けて利用できるようになりました。</p>
+</li>
+<li>
+<p>モード管理画面にサンプル入力ボタンを追加</p>
+<p>モード作成時に、サンプルデータを利用してスムーズにモードを作成できるようになりました。</p>
+</li>
+<li>
+<p>モード利用回数の可視化</p>
+<p>モード一覧画面とユーザー分析画面で、各モードが何回利用されたかを確認できるようになりました。</p>
+</li>
+<li>
+<p>カスタムデータでpptx・docx・xlsx形式に対応</p>
+<p>PowerPoint・Word・Excelファイルもカスタムデータとして登録・利用できるようになりました。</p>
+</li>
+<li>
+<p>複数のファイルを同時に利用可能に（マルチモーダル対応強化）</p>
+<p>複数の画像やファイルを同時にアップロードし、AIに複合的な情報を提供できるようになりました。</p>
+</li>
+<li>
+<p>アップロードファイルの容量上限を撤廃</p>
+<p>これまで40MBまでだったファイルサイズ制限を撤廃しました。容量を気にせずファイルをアップロードいただけます。</p>
+</li>
+<li>
+<p>チャット履歴のタイトルを自動作成</p>
+<p>チャット履歴に自動的にタイトルが設定されるため、過去の履歴を検索しやすくなりました。</p>
+</li>
+</ol>
+<h2 id="2024年10月9日">2024年10月9日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>PDFファイル内の画像における文字認識機能の強化</p>
+</li>
+<li>
+<p>カスタムデータの内部処理機能の改善による、全体的な精度向上</p>
+</li>
+<li>
+<p>AIモデル「PaLM 2」の提供終了</p>
+<p>Googleのサポート終了に伴い、PaLM 2の提供を終了しました。</p>
+</li>
+</ol>
+<h2 id="2024年9月25日">2024年9月25日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>モード検索・会話履歴検索機能</p>
+<p>キーワードを使って、モードやチャット履歴を簡単に検索できるようになりました。</p>
+</li>
+<li>
+<p>ストリーミング表示対応モデルの拡張</p>
+<p>AIの回答がリアルタイムで表示される「ストリーミング表示」が、GPTモデル以外のGeminiモデルやClaudeモデルでも利用可能になりました。</p>
+</li>
+<li>
+<p>会話中断機能</p>
+<p>AIが回答中でも、途中で会話を中断できるようになりました。質問を間違えたときなどに便利です。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="4">
+<li>
+<p>グループ・個人でのAIモデル・カスタムデータ制限機能</p>
+<p>特定のグループや個人に対して、利用可能なAIモデルやカスタムデータを制限できるようになりました。</p>
+</li>
+<li>
+<p>利用者分析機能</p>
+<p>ユーザーごとのメッセージ送信数やNGワード使用状況を管理画面で確認できるようになりました。</p>
+</li>
+<li>
+<p>AIチャットログ検索機能</p>
+<p>最新100件のチャットログに対して検索ができるようになりました。</p>
+</li>
+<li>
+<p>ユーザー管理画面：権限単位での表示絞り込み</p>
+<p>ユーザーの権限に応じた表示の絞り込み（管理者のみの表示など）ができるようになりました。</p>
+</li>
+</ol>
+<h2 id="2024年8月1日">2024年8月1日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>AIモデル「Claude 3.5 Sonnet」を追加</p>
+</li>
+<li>
+<p>Geminiのマルチモーダル対応フォーマットの拡張</p>
+<p>入力できるファイルを、画像だけから、画像・音声・動画・PDF・テキストファイルに広げました。</p>
+</li>
+<li>
+<p>AIモデル変更によるモード実行・再実行機能を追加</p>
+</li>
+<li>
+<p>URL読込機能を追加</p>
+<p>URL読込専用モードで、WebページのURLを入力して、要約などを指示できるようになりました。</p>
+</li>
+<li>
+<p>追加質問テンプレートを追加</p>
+<p>チャットメッセージ欄に、追加質問用のテンプレートを追加しました。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="6">
+<li>
+<p>操作履歴ログの閲覧機能を追加</p>
+</li>
+<li>
+<p>「カスタムデータ管理者」権限を追加</p>
+<p>カスタムデータの管理だけができる権限です。</p>
+</li>
+<li>
+<p>使用上限アラート機能を追加</p>
+<p>利用上限金額の9割以上になると、ダッシュボード画面にアラートを表示します。</p>
+</li>
+</ol>
+<h2 id="2024年6月3日">2024年6月3日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新しいAIモデルを3種類追加</p>
+<p>ご利用の用途に応じて、最新のAIモデルをご利用いただけます。</p>
+<ul>
+<li>GPT-4o</li>
+<li>Gemini 1.5 Flash</li>
+<li>Claude 3 Opus</li>
+</ul>
+</li>
+<li>
+<p>新UIへの切り替え</p>
+<p>新しいUIに完全移行し、旧UIは廃止しました。</p>
+</li>
+<li>
+<p>新UIのスマートフォン対応</p>
+<p>新UIはスマートフォンにも対応し、より快適にご利用いただけるようになりました。スマートフォンからでも簡単に操作でき、どこからでもPOPstationの機能をフルに活用できます。</p>
+</li>
+</ol>
+<p>【管理者さま向け】</p>
+<ol start="4">
+<li>
+<p>管理者によるパスワードリセット機能を追加</p>
+<p>管理者がユーザーのパスワードをリセットできる機能を追加しました。これにより、パスワードを忘れたユーザーのサポートが迅速に行えます。</p>
+</li>
+</ol>
+<h2 id="2024年5月14日">2024年5月14日</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>新UIの導入</p>
+<p>新UIでは、誰でも使いやすいようにモード機能を前面に押し出したデザインに変更しました。</p>
+</li>
+<li>
+<p>新しいAIモデルを3種類追加</p>
+<ul>
+<li>GPT-4 Turbo：従来のGPT-4モデルを上回る知能を持ちながら、GPT-4モデルよりもコストパフォーマンスに優れています</li>
+<li>Gemini 1.5 Pro：Googleの最新AIモデルGeminiを採用し、新UIでは画像入力にも対応しています</li>
+<li>Claude 3 Sonnet：Anthropic社のClaude 3モデルを取り入れ、GPT-4に匹敵する性能を、コストを抑えて提供します。長文入力（最大80,000文字）にも対応しています</li>
+</ul>
+</li>
+<li>
+<p>自社データ利活用機能の精度向上</p>
+</li>
+<li>
+<p>Webブラウジング機能の精度向上</p>
+</li>
+</ol>
+<h2 id="それ以前">それ以前</h2>
+<p>【全ユーザーさま向け】</p>
+<ol>
+<li>
+<p>モード機能を追加</p>
+<p>誰でも使いやすいテンプレート機能を追加しました。</p>
+</li>
+</ol></div><nav class="pager" aria-label="前後のページ" data-pagefind-ignore><a class="pager-prev" href="/popstation-userguide-docs/help/contact.html"><span>前へ</span>お問い合わせ方法</a><a class="pager-next" href="/popstation-userguide-docs/news/spec-changes.html"><span>次へ</span>仕様変更のお知らせ</a></nav></main><aside class="toc" aria-label="このページの目次"><p class="toc-title">このページの目次</p><ul><li class="toc-depth-2"><a href="#2026年10月10日">2026年10月10日</a></li><li class="toc-depth-2"><a href="#2026年9月12日">2026年9月12日</a></li><li class="toc-depth-2"><a href="#2026年8月8日">2026年8月8日</a></li><li class="toc-depth-2"><a href="#2026年7月11日">2026年7月11日</a></li><li class="toc-depth-2"><a href="#2026年6月27日">2026年6月27日</a></li><li class="toc-depth-2"><a href="#2026年6月6日">2026年6月6日</a></li><li class="toc-depth-2"><a href="#2026年5月2日">2026年5月2日</a></li><li class="toc-depth-2"><a href="#2026年3月28日">2026年3月28日</a></li><li class="toc-depth-2"><a href="#2026年3月20日">2026年3月20日</a></li><li class="toc-depth-2"><a href="#2026年2月28日">2026年2月28日</a></li><li class="toc-depth-2"><a href="#2026年1月31日">2026年1月31日</a></li><li class="toc-depth-2"><a href="#2025年12月20日">2025年12月20日</a></li><li class="toc-depth-2"><a href="#2025年11月29日">2025年11月29日</a></li><li class="toc-depth-2"><a href="#2025年11月8日">2025年11月8日</a></li><li class="toc-depth-2"><a href="#2025年10月25日">2025年10月25日</a></li><li class="toc-depth-2"><a href="#2025年9月20日">2025年9月20日</a></li><li class="toc-depth-2"><a href="#2025年8月30日">2025年8月30日</a></li><li class="toc-depth-2"><a href="#2025年8月2日">2025年8月2日</a></li><li class="toc-depth-2"><a href="#2025年6月30日">2025年6月30日</a></li><li class="toc-depth-2"><a href="#2025年5月31日">2025年5月31日</a></li><li class="toc-depth-2"><a href="#2025年4月17日">2025年4月17日</a></li><li class="toc-depth-2"><a href="#2025年3月30日">2025年3月30日</a></li><li class="toc-depth-2"><a href="#2025年3月15日">2025年3月15日</a></li><li class="toc-depth-2"><a href="#2025年2月1日">2025年2月1日</a></li><li class="toc-depth-2"><a href="#2024年11月26日">2024年11月26日</a></li><li class="toc-depth-2"><a href="#2024年10月9日">2024年10月9日</a></li><li class="toc-depth-2"><a href="#2024年9月25日">2024年9月25日</a></li><li class="toc-depth-2"><a href="#2024年8月1日">2024年8月1日</a></li><li class="toc-depth-2"><a href="#2024年6月3日">2024年6月3日</a></li><li class="toc-depth-2"><a href="#2024年5月14日">2024年5月14日</a></li><li class="toc-depth-2"><a href="#それ以前">それ以前</a></li></ul></aside></div><dialog class="search-dialog" aria-label="ガイド内を検索"><form method="dialog" class="search-form" role="search"><div class="search-input-row"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><input type="search" name="q" placeholder="例：ユーザー削除、ファイル 上限、パスワード" autocomplete="off" aria-label="検索する言葉"><button type="submit" class="search-close" value="close" aria-label="閉じる">Esc</button></div><div class="search-filters"><label class="search-filter-env" hidden><input type="checkbox" name="env" checked> <span data-env-filter-label>ご利用の環境に関係するページだけ</span></label><label>対象<select name="role"><option value="">すべて</option><option value="一般ユーザー">一般ユーザー</option><option value="カスタムデータ管理者">カスタムデータ管理者</option><option value="ユーザー管理者">ユーザー管理者</option><option value="管理者">管理者</option></select></label><div class="search-chapters" role="group" aria-label="章で絞り込む"><label class="chip"><input type="checkbox" name="chapter" value="はじめに">はじめに</label><label class="chip"><input type="checkbox" name="chapter" value="ログインとアカウント">ログインとアカウント</label><label class="chip"><input type="checkbox" name="chapter" value="使い方">使い方</label><label class="chip"><input type="checkbox" name="chapter" value="管理者ガイド">管理者ガイド</label><label class="chip"><input type="checkbox" name="chapter" value="活用Tips">活用Tips</label><label class="chip"><input type="checkbox" name="chapter" value="仕様">仕様</label><label class="chip"><input type="checkbox" name="chapter" value="困ったとき">困ったとき</label><label class="chip"><input type="checkbox" name="chapter" value="お知らせ">お知らせ</label></div></div></form><p class="search-status" aria-live="polite"></p><ol class="search-results"></ol></dialog><script type="module" src="/popstation-userguide-docs/_astro/Search.astro_astro_type_script_index_0_lang.CFnn-6hv.js"></script><script type="module">var e=document.querySelector(`[data-env-select]`),t=document.documentElement;e&&(e.value=t.dataset.env||`internet`,e.addEventListener(`change`,()=>{t.dataset.env=e.value;try{localStorage.setItem(`qtg-env`,e.value)}catch{}document.dispatchEvent(new CustomEvent(`qtg:env`,{detail:e.value}))}));for(let t of e?document.querySelectorAll(`.env-tabs`):[]){let n=[...t.querySelectorAll(`:scope > .env-panel`)],r=document.createElement(`div`);r.className=`env-tab-bar`,r.setAttribute(`role`,`tablist`);for(let t of n){let n=document.createElement(`button`);n.type=`button`,n.className=`env-tab`,n.dataset.envTab=t.dataset.envPanel,n.textContent=t.dataset.label||``,n.addEventListener(`click`,()=>{e&&(e.value=t.dataset.envPanel||`internet`,e.dispatchEvent(new Event(`change`)))}),r.append(n)}t.prepend(r)}var n=document.querySelector(`.nav-toggle`);n?.addEventListener(`click`,()=>{let e=document.body.classList.toggle(`nav-open`);n.setAttribute(`aria-expanded`,String(e))});</script></body></html><script type="module" src="/popstation-userguide-docs/_astro/Doc.astro_astro_type_script_index_0_lang.C0bxyGav.js"></script>

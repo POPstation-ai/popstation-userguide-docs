@@ -1,0 +1,413 @@
+<!DOCTYPE html><html lang="ja" data-base="/popstation-userguide-docs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>よくある質問｜POPstation ユーザーガイド</title><meta name="description" content="お問い合わせ窓口によく寄せられる質問と、その答えです。詳しい説明のページも案内します。"><link rel="icon" type="image/png" href="/popstation-userguide-docs/favicon.png"><!--
+      描画の前に環境を決める（?env= を優先し、選んだ環境はブラウザに記憶する）。
+      ここで決めておくと、環境ごとの出し分けが表示の途中で切り替わらない。
+    --><script>(function(){const visibleEnvs = ["internet"];
+
+      (function () {
+        // 非表示の環境（src/data/envs.json）は選べない。記憶していても、インターネットに戻す
+        var key = "qtg-env";
+        var env = null;
+        try {
+          var q = new URLSearchParams(location.search).get("env");
+          if (q && visibleEnvs.indexOf(q) >= 0) {
+            env = q;
+            localStorage.setItem(key, q);
+          } else {
+            env = localStorage.getItem(key);
+          }
+        } catch (e) {}
+        document.documentElement.dataset.env = env && visibleEnvs.indexOf(env) >= 0 ? env : "internet";
+      })();
+    })();</script><link rel="stylesheet" href="/popstation-userguide-docs/_astro/nav.BuVXtoaE.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="sidebar" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button><a class="brand" href="/popstation-userguide-docs/index.html">POPstation <span>ユーザーガイド</span></a><button class="search-open" type="button" data-search-open><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span class="search-open-label">ガイド内を検索</span><kbd>Ctrl K</kbd></button></header><div class="layout"><nav id="sidebar" class="sidebar" aria-label="ガイドの目次"><details class="nav-chapter"><summary>はじめに</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/start/overview.html">POPstationでできること</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/screen.html">画面の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/first-question.html">最初の質問を送る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/try-mode.html">モードを使ってみる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/next-pages.html">次に読むページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/admin-first-steps.html">管理者が最初にやること</a></li></ul></div></details><details class="nav-chapter"><summary>ログインとアカウント</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/account/signin.html">ログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/signup.html">招待からアカウントを登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/mfa.html">多要素認証でログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/forgot-password.html">パスワードを忘れたとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-password.html">パスワードを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-email.html">メールアドレスを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/logout.html">ログアウトする</a></li></ul></div></details><details class="nav-chapter"><summary>使い方</summary><div class="nav-group"><p class="nav-group-title">チャットする</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/send-and-stop.html">質問を送る・止める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/ng-detected.html">NGワードや機密情報が見つかったとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/copy-and-edit.html">回答をコピーする・質問を直して送り直す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/save-answer.html">回答をファイルに保存する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/choose-model.html">AIモデルを選ぶ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/attach-files.html">ファイルを添付して質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/voice-input.html">音声で入力する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-data.html">カスタムデータを使って質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/web-search.html">Web検索・URL読込を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-instruction.html">カスタム指示を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/prompt-templates.html">プロンプトテンプレートを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/deep-research.html">Deep Research・法令 Researchを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/image-generation.html">画像を生成する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/read-answers.html">回答の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/navigation-chat.html">ナビゲーションチャットを使う</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを使う</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/run-mode.html">モードを実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/favorite-modes.html">モードをお気に入りに登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-mode-url.html">モードのURLを共有する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを作る・管理する</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/create-mode.html">モードを作る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/mode-reference-files.html">モードに参照資料を付ける</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/edit-mode.html">モードを編集・複製・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/mode-share-scope.html">モードの共有範囲を決める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/bulk-modes.html">モードをまとめて操作する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/find-modes.html">モードを探す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">履歴と書き出し</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-history.html">チャット履歴を探す・ピン留めする・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-folders.html">チャット履歴をフォルダで整理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-chat.html">チャットを共有する・共有を取り消す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rename-chat.html">チャットの名前を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rerun-mode.html">条件を変えて再実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/export-chat.html">チャットを書き出す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">自分の設定・お知らせ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/mypage.html">マイページ（ユーザー名・カスタム指示）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/notifications.html">お知らせを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/widget.html">ウィジェットから使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/google-drive.html">Google ドライブと連携する</a></li></ul></div></details><details class="nav-chapter"><summary>管理者ガイド</summary><div class="nav-group"><p class="nav-group-title">はじめに</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/roles.html">管理者のロールとできること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザー</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/add-user.html">ユーザーを追加する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/edit-user.html">ユーザーの設定を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/delete-user.html">ユーザーを削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/csv-bulk.html">CSVでまとめて登録・更新・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/resend-invitation.html">招待を送り直す・パスワード設定URLを再発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/reset-password.html">パスワードを再設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/unlock-login.html">ログインロックを解除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/change-email.html">メールアドレスを変更する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/mfa.html">多要素認証（MFA）を設定する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザーグループ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/user-groups.html">ユーザーグループを作る・編集する・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">カスタムデータ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-folders.html">フォルダを作る・名前を変える・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-files.html">ファイルを登録・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-groups.html">フォルダを使えるグループを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-public-scope.html">カスタムデータを全員に公開できる人を管理者に限る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-image-reading.html">図表の読み取りに対応させる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-order-search.html">フォルダを並べ替える・探す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-download.html">カスタムデータをまとめてダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-admin-role.html">カスタムデータ管理者ができること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モード・システム設定</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-categories.html">モードカテゴリを管理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ng-words.html">NGワード・機密情報のチェックを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ip-restriction.html">IPアクセス制限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/default-model-region.html">既定のAIモデルと海外リージョンモデルの利用を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-experience.html">チャットの表示と会話履歴の長さを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/monthly-cost-limit.html">月額の利用上限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-groups.html">1人あたりの月額上限を設定する（課金グループ）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/google-drive.html">Google ドライブの利用を許可する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/api-keys.html">業務システムから使えるAPIキーを発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-creation-limit.html">モードの作成を制限する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/logo-time-saving-contact.html">組織ロゴ・時間削減・お問い合わせ導線を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/notifications.html">お知らせを配信する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">利用状況と請求</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/dashboard.html">ダッシュボードを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/analytics.html">ユーザー分析を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-logs.html">AIチャットログを見る・ダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/action-logs.html">操作履歴を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-histories.html">請求履歴を見る</a></li></ul></div></details><details class="nav-chapter"><summary>活用Tips</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/tips/ai-basics.html">生成AIのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/prompt-tips.html">質問（プロンプト）のコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/markdown.html">マークダウン記法の基本</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/choose-model.html">AIモデルの選び方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/mode-prompt.html">モードプロンプトの書き方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/rag-prompt.html">カスタムデータ用RAGプロンプトの書き方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/custom-data-tips.html">カスタムデータを上手に使うコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/use-cases.html">業務別の使い方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/copyright.html">生成AIと著作権</a></li></ul></div></details><details class="nav-chapter"><summary>仕様</summary><div class="nav-group"><p class="nav-group-title">画面別：利用者向け</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat.html">チャット画面</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/modes.html">モード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-edit.html">モードの作成・編集</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications.html">お知らせ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mypage.html">マイページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/widget.html">ウィジェット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chats.html">共有中のチャット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chat.html">共有されたチャット</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：ログインまわり</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/login.html">ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/signup.html">アカウント登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-verify.html">認証コードの入力</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/confirm-email-change.html">メールアドレス変更の確認</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/auth-error.html">認証エラー</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：管理画面</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/dashboard.html">ダッシュボード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/analytics.html">ユーザー分析</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/system-settings.html">システム管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-settings.html">MFA設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications-admin.html">お知らせ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data.html">カスタムデータ登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data-detail.html">カスタムデータ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat-logs.html">AIチャットログ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/action-logs.html">操作履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-histories.html">請求履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/users.html">ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/user-groups.html">ユーザーグループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-categories.html">モードカテゴリ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-groups.html">課金グループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/api-credentials.html">API連携</a></li></ul></div><div class="nav-group"><p class="nav-group-title">横断の一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/roles.html">ロールと権限の一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/contract.html">契約・プランによる違いの一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/chat-flow.html">チャットのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/custom-data-files.html">カスタムデータに登録できるファイル</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/limits.html">利用上限と決済失敗時の扱い</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/csv-formats.html">CSVの形式</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/authentication.html">認証の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/public-api.html">公開APIの仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/requirements.html">動作環境</a></li></ul></div></details><details class="nav-chapter" open><summary>困ったとき</summary><div class="nav-group"><p class="nav-group-title">エラーメッセージ一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/login.html">エラーメッセージ：ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/chat-send.html">エラーメッセージ：チャット送信</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/send-limits.html">エラーメッセージ：送信の制限</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-search.html">エラーメッセージ：カスタムデータとWeb検索</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/ng-words.html">エラーメッセージ：NGワード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/attachments.html">エラーメッセージ：添付</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/voice.html">エラーメッセージ：音声</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/deep-research.html">エラーメッセージ：Deep Research</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/modes.html">エラーメッセージ：モード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-register.html">エラーメッセージ：カスタムデータの登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/user-management.html">エラーメッセージ：ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/csv.html">エラーメッセージ：CSV</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/billing.html">エラーメッセージ：請求</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/settings.html">エラーメッセージ：設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/widget.html">エラーメッセージ：ウィジェット</a></li></ul></div><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/generic-error.html">「エラーが発生しました」と出たとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/nothing-happens.html">何も表示されない・反応しないとき</a></li><li class="nav-item current"><a href="/popstation-userguide-docs/help/faq.html" aria-current="page">よくある質問</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/contact.html">お問い合わせ方法</a></li></ul></div></details><details class="nav-chapter"><summary>お知らせ</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/news/release-notes.html">リリースノート</a></li><li class="nav-item"><a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a></li></ul></div></details></nav><main id="main" class="content" data-pagefind-body><!-- 検索の絞り込みに使う値 --><span hidden data-pagefind-filter="章:困ったとき"></span><span hidden data-pagefind-filter="対象:一般ユーザー"></span><span hidden data-pagefind-filter="対象:カスタムデータ管理者"></span><span hidden data-pagefind-filter="対象:ユーザー管理者"></span><span hidden data-pagefind-filter="対象:管理者"></span><span hidden data-pagefind-filter="環境:インターネット"></span><span hidden data-pagefind-meta="title:よくある質問"></span><ol class="breadcrumb" data-pagefind-ignore><li><a href="/popstation-userguide-docs/index.html">トップ</a></li><li>困ったとき</li></ol><h1>よくある質問</h1><div class="page-tags" data-pagefind-ignore><span class="tag tag-role">対象：全ユーザー</span></div><p class="lead">お問い合わせ窓口によく寄せられる質問と、その答えです。詳しい説明のページも案内します。</p><div class="prose"><p>お問い合わせ窓口によく寄せられる質問を、テーマごとにまとめました。詳しい説明は、それぞれのリンク先をご覧ください。</p>
+<h2 id="ログインとアカウント">ログインとアカウント</h2>
+<h3 id="ログインできません">ログインできません</h3>
+<p>表示されたメッセージから原因と対処を探せます（<a href="/popstation-userguide-docs/help/login.html">エラーメッセージ：ログイン</a>）。ログインの手順は環境によって違います（<a href="/popstation-userguide-docs/account/signin.html">ログインする</a>）。<span class="env-inline" data-env-only="internet">パスワードを続けて間違えてログインできなくなったときは、管理者にロックの解除を依頼してください（<a href="/popstation-userguide-docs/admin/people/unlock-login.html">ログインロックを解除する</a>）。</span></p>
+<h3 id="パスワードを忘れました">パスワードを忘れました</h3>
+<p><span class="env-inline" data-env-only="internet">インターネットの環境では、管理者にパスワード再設定用のURLの発行を依頼してください。</span>手順は<a href="/popstation-userguide-docs/account/forgot-password.html">パスワードを忘れたとき</a>をご覧ください。</p>
+<h3 id="パスワード再設定のメールのリンクが開けません">パスワード再設定のメールのリンクが開けません</h3>
+<p>メールのボタンが押せないときは、メールの本文の「ボタンを利用できない場合」に続くURLをコピーして、ブラウザのアドレス欄に貼り付けて開いてください。</p>
+<p>URLも開けないとき（組織のメールの仕組みでURLが消されるときなど）は、管理者に再設定用のURLの発行を依頼してください。管理者は、「ユーザー管理」で対象の人の「…」から「パスワード変更」を選ぶと、「パスワード再設定用 URL」の画面で「URL をコピー」を押してURLを控えられます。URLの有効期限は7日です（<a href="/popstation-userguide-docs/admin/people/reset-password.html">パスワードを再設定する</a>）。</p>
+<h3 id="招待やパスワード再設定のメールが届きません">招待やパスワード再設定のメールが届きません</h3>
+<p>招待とパスワード再設定のメールは、差出人「POPstation」（<code>support@popstation.ai</code>）から、「【POPstation】アカウント登録のご案内」「【POPstation】パスワード再設定のご案内」などの件名で届きます。迷惑メールのフォルダに入っていないかを確かめ、このアドレスからのメールを受け取れるように設定してください。組織のメールの仕組みで、外部からのメールが止められていることもあります。</p>
+<p>見つからないときは、管理者に招待の送り直しか、URLの発行を依頼してください。急ぐときは、管理者が画面に表示したURLを本人に直接渡せます（<a href="/popstation-userguide-docs/admin/people/resend-invitation.html">招待を送り直す・パスワード設定URLを再発行する</a>）。</p>
+<p>一度届かなかったメールアドレス（受け取る側のメールサーバーが受け取りを断ったもの）には、その後もメールが送られないことがあります。受け取れるように設定を直したあとも届かないときは、管理者から窓口にお問い合わせください。</p>
+<h3 id="アカウント登録に失敗しました管理者による招待が必要ですと表示されます">「アカウント登録に失敗しました」「管理者による招待が必要です」と表示されます</h3>
+<p>入力したメールアドレスが、管理者にユーザーとして追加されていません。管理者に、ユーザーの追加（招待）を依頼してください。招待のメールが届いたら、メールのリンクから登録します（<a href="/popstation-userguide-docs/account/signup.html">招待からアカウントを登録する</a>）。</p>
+<p><span class="env-inline" data-env-only="internet">インターネットの環境では、アカウント登録の画面は使いません。開くと「アカウント登録・ログインには管理者の招待が必要です。管理者にお問い合わせください。」と表示されます。招待のメールのリンクからパスワードを設定し、ログインしてください。</span>表示ごとの原因は<a href="/popstation-userguide-docs/help/login.html">エラーメッセージ：ログイン</a>にあります。</p>
+<h3 id="パスワードを何度も間違えてログインできなくなりました">パスワードを何度も間違えて、ログインできなくなりました</h3>
+<div class="env-only" data-env-only="internet"><p>パスワードを続けて間違えると、ログインがロックされることがあります。管理者に、「ユーザー管理」の「ログインロック解除」でロックを解除するよう依頼してください（<a href="/popstation-userguide-docs/admin/people/unlock-login.html">ログインロックを解除する</a>）。管理者の画面では解除できないブロックもあります。解除してもログインできないときは、管理者から窓口にお問い合わせください。</p></div>
+<h3 id="登録しているメールアドレスを変えたいです">登録しているメールアドレスを変えたいです</h3>
+<p>ご自身では変えられません。管理者に変更を依頼してください（<a href="/popstation-userguide-docs/account/change-email.html">メールアドレスを変える</a>）。</p>
+<p>管理者が「ユーザー管理」の「メールアドレス変更」で新しいアドレスを入力すると、新しいアドレスに件名「【POPstation】メールアドレス変更確認」のメールが届きます。本人がログインした状態でメールのリンクを開くと変更が終わります。確認のメールを省くことはできません。リンクの有効期限は7日です。登録状態が「未登録」の人は、削除してから新しいアドレスで追加し直します（<a href="/popstation-userguide-docs/admin/people/change-email.html">メールアドレスを変更する</a>）。組織のメールアドレスの変更などで、まとめて変えるときはCSVを使えます（<a href="/popstation-userguide-docs/admin/people/csv-bulk.html">CSVでまとめて登録・更新・削除する</a>）。</p>
+<h3 id="管理画面が開けません">管理画面が開けません</h3>
+<p>管理画面を使えるのは、管理者とユーザー管理者です。カスタムデータ管理者は、メニューの「データ管理」からカスタムデータの画面だけを使えます（<a href="/popstation-userguide-docs/admin/people/roles.html">管理者のロールとできること</a>）。</p>
+<h2 id="aiモデル">AIモデル</h2>
+<h3 id="使いたいaiモデルが一覧にありません">使いたいAIモデルが一覧にありません</h3>
+<p>選べるAIモデルは、管理者の設定（ユーザーグループとユーザーごとの制限、海外リージョンモデルの扱い）で決まります。管理者に確認してください（<a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a>）。</p>
+<h3 id="新しく追加されたaiモデルが一般ユーザーの一覧に出てきません">新しく追加されたAIモデルが、一般ユーザーの一覧に出てきません</h3>
+<p>新しく追加されたAIモデルは、管理者がユーザーグループで許可するまで、管理者以外の方の一覧には表示されません。管理者は、「ユーザーグループ管理」画面で対象のグループを編集し、「モデル設定」タブの「許可モデル」で対象のAIモデルにチェックを入れて「送信」を押してください（<a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a>、<a href="/popstation-userguide-docs/admin/people/user-groups.html">ユーザーグループを作る・編集する・削除する</a>）。</p>
+<h3 id="前に使っていたaiモデルが一覧にありません">前に使っていたAIモデルが一覧にありません</h3>
+<p>提供を終了したAIモデルは、一覧に表示されません。後継のAIモデルと提供を終了した日は、<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「提供を終了したモデル」をご覧ください。経緯は<a href="/popstation-userguide-docs/news/release-notes.html">リリースノート</a>にあります。</p>
+<h3 id="既定のaiモデルがおまかせに変わっています">既定のAIモデルが「おまかせ」に変わっています</h3>
+<p>システム管理の「デフォルトLLM」に提供を終了したAIモデルを設定していた組織では、自動で「おまかせ」に切り替わります。ほかのAIモデルにしたいときは、管理者が設定し直してください（<a href="/popstation-userguide-docs/admin/operations/default-model-region.html">既定のAIモデルと海外リージョンモデルの利用を設定する</a>）。</p>
+<h3 id="質問を送ったあとにaiモデルを変えたいです">質問を送ったあとに、AIモデルを変えたいです</h3>
+<p>ふつうのチャットでは、最初の質問を送ったあとはAIモデルを変えられません。新しいチャットを始めて、AIモデルを選び直してください。モードを使ったチャットでは、チャット詳細の「モデル選択」でAIモデルを選んで「条件を変更して再実行」を押すと、新しいチャットとして実行し直されます。今開いているチャットのAIモデルは変わりません（<a href="/popstation-userguide-docs/usage/choose-model.html">AIモデルを選ぶ</a>、<a href="/popstation-userguide-docs/usage/rerun-mode.html">条件を変えて再実行する</a>）。</p>
+<h3 id="aiモデルはどこで処理されますか">AIモデルは、どこで処理されますか</h3>
+<p><a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「日本リージョン」の列が「○」のAIモデルは、日本国内のリージョンで処理します。「×」のAIモデルは、国内で処理するとは限りません。</p>
+<p>チャットで選べるAIモデルを日本リージョンのものだけにしたいときは、管理者が「システム管理」の「海外リージョンモデル禁止」をオンにします。オンにすると、管理者を含む全員の一覧が、日本リージョンのAIモデルと「おまかせ」だけになります（<a href="/popstation-userguide-docs/admin/operations/default-model-region.html">既定のAIモデルと海外リージョンモデルの利用を設定する</a>）。</p>
+<p>ご契約によっては、処理する地域の構成が標準と異なる組織があります。その場合は、窓口からのご案内をご確認ください。</p>
+<h2 id="チャット">チャット</h2>
+<h3 id="前のチャットの続きを送ったら新しいチャットになりました">前のチャットの続きを送ったら、新しいチャットになりました</h3>
+<p>提供を終了したAIモデルで続けていたチャットに質問を送ると、既定のAIモデルに切り替わり、新しいチャットとして始まります。元のチャットには追加されず、それまでのやり取りは引き継がれません。管理者の設定が変わって、そのAIモデルを使えなくなった場合も同じです。必要なときは、前のチャットの内容を質問に含めて送ってください（<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>）。</p>
+<h3 id="aiが前の会話を覚えていない回答が途中で止まります">AIが前の会話を覚えていない、回答が途中で止まります</h3>
+<p>会話が長くなると、古いやり取りがAIに送られなくなることがあります。AIモデルごとに決まった文字数（<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「上限文字数」）を超えた分を、古いやり取りから削って送るためです。回答の長さの上限で止まることもあります。どちらもメッセージは表示されません（<a href="/popstation-userguide-docs/spec/reference/chat-flow.html">チャットのしくみ</a>、<a href="/popstation-userguide-docs/help/nothing-happens.html">何も表示されない・反応しないとき</a>）。</p>
+<p>管理者が、AIに送る会話を直近の往復だけに絞っていることもあります。このときは、入力欄の上に「管理者設定により、直近 N 往復の会話のみを参照しています。…」と表示されます（<a href="/popstation-userguide-docs/admin/operations/chat-experience.html">チャットの表示と会話履歴の長さを設定する</a>）。</p>
+<h3 id="送信内容が選択中の-ai-モデルで一度に扱える上限を超えているため送信できませんでしたと表示されます">「送信内容が、選択中の AI モデルで一度に扱える上限を超えているため、送信できませんでした」と表示されます</h3>
+<p>送る内容が、選んだAIモデルで一度に扱える上限を超えるため、POPstationがAIに送らなかったときの表示です。どのAIモデルでも表示されます。2行目に、当たった上限（会話と添付ファイルを合わせた量、今回の質問の画像の枚数、PDFのページ数など）が表示されます。送っていないので、料金はかかりません。</p>
+<p>添付ファイルの中身は「上限文字数」には数えませんが、この上限には数えます（Geminiのモデルに添付したテキストのファイル〔txt・csv・md・json〕の中身を除く）。同じチャットのそれまでの会話と、前に添付したファイルも、送るたびに合わせて数えます。このため、添付を重ねた長いチャットや、ページの多いPDF、大きなExcelで起きやすくなります。</p>
+<p>前の会話や添付が原因のときは、同じチャットで送り直しても同じ表示が続きます。表示された「次の方法をお試しください。」のとおりに、新しいチャットを始め、添付するファイルを減らす、必要なページ・シート・行だけに絞るなどしてから送ってください（<a href="/popstation-userguide-docs/help/chat-send.html">エラーメッセージ：チャット送信</a>、<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）。</p>
+<h3 id="同じチャットでやり取りを続けると利用量は増えますか">同じチャットでやり取りを続けると、利用量は増えますか</h3>
+<p>増えます。質問を送るたびに、それまでの質問と回答も一緒にAIに送り、その全体の文字数を利用量として数えるためです。前に添付したファイルも、送るたびにもう一度送り、もう一度数えます。</p>
+<p>例：10ページのPDFを添付して質問を3回送ると、PDF30ページ分として数えます。</p>
+<p>カスタムデータ・Web検索・URL読込の結果は、その質問のときだけ送ります。話題が変わったら、新しいチャットを始めてください。前の会話の要点が必要なときは、AIに要約させてから、新しいチャットに貼り付けます（<a href="/popstation-userguide-docs/spec/reference/chat-flow.html">チャットのしくみ</a>）。管理者は、AIに送る会話を直近の往復だけに絞ることもできます（<a href="/popstation-userguide-docs/admin/operations/chat-experience.html">チャットの表示と会話履歴の長さを設定する</a>）。利用量がご請求にどう反映されるかは、ご契約の内容によります。</p>
+<h3 id="aiがファイルを作成しましたと答えたのにファイルがありません">AIが「ファイルを作成しました」と答えたのに、ファイルがありません</h3>
+<p>AIは、チャットの中でファイルを作ったり、どこかに保存したりしません。回答にダウンロードのリンクやファイル名が書かれていても、それはAIが書いた文章で、ファイルはありません。回答をファイルにするときは、次のボタンを使います。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>保存したいもの</th><th>使うボタン</th></tr></thead><tbody><tr><td>回答の文章（Word）</td><td>回答の右下のWordのボタン（マウスを乗せると「Wordで出力」と表示されます）</td></tr><tr><td>回答の中の表（Excel・CSV）</td><td>表の上の「Excel」「CSV」</td></tr><tr><td>回答の中のHTML</td><td>HTMLのプレビューの「HTML をダウンロード」</td></tr><tr><td>チャット全体（テキスト・画像・PDF）</td><td>チャット詳細の「チャットをエクスポート」</td></tr></tbody></table>
+<p>PowerPointのファイルを作る機能はありません。Excelの表が欲しいときは、「表の形で出力してください」のように頼み、回答の表を「Excel」で保存します（<a href="/popstation-userguide-docs/usage/save-answer.html">回答をファイルに保存する</a>、<a href="/popstation-userguide-docs/usage/read-answers.html">回答の見方</a>、<a href="/popstation-userguide-docs/usage/export-chat.html">チャットを書き出す</a>）。</p>
+<h3 id="チャットの内容を保存印刷共有したいです">チャットの内容を保存・印刷・共有したいです</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>したいこと</th><th>方法</th></tr></thead><tbody><tr><td>チャット全体を保存する</td><td>チャット詳細の「チャットをエクスポート」で、テキスト・画像・PDFのどれかで保存します（<a href="/popstation-userguide-docs/usage/export-chat.html">チャットを書き出す</a>）</td></tr><tr><td>回答を1つ保存する</td><td>回答をWordで、回答の中の表をExcel・CSVで保存します（<a href="/popstation-userguide-docs/usage/save-answer.html">回答をファイルに保存する</a>）</td></tr><tr><td>印刷する</td><td>書き出したPDFや画像を印刷します。POPstationに印刷のボタンはありません</td></tr><tr><td>同じ組織の人に見せる</td><td>チャット履歴の「︙」から「共有」を選び、URLを発行します。開けるのは同じ組織でログインしている人で、見るだけです（<a href="/popstation-userguide-docs/usage/share-chat.html">チャットを共有する・共有を取り消す</a>）</td></tr></tbody></table>
+<p>組織の外の人に渡すときは、書き出したファイルを使ってください。</p>
+<h3 id="音声で入力できますか">音声で入力できますか</h3>
+<p>できます。入力欄のマイクのボタンを押して話し、もう一度押すと、話した内容が文字になって入力欄に入ります。内容を確かめてから送ってください。1回に録音できるのは180秒までです。録音した音声は、文字にするためだけに使い、保存しません（<a href="/popstation-userguide-docs/usage/voice-input.html">音声で入力する</a>）。</p>
+<p>会議の録音のような長い音声は、ファイルとして添付してください（このページの「録音した音声（m4aなど）を添付したいです」）。</p>
+<h3 id="deep-researchの回答がなかなか届きません">Deep Researchの回答がなかなか届きません</h3>
+<p>Deep Research（GPT）は、回答までに10〜20分ほどかかります。1つのチャットで調査できるのは1回です（<a href="/popstation-userguide-docs/usage/deep-research.html">Deep Research・法令 Researchを使う</a>）。</p>
+<h3 id="ご利用料金が上限金額に達したと表示されます">「ご利用料金が上限金額に達した」と表示されます</h3>
+<p>組織の今月の利用料金が、管理者が設定した上限金額に達しています。表示に「個人の上限金額」とあるときは、1人あたりの上限金額に達しています。どちらも管理者に確認してください（<a href="/popstation-userguide-docs/help/send-limits.html">エラーメッセージ：送信の制限</a>）。</p>
+<h3 id="ngワードやマイナンバーと表示されて送れません">「NGワード」や「マイナンバー」と表示されて送れません</h3>
+<p>入力した内容に、管理者が登録したNGワードや、機密情報の形に当てはまる文字列が含まれています。郵便番号などの数字が当てはまることもあります（<a href="/popstation-userguide-docs/help/ng-words.html">エラーメッセージ：NGワード</a>）。</p>
+<h2 id="web検索">Web検索</h2>
+<h3 id="最新の情報で答えてくれません">最新の情報で答えてくれません</h3>
+<p>新しいチャットのデータ参照先は、初めは何も参照しない状態です。このときは、AIモデルが学習した時点までの知識だけで回答します（いつまでの知識かは<a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a>の「知識の時期」）。</p>
+<p>最新の情報が必要なときは、入力欄の上のデータ参照先のボタンで「Web検索」を選んでから送ってください。質問を送ったあとも、次の質問から「Web検索」に変えられます。モードでは、作成・編集の画面の「データ参照先」で「Web検索」を選んで保存しておくと、実行するたびに「Web検索」が選ばれた状態になります（<a href="/popstation-userguide-docs/usage/web-search.html">Web検索・URL読込を使う</a>）。</p>
+<h3 id="web検索で参考情報を取得できませんでしたと表示されます">「Web検索で参考情報を取得できませんでした。…」と表示されます</h3>
+<p>Web検索の処理がうまくいかなかったときの表示です。検索の時間切れや一時的なエラーでも表示されます。質問は送られていません。時間をおいて送り直してください。URL読込のときは「URLの内容を取得できませんでした。URLを確認するか、時間をおいて再度お試しください。」と表示されます。URLが正しいかも確かめてください。</p>
+<p>検索はできたものの、参考にできるページが無かったときは、エラーにならずに回答します。このときは、送った質問の下に「参考ファイル(0): Web検索で参考にできるページを取得できませんでした」と表示され、AIは一般的な知識で回答します（<a href="/popstation-userguide-docs/help/custom-data-search.html">エラーメッセージ：カスタムデータとWeb検索</a>）。</p>
+<h3 id="web検索を選んでいるのに検索せずに回答されます">Web検索を選んでいるのに、検索せずに回答されます</h3>
+<p>Geminiのモデルは、Web検索を選んでいても、質問ごとに検索するかをAI自身が判断します。検索したときは、回答の末尾に「参考リンク」として参照したページが並びます。並んでいないときは、多くの場合、検索せずに答えています。</p>
+<p>検索させたいときは、「Webで検索して、…」と書いたり、時期や対象を具体的に書いたりしてください。Gemini以外のAIモデルは、送るたびに必ず検索し、送った質問の下に「参考ファイル(N)」として参考にしたページを表示します（<a href="/popstation-userguide-docs/usage/web-search.html">Web検索・URL読込を使う</a>、<a href="/popstation-userguide-docs/usage/read-answers.html">回答の見方</a>）。</p>
+<h3 id="データ参照先のweb検索url読込カスタムデータと何も参照しないときは何が違いますか">データ参照先の「Web検索」「URL読込」「カスタムデータ」と、何も参照しないときは、何が違いますか</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>データ参照先</th><th>回答に使うもの</th></tr></thead><tbody><tr><td>何も参照しない</td><td>AIモデルが学習した知識だけ</td></tr><tr><td>Web検索</td><td>インターネットを検索して見つけたページ</td></tr><tr><td>URL読込</td><td>質問の中に書いたURLのページ（1回の質問で10件まで）</td></tr><tr><td>カスタムデータ</td><td>組織で登録した資料のうち、質問に関係する部分</td></tr></tbody></table>
+<p>一度に選べるのは1つです。Web検索・URL読込・カスタムデータの結果は、その質問のときだけAIに送ります。前の質問の結果は、次の質問では送りません（<a href="/popstation-userguide-docs/usage/web-search.html">Web検索・URL読込を使う</a>、<a href="/popstation-userguide-docs/usage/custom-data.html">カスタムデータを使って質問する</a>）。</p>
+<h2 id="ファイルの添付">ファイルの添付</h2>
+<h3 id="ファイルを添付できません">ファイルを添付できません</h3>
+<p>添付のボタン（クリップ）は、ファイルを添付できるAIモデルを選んでいるときだけ表示されます。形式・大きさ・個数の決まりは<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>を、表示されたメッセージは<a href="/popstation-userguide-docs/help/attachments.html">エラーメッセージ：添付</a>をご覧ください。</p>
+<h3 id="添付できるファイルの大きさの上限はいくつですか">添付できるファイルの大きさの上限はいくつですか</h3>
+<p>1ファイル200MBまでです。ファイルの種類による違いはありません。カスタムデータに登録するファイルの上限も同じです。添付のボタンにマウスを乗せると、今の上限が表示されます。</p>
+<p>上限を超えたファイルを選ぶと、「ファイルサイズが上限（200 MB）を超えています」と表示され、そのファイルだけが外されます。上限より小さくても、AIモデルごとの上限（画像1枚の大きさ、PDFのページ数、1回に送れる量など）を超えると送れません（<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）。</p>
+<p>回線が遅く、アップロードが時間内に終わらないときは「時間内にアップロードが完了しませんでした。…」と表示されます。ファイルを分けるか、通信環境の良い場所で送り直してください。</p>
+<h3 id="ファイルを添付して送るとただいまシステムが混み合っているか一時的に応答できない状態のようですと表示されます">ファイルを添付して送ると「ただいまシステムが混み合っているか、一時的に応答できない状態のようです」と表示されます</h3>
+<p>AIモデルの呼び出しがうまくいかなかったときの表示です。添付や会話がAIモデルの上限を超えるときは、多くの場合、この表示ではなく「送信内容が、選択中の AI モデルで一度に扱える上限を超えているため、送信できませんでした。」と表示されます（このページの「『送信内容が、選択中の AI モデルで一度に扱える上限を超えているため、送信できませんでした』と表示されます」）。ただし、GPTのモデルでとても多くの文字を送ったときは、上限より少なくても、この表示になることがあります。</p>
+<p>同じチャットで前に添付したファイルも、送るたびに一緒に送ります。添付が原因のときは、同じチャットで送り直しても続きます。新しいチャットで、添付を減らす・分ける・小さくしてから送ってください。</p>
+<p>添付に関係なく、時間をおいても続くときは、表示されたお問い合わせ番号を添えて窓口にお問い合わせください（<a href="/popstation-userguide-docs/help/chat-send.html">エラーメッセージ：チャット送信</a>）。</p>
+<h3 id="gptのモデルでページの多いpdfの一部が読み取られません">GPTのモデルで、ページの多いPDFの一部が読み取られません</h3>
+<p>GPTのモデルには、PDFを1ページずつ画像にして、そのページの文字と一緒に送ります。1回の送信でAIに渡す画像は50枚までで、同じチャットで前に添付したPDFのページやほかの画像も、送るたびに一緒に数えます。前の質問の添付と合わせて50枚を超えた分は、古い質問の添付から画像を省き、ページの文字だけを送ります。エラーにはならず、画面にも何も表示されません。GPTのモデルを選んでいるときに51ページ以上のPDFを添付すると、添付した時点で「ファイルを添付できません」と表示され、添付されません。「おまかせ」で添付したときや、添付したあとでGPTのモデルに変えたときなど、今回の質問の添付だけで50枚を超えるときは、送らずに「送信内容が、選択中の AI モデルで一度に扱える上限を超えているため、送信できませんでした。」と表示されます。</p>
+<p>このため、ページの多いPDFや、PDFを何度も添付したチャットでは、一部のページの図・表・写真がAIに伝わりません。スキャンしたPDFのように文字の無いページは、内容がまったく伝わりません。</p>
+<p>新しいチャットを始め、PDFを必要なページだけに分けてから送ってください。PDFのまま送るGeminiやClaudeのモデルを使う方法もあります（<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）。</p>
+<h3 id="csvファイルを添付すると文字が正しく読み取られません">CSVファイルを添付すると、文字が正しく読み取られません</h3>
+<p>Excelで保存したShift_JISのCSV（「CSV（コンマ区切り）」）も、UTF-8のCSVも添付できます。ただし、GPTとClaudeのモデルでは、Shift_JISのCSVに①・㈱・髙などの文字が1つでも含まれていると、ファイルの日本語がほぼすべて文字化けしてAIに伝わります。Geminiのモデルでは正しく読み取れます。</p>
+<p>GPTやClaudeのモデルに添付するときは、Excelで「CSV UTF-8（コンマ区切り）」として保存し直してから添付してください（<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）。</p>
+<h3 id="pdfを添付すると送れません">PDFを添付すると送れません</h3>
+<p>パスワードで保護されたPDFは、保護を外して保存し直してから添付してください。ほかの形式のファイルの名前を「.pdf」に書き換えただけのファイルは、PDFとして読み取れません。元のアプリで、保存の形式に「PDF」を選んで保存し直してください。</p>
+<p>選んでいるAIモデルで扱えるページ数より多いPDFは、添付した時点で「ファイルを添付できません」と表示され、添付されません（GPTのモデルは1ファイル50ページ、Claudeのモデルは600ページ〔Claude Haiku 4.5は100ページ〕まで）。添付できても、送るときに、ページの多いPDFは一度に扱える量の上限で止まることがあります（Claudeのモデルでは、PDFだけで目安として約115ページ、Claude Haiku 4.5は約39ページ。<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）。ページを分けたPDFにするか、扱えるAIモデルに変えてから添付してください（<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）。</p>
+<h3 id="excelwordpowerpointを添付するとどこまで読み取られますか">Excel・Word・PowerPointを添付すると、どこまで読み取られますか</h3>
+<p>PDFにはせず、ファイルの中の文章と、埋め込まれた画像に分けてAIに渡します。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ファイル</th><th>AIに渡るもの</th><th>渡らないもの</th></tr></thead><tbody><tr><td>Excel</td><td>表示しているシートの表（シートごと）。セルは計算結果の値。グラフは、タイトル・種類・値を文章にしたもの</td><td>計算式、非表示のシートの表、色やフォントなどの見た目</td></tr><tr><td>Word・PowerPoint</td><td>見出しや箇条書きの形を保った文章。PowerPointはスライドの順</td><td>色やフォント、レイアウトなどの見た目</td></tr><tr><td>埋め込まれた画像</td><td>png・jpg・gifなどの画像</td><td>図形として描かれた図（ベクター形式）</td></tr></tbody></table>
+<p>表の見た目や計算式を前提にした質問は、うまく答えられないことがあります（<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>）。</p>
+<h3 id="録音した音声m4aなどを添付したいです">録音した音声（m4aなど）を添付したいです</h3>
+<p>mp3・wav・m4a・aac・flac・ogg・opusの音声を添付できます。音声を添付できるのは、Geminiのモデルと「おまかせ」です。管理者がユーザーグループやユーザーごとに、動画・音声の添付を制限していることもあります。1ファイルの上限は、ほかのファイルと同じ200MBです。</p>
+<p>音声は、長さ（秒）で利用量を数えます。同じチャットで続けて質問すると、前に添付した音声も送るたびにもう一度数えます。聞きたいことは、できるだけ1回の質問にまとめてください（<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>、<a href="/popstation-userguide-docs/usage/attach-files.html">ファイルを添付して質問する</a>）。</p>
+<h3 id="音声の文字起こしや議事録づくりがうまくいきません">音声の文字起こしや議事録づくりがうまくいきません</h3>
+<p>次のことを試してください。</p>
+<ul>
+<li>長い会議は、分けて録音して、分けて添付します。</li>
+<li>話す人の名前や役割、議題を、質問の中に書きます。</li>
+<li>会議の資料や参加者の一覧を、同じ質問に添付するか貼り付けます。</li>
+<li>精度の高いAIモデルを選びます（<a href="/popstation-userguide-docs/tips/choose-model.html">AIモデルの選び方</a>）。</li>
+<li>回答が途中で終わったときは、「続けて」と送ります。</li>
+</ul>
+<p>文字起こしが終わったら、結果をコピーして新しいチャットに貼り付け、要約や清書を頼むと、音声を何度も送り直さずに済みます（<a href="/popstation-userguide-docs/tips/use-cases.html">業務別の使い方</a>）。</p>
+<h3 id="複数の画像を添付するとaiがファイル名を取り違えます">複数の画像を添付すると、AIがファイル名を取り違えます</h3>
+<p>添付したファイルの名前も、AIに伝わります。ただし、以前に添付したファイルの中には、名前が伝わらないものがあります。そのときは、「1枚目は〇〇.png、2枚目は△△.png」のように、添付した順とファイル名を質問に書いてください（<a href="/popstation-userguide-docs/usage/attach-files.html">ファイルを添付して質問する</a>）。</p>
+<h3 id="チャット詳細の添付ファイルのを押してもファイルが消えません">チャット詳細の添付ファイルの「×」を押しても、ファイルが消えません</h3>
+<p>チャット詳細の「ファイル選択」の「×」は、「条件を変更して再実行」で新しいチャットを作るときに、そのファイルを添付しないための操作です。チャット履歴の添付や、保存されたファイルは消えません。</p>
+<p>同じチャットで続けて質問すると、前に添付したファイルも送るたびに一緒に送り、利用量として数えます。添付について聞き終わったら、新しいチャットを始めてください（<a href="/popstation-userguide-docs/usage/rerun-mode.html">条件を変えて再実行する</a>、<a href="/popstation-userguide-docs/spec/reference/chat-flow.html">チャットのしくみ</a>）。</p>
+<h3 id="前に添付した画像が表示されません">前に添付した画像が表示されません</h3>
+<p>チャットに添付したファイルは、30日を過ぎると削除されます。画像の位置には「保存期間（30日）を過ぎたため画像を表示できません」と表示されます。必要なときは、手元のファイルを添付し直してください（<a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a>）。</p>
+<h3 id="以前のチャットの続きを送ると添付ファイルは保存期間30日を過ぎたため参照できませんでしたと表示されます">以前のチャットの続きを送ると「添付ファイルは保存期間（30日）を過ぎたため参照できませんでした」と表示されます</h3>
+<p>チャットに添付したファイルは、アップロードから30日で削除されます。削除された添付は使わずに、残りの内容で回答しています。添付の内容が必要なときは、手元のファイルを新しいチャットで添付し直してください。GPTのモデルでは、この表示は出ずに、削除された添付を除いた内容で回答します（<a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a>）。</p>
+<h2 id="画像の生成">画像の生成</h2>
+<h3 id="画像を生成するにはどうすればよいですか">画像を生成するには、どうすればよいですか</h3>
+<p>名前の末尾が「Image」のAIモデル（「Gemini 3 Pro Image」など）を選んで、作りたい画像を文章で送ります。AIモデルの一覧では「画像生成モデル」の見出しの下に並びます。送ると「ご利用の前に必ずご確認ください」の画面が表示されます。著作権の注意を確かめて、「同意して生成する」を押します。生成した画像は、マウスを乗せると表示されるダウンロードのボタンで保存します（<a href="/popstation-userguide-docs/usage/image-generation.html">画像を生成する</a>、<a href="/popstation-userguide-docs/tips/copyright.html">生成AIと著作権</a>）。</p>
+<p>一覧に無いときは、管理者に確認してください。ユーザーグループで許可されていない場合のほか、組織で「海外リージョンモデル禁止」をオンにしている場合も表示されません。画像生成モデルは、どれも日本リージョンのモデルではないためです。</p>
+<p>画像生成モデルに添付できるのは、画像（jpg・jpeg・png）とテキストのファイルだけです。企画書などのWord・PDFをもとに画像を作りたいときは、先にほかのAIモデルに資料を添付して画像の指示文を作らせ、その指示文を新しいチャットで画像生成モデルに送ります。</p>
+<h2 id="カスタムデータ">カスタムデータ</h2>
+<h3 id="カスタムデータを使っても期待どおりに答えてくれません">カスタムデータを使っても、期待どおりに答えてくれません</h3>
+<p>AIは資料をすべて読んでいるわけではありません。質問のたびに資料を検索し、関係が強い部分だけ（多くても10か所）を読んで答えます。次のことを試してください。</p>
+<ul>
+<li>1つの質問では、1つのことを聞きます。</li>
+<li>資料に書かれている言葉で聞きます。続けて質問するときも、探したい言葉をもう一度入れます。</li>
+<li>資料の全体を見る質問（すべて数える・全体を要約する・一覧にする）は、ファイルを添付して質問します。</li>
+<li>資料に見出しを付けて、章や節に分けておきます。</li>
+</ul>
+<p>回答の根拠は、送った質問の下の「参考ファイル(N)」で確かめられます（<a href="/popstation-userguide-docs/tips/custom-data-tips.html">カスタムデータを上手に使うコツ</a>、<a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a>）。</p>
+<h3 id="ファイルの添付とカスタムデータはどう使い分ければよいですか">ファイルの添付とカスタムデータは、どう使い分ければよいですか</h3>
+<p>ファイルの添付は、1つの資料の要約・比較・集計に向いています。カスタムデータは、たくさんの資料から必要なところを探すのに向いています。</p>
+<ul>
+<li>ファイルの添付：ファイルの中身全体をAIに渡します。使えるのは添付した本人だけで、ファイルはアップロードから30日で削除されます。利用量はページ数や文字数で数え、同じチャットで続けると、送るたびに数えます。</li>
+<li>カスタムデータ：質問のたびに資料を検索し、関係する部分だけをAIに渡します。許可されたユーザーグループの人が使え、削除するまで残ります。登録しておくだけでは利用量として数えず、質問のたびに、AIに送った部分の文字数を数えます。</li>
+</ul>
+<p>詳しくは<a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a>と<a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a>をご覧ください。</p>
+<h3 id="カスタムデータに無い内容まで回答されます">カスタムデータに無い内容まで回答されます</h3>
+<p>「参照データフォルダ」でフォルダを1つも選んでいないときや、入力欄の右下の「検索」が灰色のときは、資料を検索せずに送り、AIは一般的な知識で答えます。フォルダを選んでいて、資料から該当する内容が見つからないときは、「参考情報が見つかるようなキーワードに変更いただくか、…」と表示して止まります。</p>
+<p>資料にもとづいて回答していても、AIの一般的な知識が混ざることがあります。資料だけで答えさせたいときは、カスタムモードの「カスタムデータ用RAGプロンプト」に、「資料に書かれていないときは『資料に記載がありません』とだけ答える」のような決まりを書いてください（<a href="/popstation-userguide-docs/tips/rag-prompt.html">カスタムデータ用RAGプロンプトの書き方</a>）。</p>
+<h3 id="同じチャットの途中でカスタムデータをやめたりweb検索に切り替えたりできますか">同じチャットの途中で、カスタムデータをやめたり、Web検索に切り替えたりできますか</h3>
+<p>できます。質問を送ったあとも、入力欄の上のバーで参照先（「カスタムデータ」「Web検索」「URL読込」）とフォルダを変えられ、次の質問から使われます。その送信だけカスタムデータを使わないときは、入力欄の右下の「検索」を押して灰色にします（<a href="/popstation-userguide-docs/usage/custom-data.html">カスタムデータを使って質問する</a>）。</p>
+<p>ナビゲーションチャットで始めたチャットと、画像生成モデル・Deep Research・法令 Researchを選んだチャットでは、参照先を切り替えられません。</p>
+<h3 id="カスタムデータを使うと参考情報が見つかると表示されます">カスタムデータを使うと「参考情報が見つかる…」と表示されます</h3>
+<p>この表示のときは、質問は送られていません。資料に書かれている言葉に変えて、送り直してください。毎回表示されるときは管理者に問い合わせてください（<a href="/popstation-userguide-docs/help/custom-data-search.html">エラーメッセージ：カスタムデータとWeb検索</a>、<a href="/popstation-userguide-docs/tips/custom-data-tips.html">カスタムデータを上手に使うコツ</a>）。</p>
+<h3 id="参照データフォルダが一覧に出てきません">参照データフォルダが一覧に出てきません</h3>
+<p>チャットで選べるのは、自分のユーザーグループに許可されたフォルダだけです。管理者も同じです。管理者に、フォルダの許可を確認してください（<a href="/popstation-userguide-docs/usage/custom-data.html">カスタムデータを使って質問する</a>、<a href="/popstation-userguide-docs/admin/operations/custom-data-groups.html">フォルダを使えるグループを設定する</a>）。</p>
+<p>一覧にあっても、「(処理待ち)」「(学習中)」のフォルダは、取り込みが終わって「(利用可能)」になるまで選べません。</p>
+<h3 id="自分で添付していない画像が質問の下に表示されます">自分で添付していない画像が、質問の下に表示されます</h3>
+<p>カスタムデータの資料の中の画像です。図表の読み取りに対応したフォルダの資料（PDF・Word・Excel・PowerPoint）を使って回答したとき、AIに渡した部分に含まれる画像を、送った質問の下に「参考画像(N):」として表示します（<a href="/popstation-userguide-docs/usage/read-answers.html">回答の見方</a>、<a href="/popstation-userguide-docs/admin/operations/custom-data-image-reading.html">図表の読み取りに対応させる</a>）。</p>
+<h3 id="カスタムデータに登録できるファイルの大きさや数に上限はありますか">カスタムデータに登録できるファイルの大きさや数に上限はありますか</h3>
+<p>1ファイル200MBまで、PDFは2,000ページまでです。POPstationでは、ファイルやフォルダの数に上限を設けていません。ただし、ファイルは1件ずつ順に取り込むので、まとめて登録すると、すべてが「利用可能」になるまで時間がかかります。大きさの上限内でも、行数や文字数が多すぎるファイルは取り込めないことがあります（<a href="/popstation-userguide-docs/spec/reference/custom-data-files.html">カスタムデータに登録できるファイル</a>）。</p>
+<h3 id="カスタムデータの登録がエラーになります">カスタムデータの登録がエラーになります</h3>
+<p>ファイルの状態が「エラー」になったときは、警告のマークにマウスを乗せると理由が表示されます。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>表示</th><th>対処</th></tr></thead><tbody><tr><td>「登録に失敗しました（情報量超過）」</td><td>行数や文字数が多すぎます。ファイルを分けて登録し直します。行数の多いExcel・CSVで起きやすくなります</td></tr><tr><td>「登録に失敗しました（文字コードを判別できません）」</td><td>UTF-8で保存し直します（Excelは「CSV UTF-8（コンマ区切り）」）</td></tr><tr><td>「登録に失敗しました（パスワードで保護されています）」</td><td>保護を解除して保存し直します</td></tr><tr><td>「登録に失敗しました（Excel ファイルを読み取れません）」</td><td>Excelで「Excel ブック（*.xlsx）」として保存し直します</td></tr><tr><td>「登録に失敗しました」</td><td>一時的なエラーの可能性があります。そのファイルを削除して、登録し直します</td></tr></tbody></table>
+<p>一時的なエラーは、しばらくすると自動で取り込み直すことがあります（<a href="/popstation-userguide-docs/help/custom-data-register.html">エラーメッセージ：カスタムデータの登録</a>、<a href="/popstation-userguide-docs/admin/operations/custom-data-files.html">ファイルを登録・削除する</a>）。</p>
+<h3 id="資料を作り直したのでカスタムデータに登録し直したいです">資料を作り直したので、カスタムデータに登録し直したいです</h3>
+<p>同じ名前のファイルなら、「カスタムデータ追加」で「同名ファイルは上書き更新する」にチェックを入れて登録します。前のファイルが削除され、新しいファイルに置き換わります。</p>
+<p>名前を変えて登録すると、前のファイルも残り、検索の対象のままになります。このときは、前のファイルを「…」の「削除」で消してください（<a href="/popstation-userguide-docs/admin/operations/custom-data-files.html">ファイルを登録・削除する</a>）。</p>
+<h3 id="登録したカスタムデータを取り出したいです">登録したカスタムデータを取り出したいです</h3>
+<p>管理者とユーザー管理者は、「カスタムデータ登録」の一覧で、フォルダの「…」から「ダウンロード申請」を選びます。準備ができると、申請した人にメールが届きます。管理画面の「ダウンロード管理」で、ZIPのファイルとして受け取ります（<a href="/popstation-userguide-docs/admin/operations/custom-data-download.html">カスタムデータをまとめてダウンロードする</a>）。</p>
+<h2 id="モード">モード</h2>
+<h3 id="作ったモードがほかの人の一覧に出てきません">作ったモードが、ほかの人の一覧に出てきません</h3>
+<p>チャット画面のモードの一覧には、次のすべてに当てはまるモードだけが表示されます。</p>
+<ul>
+<li>共有範囲にその人が含まれている（「組織全体」、その人のユーザーグループ、その人自身のどれかが選ばれている）</li>
+<li>「公開」になっている</li>
+<li>そのモードの「利用可能なモデル」に、その人が使えるAIモデルが1つ以上ある</li>
+<li>参照データフォルダが設定されているときは、そのうち1つ以上をその人が使える</li>
+</ul>
+<p>共有範囲で「モード作成者のみ」しか選べないときは、管理者がモードの作成を制限しています（<a href="/popstation-userguide-docs/usage/mode-share-scope.html">モードの共有範囲を決める</a>、<a href="/popstation-userguide-docs/admin/operations/mode-creation-limit.html">モードの作成を制限する</a>）。</p>
+<h3 id="モードを編集するが見つかりません">モードを編集する「…」が見つかりません</h3>
+<p>「モード管理」の一覧で、行の右端の「…」から「編集」を選びます。「…」は、そのモードを編集か削除できる人にだけ表示されます。編集できるのは、モードを作った人、管理者、ユーザー管理者と、共有先の操作権限で許可された人です。</p>
+<p>基本モードは編集できません。「…」の「カスタムモードにコピー」でコピーしてから編集してください（<a href="/popstation-userguide-docs/usage/edit-mode.html">モードを編集・複製・削除する</a>）。</p>
+<h3 id="モードのプロンプトには決まった書き方が必要ですか">モードのプロンプトには、決まった書き方が必要ですか</h3>
+<p>ふつうの文章で、目的・役割・条件などを書けば使えます。決まった書き方が要るのは、実行するときの入力欄を作る部分だけです。入力欄は、「モードプロンプト」の欄の下のボタン（「テキストボックス」「プルダウン」など）を押すと書き込めます。「フォーマットチェック」で書き方の誤りを確かめられます。</p>
+<p>モードを作って保存するだけでは、利用量として数えません。モードを実行したときに、ふつうのチャットと同じように利用量を数えます（<a href="/popstation-userguide-docs/tips/mode-prompt.html">モードプロンプトの書き方</a>、<a href="/popstation-userguide-docs/usage/create-mode.html">モードを作る</a>）。</p>
+<h3 id="モードの並び順を変えたいです">モードの並び順を変えたいです</h3>
+<p>チャット画面の左のモードの一覧は、モードカテゴリの順に並びます。カテゴリの順番は、管理者とユーザー管理者が「モードカテゴリ管理(カスタムモード)」で、行を動かすか「上へ移動」「下へ移動」を押して変えます（<a href="/popstation-userguide-docs/admin/operations/mode-categories.html">モードカテゴリを管理する</a>）。</p>
+<p>カテゴリの中のモードは、作った日時の古い順に並び、並べ替えられません。自分がよく使うモードは、お気に入りに登録すると、自分用に並べられます（<a href="/popstation-userguide-docs/usage/favorite-modes.html">モードをお気に入りに登録する</a>）。</p>
+<h3 id="モードで選べるaiモデルや添付できるファイルの数が少なくなりました">モードで選べるAIモデルや、添付できるファイルの数が少なくなりました</h3>
+<p>そのモードに「参照資料」が付いている場合は、ファイル添付に対応していて、添付できるファイルの数が参照資料の件数以上のAIモデルだけが選べます。自分で添付できるファイルの数も、参照資料の件数ぶん少なくなります。「このモードには参照資料が N 件付いています（送信のたびに自動で添付されます）。…」と表示されているかを確かめてください（<a href="/popstation-userguide-docs/usage/mode-reference-files.html">モードに参照資料を付ける</a>）。</p>
+<h2 id="データの扱い">データの扱い</h2>
+<h3 id="入力した内容や添付したファイルはaiの学習に使われますか">入力した内容や添付したファイルは、AIの学習に使われますか</h3>
+<p>使われません。チャットの入力欄の上にも「入力した内容はAIモデルの学習に使われません。…」と表示しています。設定を変える必要はありません。</p>
+<p>POPstationが使うAIモデルの提供元は、データの取り扱いの規約で、お客さまの入力や回答を許可なくAIモデルの学習に使わないと定めています。GPTのモデル（MicrosoftのAzure OpenAI）も、Gemini・Claudeのモデルも同じです。</p>
+<p>カスタムデータの「学習中」という状態も、AIモデルに資料を覚えさせているのではありません。資料を検索できる形に整えている段階です（<a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a>）。</p>
+<h3 id="機密情報を入力してもよいですか">機密情報を入力してもよいですか</h3>
+<p>どの情報を入力してよいかは、組織の情報セキュリティのルールに従って判断してください。</p>
+<p>POPstationのデータは組織ごとに分けて保存しており、ほかの組織の人は見られません。チャット履歴に表示されるのは自分のチャットだけですが、管理者とユーザー管理者は「AIチャットログ」で、組織の全員の送信と回答を見られます。</p>
+<p>管理者は、NGワードと、マイナンバー・電話番号などの機密情報を、送る前に見つけるチェックを設定できます（<a href="/popstation-userguide-docs/admin/operations/ng-words.html">NGワード・機密情報のチェックを設定する</a>、<a href="/popstation-userguide-docs/tips/ai-basics.html">生成AIのしくみ</a>）。</p>
+<h3 id="チャット履歴は削除したほうがよいですか">チャット履歴は、削除したほうがよいですか</h3>
+<p>削除しなくてもかまいません。チャット履歴に表示されるのは自分のチャットだけで、ほかの人の画面には出ません。チャット履歴は、削除するまで残ります（<a href="/popstation-userguide-docs/usage/chat-history.html">チャット履歴を探す・ピン留めする・削除する</a>）。</p>
+<p>チャットを削除しても、管理者が見る「AIチャットログ」の記録は消えません。管理者が組織の全員のチャット履歴をまとめて削除する機能はありません。添付したファイルは、チャットを削除してもしなくても、アップロードから30日で削除されます（<a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a>）。</p>
+<h2 id="管理者の方へ">管理者の方へ</h2>
+<h3 id="ユーザーを追加したのに登録状態が未登録のままです">ユーザーを追加したのに、「登録状態」が「未登録」のままです</h3>
+<p><span class="env-inline" data-env-only="internet">インターネットの環境では、本人が初めてログインした時点で「登録済み」になります。パスワードを設定しただけで、まだログインしていない人は「未登録」のままです。</span></p>
+<p>「未登録」の人には、「登録状態」で「未登録」に絞り込んで、「招待メールを再送（N人）」でまとめて送り直せます（<a href="/popstation-userguide-docs/admin/people/add-user.html">ユーザーを追加する</a>、<a href="/popstation-userguide-docs/admin/people/resend-invitation.html">招待を送り直す・パスワード設定URLを再発行する</a>）。</p>
+<h3 id="ipアクセス制限を設定したのに管理者は許可していない場所から使えます">IPアクセス制限を設定したのに、管理者は許可していない場所から使えます</h3>
+<p>画面でIPアクセス制限がかからないのは、管理者のロールの人だけです。ユーザー管理者・カスタムデータ管理者・一般ユーザーには制限がかかります。公開APIからの呼び出しには、管理者に発行したAPIキーでも制限がかかります（<a href="/popstation-userguide-docs/spec/reference/public-api.html">公開APIの仕様</a>）。</p>
+<p>許可していないIPアドレスから開くと、ログインのあとに「IPアクセス制限により、アクセスが拒否されました。」と表示されます。操作履歴の「ログイン」は、IDとパスワードが通った時点で記録されるので、拒否された人の分も残ります（<a href="/popstation-userguide-docs/admin/operations/ip-restriction.html">IPアクセス制限を設定する</a>）。</p>
+<h3 id="ユーザーグループで許可モデルを絞ったのに管理者は全部のaiモデルを使えます">ユーザーグループで許可モデルを絞ったのに、管理者は全部のAIモデルを使えます</h3>
+<p>管理者のロールの人には、ユーザーグループの「許可モデル」も、ユーザーごとの制限もかかりません。ユーザー管理者・カスタムデータ管理者・一般ユーザーにはかかります。「海外リージョンモデル禁止」は、管理者にもかかります。</p>
+<p>管理者に使わせるAIモデルを絞りたいときは、ほかの管理者がその人のロールをユーザー管理者などに変えます（<a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a>、<a href="/popstation-userguide-docs/admin/people/roles.html">管理者のロールとできること</a>）。</p>
+<h3 id="特定のモードでだけ上位のaiモデルを使わせられますか">特定のモードでだけ、上位のAIモデルを使わせられますか</h3>
+<p>できません。AIモデルを使えるかは、ユーザーごとに決まります。ユーザーグループで許可したAIモデルは、モードを使わないふつうのチャットでも選べます。</p>
+<p>モードの「利用可能なモデル」は、そのモードで選べるAIモデルを絞る設定です。使えないAIモデルを使えるようにするものではありません。その人が使えるAIモデルが「利用可能なモデル」に1つも無いモードは、その人の一覧に表示されません（<a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a>）。</p>
+<h3 id="既定のaiモデルをユーザーグループごとに変えられますか">既定のAIモデルを、ユーザーグループごとに変えられますか</h3>
+<p>変えられません。既定のAIモデルは組織に1つで、「システム管理」の「デフォルトLLM」で決めます。既定のAIモデルを使えない人には、その人が使えるAIモデルの先頭が選ばれます。</p>
+<p>用途ごとに最初に選ばれるAIモデルを変えたいときは、モードの「モデル」で決めておきます（<a href="/popstation-userguide-docs/admin/operations/default-model-region.html">既定のAIモデルと海外リージョンモデルの利用を設定する</a>、<a href="/popstation-userguide-docs/usage/create-mode.html">モードを作る</a>）。</p>
+<h3 id="ご契約のときに登録した管理者のロールやメールアドレスを変えたいです">ご契約のときに登録した管理者の、ロールやメールアドレスを変えたいです</h3>
+<p>ご契約のときに窓口へお知らせいただいた管理者は、窓口で変更します。変更したい内容（新しい方のメールアドレスなど）を添えて、窓口にお問い合わせください（<a href="/popstation-userguide-docs/help/contact.html">お問い合わせ方法</a>）。</p>
+<p>この管理者のロールやメールアドレスを管理画面で変えると、ロールが元に戻ったり、古いメールアドレスの管理者が作り直されたりすることがあります。</p>
+<h3 id="ユーザー分析の数字はいつ反映されますか">ユーザー分析の数字は、いつ反映されますか</h3>
+<p>「メッセージ送受信回数」「NGワード回数」「モード別利用回数」と、利用シーンごとの回数は、毎日、早朝にまとめて集計します。その日の分は、翌朝に反映されます。「利用料金」タブは1時間ごとに集計します。</p>
+<p>回数は、送信と回答の1往復を1回と数えます。エラーで回答が返らなかったやり取りは数えません。「メッセージ送受信回数」の表は、今登録されているユーザーの分だけを数えます。このため、削除したユーザーの送信を含むダッシュボードの数とは合わないことがあります（<a href="/popstation-userguide-docs/admin/operations/analytics.html">ユーザー分析を見る</a>、<a href="/popstation-userguide-docs/admin/operations/dashboard.html">ダッシュボードを見る</a>）。</p>
+<p>「1回あたりの削減時間（分）」は、画面で変えて保存できます（<a href="/popstation-userguide-docs/admin/operations/logo-time-saving-contact.html">組織ロゴ・時間削減・お問い合わせ導線を設定する</a>）。</p>
+<h3 id="aiチャットログをダウンロードしたいです">AIチャットログをダウンロードしたいです</h3>
+<p>ダウンロードの方法は2つです。どちらも、管理者とユーザー管理者が使えます。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>方法</th><th>使いどころ</th></tr></thead><tbody><tr><td>「絞り込み結果をCSV出力」</td><td>絞り込んだ結果を、その場でCSVで保存します。1回に10,000件までです</td></tr><tr><td>「月別ダウンロードを申請」</td><td>1か月分をまとめて受け取ります。準備ができるとメールが届き、「ダウンロード管理」で受け取ります</td></tr></tbody></table>
+<p>「絞り込み結果をCSV出力」が失敗するときは、期間を短くするか、「月別ダウンロードを申請」を使ってください（<a href="/popstation-userguide-docs/admin/operations/chat-logs.html">AIチャットログを見る・ダウンロードする</a>、<a href="/popstation-userguide-docs/admin/operations/downloads.html">ダウンロード管理</a>）。</p>
+<h3 id="ユーザー情報csvをアップロードするとフォーマットが古いため失敗しましたと表示されます">ユーザー情報CSVをアップロードすると「フォーマットが古いため失敗しました」と表示されます</h3>
+<p>AIモデルの追加や提供終了で、CSVの列が変わっています。ユーザー管理画面の「ユーザー情報CSVダウンロード (更新用)」から、CSVをダウンロードし直して使ってください（<a href="/popstation-userguide-docs/admin/people/csv-bulk.html">CSVでまとめて登録・更新・削除する</a>）。</p>
+<h3 id="公開apiを呼び出すと524が返ります">公開APIを呼び出すと、524が返ります</h3>
+<p>回答ができるまでに約2分（125秒）を超えると、接続が切れて <code>524</code> が返ります。このときの本文はJSONではありません。質問を分ける、回答の長さを指定する（例：「300字以内で」）、応答の速いAIモデルを選ぶ、のどれかを試してください（<a href="/popstation-userguide-docs/spec/reference/public-api.html">公開APIの仕様</a>）。</p>
+<p>接続が切れても回答の処理は続き、利用料金がかかることがあります。続きの会話で送り直すときは、時間をおいてから送ってください。</p>
+<h2 id="そのほか">そのほか</h2>
+<h3 id="窓口からのお知らせメールの宛先を変えたいです">窓口からのお知らせメールの宛先を変えたいです</h3>
+<p>アップデートのお知らせなど、窓口からのメールの宛先は、窓口で管理しています。変更や追加（部署の共有のアドレスを含む）は、窓口にお問い合わせください（<a href="/popstation-userguide-docs/help/contact.html">お問い合わせ方法</a>）。</p>
+<p>管理画面で自分のメールアドレスを変えても、お知らせの宛先は変わりません。管理画面で宛先を決められるのは、月額の利用上限の通知メールだけです（<a href="/popstation-userguide-docs/admin/operations/monthly-cost-limit.html">月額の利用上限を設定する</a>）。</p>
+<h3 id="ブックマークしていたユーザーガイドのページを開くとトップページが表示されます">ブックマークしていたユーザーガイドのページを開くと、トップページが表示されます</h3>
+<p>ユーザーガイドの刷新で、各ページのアドレスが変わりました。以前のページのアドレスを開くと、トップページが表示されます。目的のページは、トップページの検索で探してください（<a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a>）。</p>
+<h3 id="窓口に問い合わせたいです">窓口に問い合わせたいです</h3>
+<p><a href="/popstation-userguide-docs/help/contact.html">お問い合わせ方法</a>をご覧ください。</p></div><nav class="pager" aria-label="前後のページ" data-pagefind-ignore><a class="pager-prev" href="/popstation-userguide-docs/help/nothing-happens.html"><span>前へ</span>何も表示されない・反応しないとき</a><a class="pager-next" href="/popstation-userguide-docs/help/contact.html"><span>次へ</span>お問い合わせ方法</a></nav></main><aside class="toc" aria-label="このページの目次"><p class="toc-title">このページの目次</p><ul><li class="toc-depth-2"><a href="#ログインとアカウント">ログインとアカウント</a></li><li class="toc-depth-3"><a href="#ログインできません">ログインできません</a></li><li class="toc-depth-3"><a href="#パスワードを忘れました">パスワードを忘れました</a></li><li class="toc-depth-3"><a href="#パスワード再設定のメールのリンクが開けません">パスワード再設定のメールのリンクが開けません</a></li><li class="toc-depth-3"><a href="#招待やパスワード再設定のメールが届きません">招待やパスワード再設定のメールが届きません</a></li><li class="toc-depth-3"><a href="#アカウント登録に失敗しました管理者による招待が必要ですと表示されます">「アカウント登録に失敗しました」「管理者による招待が必要です」と表示されます</a></li><li class="toc-depth-3"><a href="#パスワードを何度も間違えてログインできなくなりました">パスワードを何度も間違えて、ログインできなくなりました</a></li><li class="toc-depth-3"><a href="#登録しているメールアドレスを変えたいです">登録しているメールアドレスを変えたいです</a></li><li class="toc-depth-3"><a href="#管理画面が開けません">管理画面が開けません</a></li><li class="toc-depth-2"><a href="#aiモデル">AIモデル</a></li><li class="toc-depth-3"><a href="#使いたいaiモデルが一覧にありません">使いたいAIモデルが一覧にありません</a></li><li class="toc-depth-3"><a href="#新しく追加されたaiモデルが一般ユーザーの一覧に出てきません">新しく追加されたAIモデルが、一般ユーザーの一覧に出てきません</a></li><li class="toc-depth-3"><a href="#前に使っていたaiモデルが一覧にありません">前に使っていたAIモデルが一覧にありません</a></li><li class="toc-depth-3"><a href="#既定のaiモデルがおまかせに変わっています">既定のAIモデルが「おまかせ」に変わっています</a></li><li class="toc-depth-3"><a href="#質問を送ったあとにaiモデルを変えたいです">質問を送ったあとに、AIモデルを変えたいです</a></li><li class="toc-depth-3"><a href="#aiモデルはどこで処理されますか">AIモデルは、どこで処理されますか</a></li><li class="toc-depth-2"><a href="#チャット">チャット</a></li><li class="toc-depth-3"><a href="#前のチャットの続きを送ったら新しいチャットになりました">前のチャットの続きを送ったら、新しいチャットになりました</a></li><li class="toc-depth-3"><a href="#aiが前の会話を覚えていない回答が途中で止まります">AIが前の会話を覚えていない、回答が途中で止まります</a></li><li class="toc-depth-3"><a href="#送信内容が選択中の-ai-モデルで一度に扱える上限を超えているため送信できませんでしたと表示されます">「送信内容が、選択中の AI モデルで一度に扱える上限を超えているため、送信できませんでした」と表示されます</a></li><li class="toc-depth-3"><a href="#同じチャットでやり取りを続けると利用量は増えますか">同じチャットでやり取りを続けると、利用量は増えますか</a></li><li class="toc-depth-3"><a href="#aiがファイルを作成しましたと答えたのにファイルがありません">AIが「ファイルを作成しました」と答えたのに、ファイルがありません</a></li><li class="toc-depth-3"><a href="#チャットの内容を保存印刷共有したいです">チャットの内容を保存・印刷・共有したいです</a></li><li class="toc-depth-3"><a href="#音声で入力できますか">音声で入力できますか</a></li><li class="toc-depth-3"><a href="#deep-researchの回答がなかなか届きません">Deep Researchの回答がなかなか届きません</a></li><li class="toc-depth-3"><a href="#ご利用料金が上限金額に達したと表示されます">「ご利用料金が上限金額に達した」と表示されます</a></li><li class="toc-depth-3"><a href="#ngワードやマイナンバーと表示されて送れません">「NGワード」や「マイナンバー」と表示されて送れません</a></li><li class="toc-depth-2"><a href="#web検索">Web検索</a></li><li class="toc-depth-3"><a href="#最新の情報で答えてくれません">最新の情報で答えてくれません</a></li><li class="toc-depth-3"><a href="#web検索で参考情報を取得できませんでしたと表示されます">「Web検索で参考情報を取得できませんでした。…」と表示されます</a></li><li class="toc-depth-3"><a href="#web検索を選んでいるのに検索せずに回答されます">Web検索を選んでいるのに、検索せずに回答されます</a></li><li class="toc-depth-3"><a href="#データ参照先のweb検索url読込カスタムデータと何も参照しないときは何が違いますか">データ参照先の「Web検索」「URL読込」「カスタムデータ」と、何も参照しないときは、何が違いますか</a></li><li class="toc-depth-2"><a href="#ファイルの添付">ファイルの添付</a></li><li class="toc-depth-3"><a href="#ファイルを添付できません">ファイルを添付できません</a></li><li class="toc-depth-3"><a href="#添付できるファイルの大きさの上限はいくつですか">添付できるファイルの大きさの上限はいくつですか</a></li><li class="toc-depth-3"><a href="#ファイルを添付して送るとただいまシステムが混み合っているか一時的に応答できない状態のようですと表示されます">ファイルを添付して送ると「ただいまシステムが混み合っているか、一時的に応答できない状態のようです」と表示されます</a></li><li class="toc-depth-3"><a href="#gptのモデルでページの多いpdfの一部が読み取られません">GPTのモデルで、ページの多いPDFの一部が読み取られません</a></li><li class="toc-depth-3"><a href="#csvファイルを添付すると文字が正しく読み取られません">CSVファイルを添付すると、文字が正しく読み取られません</a></li><li class="toc-depth-3"><a href="#pdfを添付すると送れません">PDFを添付すると送れません</a></li><li class="toc-depth-3"><a href="#excelwordpowerpointを添付するとどこまで読み取られますか">Excel・Word・PowerPointを添付すると、どこまで読み取られますか</a></li><li class="toc-depth-3"><a href="#録音した音声m4aなどを添付したいです">録音した音声（m4aなど）を添付したいです</a></li><li class="toc-depth-3"><a href="#音声の文字起こしや議事録づくりがうまくいきません">音声の文字起こしや議事録づくりがうまくいきません</a></li><li class="toc-depth-3"><a href="#複数の画像を添付するとaiがファイル名を取り違えます">複数の画像を添付すると、AIがファイル名を取り違えます</a></li><li class="toc-depth-3"><a href="#チャット詳細の添付ファイルのを押してもファイルが消えません">チャット詳細の添付ファイルの「×」を押しても、ファイルが消えません</a></li><li class="toc-depth-3"><a href="#前に添付した画像が表示されません">前に添付した画像が表示されません</a></li><li class="toc-depth-3"><a href="#以前のチャットの続きを送ると添付ファイルは保存期間30日を過ぎたため参照できませんでしたと表示されます">以前のチャットの続きを送ると「添付ファイルは保存期間（30日）を過ぎたため参照できませんでした」と表示されます</a></li><li class="toc-depth-2"><a href="#画像の生成">画像の生成</a></li><li class="toc-depth-3"><a href="#画像を生成するにはどうすればよいですか">画像を生成するには、どうすればよいですか</a></li><li class="toc-depth-2"><a href="#カスタムデータ">カスタムデータ</a></li><li class="toc-depth-3"><a href="#カスタムデータを使っても期待どおりに答えてくれません">カスタムデータを使っても、期待どおりに答えてくれません</a></li><li class="toc-depth-3"><a href="#ファイルの添付とカスタムデータはどう使い分ければよいですか">ファイルの添付とカスタムデータは、どう使い分ければよいですか</a></li><li class="toc-depth-3"><a href="#カスタムデータに無い内容まで回答されます">カスタムデータに無い内容まで回答されます</a></li><li class="toc-depth-3"><a href="#同じチャットの途中でカスタムデータをやめたりweb検索に切り替えたりできますか">同じチャットの途中で、カスタムデータをやめたり、Web検索に切り替えたりできますか</a></li><li class="toc-depth-3"><a href="#カスタムデータを使うと参考情報が見つかると表示されます">カスタムデータを使うと「参考情報が見つかる…」と表示されます</a></li><li class="toc-depth-3"><a href="#参照データフォルダが一覧に出てきません">参照データフォルダが一覧に出てきません</a></li><li class="toc-depth-3"><a href="#自分で添付していない画像が質問の下に表示されます">自分で添付していない画像が、質問の下に表示されます</a></li><li class="toc-depth-3"><a href="#カスタムデータに登録できるファイルの大きさや数に上限はありますか">カスタムデータに登録できるファイルの大きさや数に上限はありますか</a></li><li class="toc-depth-3"><a href="#カスタムデータの登録がエラーになります">カスタムデータの登録がエラーになります</a></li><li class="toc-depth-3"><a href="#資料を作り直したのでカスタムデータに登録し直したいです">資料を作り直したので、カスタムデータに登録し直したいです</a></li><li class="toc-depth-3"><a href="#登録したカスタムデータを取り出したいです">登録したカスタムデータを取り出したいです</a></li><li class="toc-depth-2"><a href="#モード">モード</a></li><li class="toc-depth-3"><a href="#作ったモードがほかの人の一覧に出てきません">作ったモードが、ほかの人の一覧に出てきません</a></li><li class="toc-depth-3"><a href="#モードを編集するが見つかりません">モードを編集する「…」が見つかりません</a></li><li class="toc-depth-3"><a href="#モードのプロンプトには決まった書き方が必要ですか">モードのプロンプトには、決まった書き方が必要ですか</a></li><li class="toc-depth-3"><a href="#モードの並び順を変えたいです">モードの並び順を変えたいです</a></li><li class="toc-depth-3"><a href="#モードで選べるaiモデルや添付できるファイルの数が少なくなりました">モードで選べるAIモデルや、添付できるファイルの数が少なくなりました</a></li><li class="toc-depth-2"><a href="#データの扱い">データの扱い</a></li><li class="toc-depth-3"><a href="#入力した内容や添付したファイルはaiの学習に使われますか">入力した内容や添付したファイルは、AIの学習に使われますか</a></li><li class="toc-depth-3"><a href="#機密情報を入力してもよいですか">機密情報を入力してもよいですか</a></li><li class="toc-depth-3"><a href="#チャット履歴は削除したほうがよいですか">チャット履歴は、削除したほうがよいですか</a></li><li class="toc-depth-2"><a href="#管理者の方へ">管理者の方へ</a></li><li class="toc-depth-3"><a href="#ユーザーを追加したのに登録状態が未登録のままです">ユーザーを追加したのに、「登録状態」が「未登録」のままです</a></li><li class="toc-depth-3"><a href="#ipアクセス制限を設定したのに管理者は許可していない場所から使えます">IPアクセス制限を設定したのに、管理者は許可していない場所から使えます</a></li><li class="toc-depth-3"><a href="#ユーザーグループで許可モデルを絞ったのに管理者は全部のaiモデルを使えます">ユーザーグループで許可モデルを絞ったのに、管理者は全部のAIモデルを使えます</a></li><li class="toc-depth-3"><a href="#特定のモードでだけ上位のaiモデルを使わせられますか">特定のモードでだけ、上位のAIモデルを使わせられますか</a></li><li class="toc-depth-3"><a href="#既定のaiモデルをユーザーグループごとに変えられますか">既定のAIモデルを、ユーザーグループごとに変えられますか</a></li><li class="toc-depth-3"><a href="#ご契約のときに登録した管理者のロールやメールアドレスを変えたいです">ご契約のときに登録した管理者の、ロールやメールアドレスを変えたいです</a></li><li class="toc-depth-3"><a href="#ユーザー分析の数字はいつ反映されますか">ユーザー分析の数字は、いつ反映されますか</a></li><li class="toc-depth-3"><a href="#aiチャットログをダウンロードしたいです">AIチャットログをダウンロードしたいです</a></li><li class="toc-depth-3"><a href="#ユーザー情報csvをアップロードするとフォーマットが古いため失敗しましたと表示されます">ユーザー情報CSVをアップロードすると「フォーマットが古いため失敗しました」と表示されます</a></li><li class="toc-depth-3"><a href="#公開apiを呼び出すと524が返ります">公開APIを呼び出すと、524が返ります</a></li><li class="toc-depth-2"><a href="#そのほか">そのほか</a></li><li class="toc-depth-3"><a href="#窓口からのお知らせメールの宛先を変えたいです">窓口からのお知らせメールの宛先を変えたいです</a></li><li class="toc-depth-3"><a href="#ブックマークしていたユーザーガイドのページを開くとトップページが表示されます">ブックマークしていたユーザーガイドのページを開くと、トップページが表示されます</a></li><li class="toc-depth-3"><a href="#窓口に問い合わせたいです">窓口に問い合わせたいです</a></li></ul></aside></div><dialog class="search-dialog" aria-label="ガイド内を検索"><form method="dialog" class="search-form" role="search"><div class="search-input-row"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><input type="search" name="q" placeholder="例：ユーザー削除、ファイル 上限、パスワード" autocomplete="off" aria-label="検索する言葉"><button type="submit" class="search-close" value="close" aria-label="閉じる">Esc</button></div><div class="search-filters"><label class="search-filter-env" hidden><input type="checkbox" name="env" checked> <span data-env-filter-label>ご利用の環境に関係するページだけ</span></label><label>対象<select name="role"><option value="">すべて</option><option value="一般ユーザー">一般ユーザー</option><option value="カスタムデータ管理者">カスタムデータ管理者</option><option value="ユーザー管理者">ユーザー管理者</option><option value="管理者">管理者</option></select></label><div class="search-chapters" role="group" aria-label="章で絞り込む"><label class="chip"><input type="checkbox" name="chapter" value="はじめに">はじめに</label><label class="chip"><input type="checkbox" name="chapter" value="ログインとアカウント">ログインとアカウント</label><label class="chip"><input type="checkbox" name="chapter" value="使い方">使い方</label><label class="chip"><input type="checkbox" name="chapter" value="管理者ガイド">管理者ガイド</label><label class="chip"><input type="checkbox" name="chapter" value="活用Tips">活用Tips</label><label class="chip"><input type="checkbox" name="chapter" value="仕様">仕様</label><label class="chip"><input type="checkbox" name="chapter" value="困ったとき">困ったとき</label><label class="chip"><input type="checkbox" name="chapter" value="お知らせ">お知らせ</label></div></div></form><p class="search-status" aria-live="polite"></p><ol class="search-results"></ol></dialog><script type="module" src="/popstation-userguide-docs/_astro/Search.astro_astro_type_script_index_0_lang.CFnn-6hv.js"></script><script type="module">var e=document.querySelector(`[data-env-select]`),t=document.documentElement;e&&(e.value=t.dataset.env||`internet`,e.addEventListener(`change`,()=>{t.dataset.env=e.value;try{localStorage.setItem(`qtg-env`,e.value)}catch{}document.dispatchEvent(new CustomEvent(`qtg:env`,{detail:e.value}))}));for(let t of e?document.querySelectorAll(`.env-tabs`):[]){let n=[...t.querySelectorAll(`:scope > .env-panel`)],r=document.createElement(`div`);r.className=`env-tab-bar`,r.setAttribute(`role`,`tablist`);for(let t of n){let n=document.createElement(`button`);n.type=`button`,n.className=`env-tab`,n.dataset.envTab=t.dataset.envPanel,n.textContent=t.dataset.label||``,n.addEventListener(`click`,()=>{e&&(e.value=t.dataset.envPanel||`internet`,e.dispatchEvent(new Event(`change`)))}),r.append(n)}t.prepend(r)}var n=document.querySelector(`.nav-toggle`);n?.addEventListener(`click`,()=>{let e=document.body.classList.toggle(`nav-open`);n.setAttribute(`aria-expanded`,String(e))});</script></body></html><script type="module" src="/popstation-userguide-docs/_astro/Doc.astro_astro_type_script_index_0_lang.C0bxyGav.js"></script>

@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="ja" data-base="/popstation-userguide-docs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>カスタムデータ用RAGプロンプトの書き方｜POPstation ユーザーガイド</title><meta name="description" content="カスタムデータを使うモードで、検索した資料をAIにどう使わせるかを決める「カスタムデータ用RAGプロンプト」の書き方を、簡単な形から順に説明します。"><link rel="icon" type="image/png" href="/popstation-userguide-docs/favicon.png"><!--
+      描画の前に環境を決める（?env= を優先し、選んだ環境はブラウザに記憶する）。
+      ここで決めておくと、環境ごとの出し分けが表示の途中で切り替わらない。
+    --><script>(function(){const visibleEnvs = ["internet"];
+
+      (function () {
+        // 非表示の環境（src/data/envs.json）は選べない。記憶していても、インターネットに戻す
+        var key = "qtg-env";
+        var env = null;
+        try {
+          var q = new URLSearchParams(location.search).get("env");
+          if (q && visibleEnvs.indexOf(q) >= 0) {
+            env = q;
+            localStorage.setItem(key, q);
+          } else {
+            env = localStorage.getItem(key);
+          }
+        } catch (e) {}
+        document.documentElement.dataset.env = env && visibleEnvs.indexOf(env) >= 0 ? env : "internet";
+      })();
+    })();</script><link rel="stylesheet" href="/popstation-userguide-docs/_astro/nav.BuVXtoaE.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><button class="nav-toggle" type="button" aria-label="メニューを開く" aria-controls="sidebar" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button><a class="brand" href="/popstation-userguide-docs/index.html">POPstation <span>ユーザーガイド</span></a><button class="search-open" type="button" data-search-open><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span class="search-open-label">ガイド内を検索</span><kbd>Ctrl K</kbd></button></header><div class="layout"><nav id="sidebar" class="sidebar" aria-label="ガイドの目次"><details class="nav-chapter"><summary>はじめに</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/start/overview.html">POPstationでできること</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/screen.html">画面の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/first-question.html">最初の質問を送る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/try-mode.html">モードを使ってみる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/next-pages.html">次に読むページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/start/admin-first-steps.html">管理者が最初にやること</a></li></ul></div></details><details class="nav-chapter"><summary>ログインとアカウント</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/account/signin.html">ログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/signup.html">招待からアカウントを登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/mfa.html">多要素認証でログインする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/forgot-password.html">パスワードを忘れたとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-password.html">パスワードを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/change-email.html">メールアドレスを変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/account/logout.html">ログアウトする</a></li></ul></div></details><details class="nav-chapter"><summary>使い方</summary><div class="nav-group"><p class="nav-group-title">チャットする</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/send-and-stop.html">質問を送る・止める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/ng-detected.html">NGワードや機密情報が見つかったとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/copy-and-edit.html">回答をコピーする・質問を直して送り直す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/save-answer.html">回答をファイルに保存する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/choose-model.html">AIモデルを選ぶ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/attach-files.html">ファイルを添付して質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/voice-input.html">音声で入力する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-data.html">カスタムデータを使って質問する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/web-search.html">Web検索・URL読込を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/custom-instruction.html">カスタム指示を使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/prompt-templates.html">プロンプトテンプレートを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/deep-research.html">Deep Research・法令 Researchを使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/image-generation.html">画像を生成する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/read-answers.html">回答の見方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/navigation-chat.html">ナビゲーションチャットを使う</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを使う</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/run-mode.html">モードを実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/favorite-modes.html">モードをお気に入りに登録する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-mode-url.html">モードのURLを共有する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モードを作る・管理する</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/create-mode.html">モードを作る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/mode-reference-files.html">モードに参照資料を付ける</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/edit-mode.html">モードを編集・複製・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/mode-share-scope.html">モードの共有範囲を決める</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/bulk-modes.html">モードをまとめて操作する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/find-modes.html">モードを探す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">履歴と書き出し</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-history.html">チャット履歴を探す・ピン留めする・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/chat-folders.html">チャット履歴をフォルダで整理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/share-chat.html">チャットを共有する・共有を取り消す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rename-chat.html">チャットの名前を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/rerun-mode.html">条件を変えて再実行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/export-chat.html">チャットを書き出す</a></li></ul></div><div class="nav-group"><p class="nav-group-title">自分の設定・お知らせ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/usage/mypage.html">マイページ（ユーザー名・カスタム指示）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/notifications.html">お知らせを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/widget.html">ウィジェットから使う</a></li><li class="nav-item"><a href="/popstation-userguide-docs/usage/google-drive.html">Google ドライブと連携する</a></li></ul></div></details><details class="nav-chapter"><summary>管理者ガイド</summary><div class="nav-group"><p class="nav-group-title">はじめに</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/roles.html">管理者のロールとできること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザー</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/add-user.html">ユーザーを追加する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/edit-user.html">ユーザーの設定を変える</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/delete-user.html">ユーザーを削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/csv-bulk.html">CSVでまとめて登録・更新・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/resend-invitation.html">招待を送り直す・パスワード設定URLを再発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/reset-password.html">パスワードを再設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/unlock-login.html">ログインロックを解除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/change-email.html">メールアドレスを変更する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/mfa.html">多要素認証（MFA）を設定する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">ユーザーグループ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/user-groups.html">ユーザーグループを作る・編集する・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/people/model-access.html">使えるモデルが決まるしくみ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">カスタムデータ</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-folders.html">フォルダを作る・名前を変える・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-files.html">ファイルを登録・削除する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-groups.html">フォルダを使えるグループを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-public-scope.html">カスタムデータを全員に公開できる人を管理者に限る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-image-reading.html">図表の読み取りに対応させる</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-order-search.html">フォルダを並べ替える・探す</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-download.html">カスタムデータをまとめてダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/custom-data-admin-role.html">カスタムデータ管理者ができること</a></li></ul></div><div class="nav-group"><p class="nav-group-title">モード・システム設定</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-categories.html">モードカテゴリを管理する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ng-words.html">NGワード・機密情報のチェックを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/ip-restriction.html">IPアクセス制限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/default-model-region.html">既定のAIモデルと海外リージョンモデルの利用を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-experience.html">チャットの表示と会話履歴の長さを設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/monthly-cost-limit.html">月額の利用上限を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-groups.html">1人あたりの月額上限を設定する（課金グループ）</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/google-drive.html">Google ドライブの利用を許可する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/api-keys.html">業務システムから使えるAPIキーを発行する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/mode-creation-limit.html">モードの作成を制限する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/logo-time-saving-contact.html">組織ロゴ・時間削減・お問い合わせ導線を設定する</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/notifications.html">お知らせを配信する</a></li></ul></div><div class="nav-group"><p class="nav-group-title">利用状況と請求</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/dashboard.html">ダッシュボードを見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/analytics.html">ユーザー分析を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/chat-logs.html">AIチャットログを見る・ダウンロードする</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/action-logs.html">操作履歴を見る</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/admin/operations/billing-histories.html">請求履歴を見る</a></li></ul></div></details><details class="nav-chapter" open><summary>活用Tips</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/tips/ai-basics.html">生成AIのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/prompt-tips.html">質問（プロンプト）のコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/markdown.html">マークダウン記法の基本</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/choose-model.html">AIモデルの選び方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/mode-prompt.html">モードプロンプトの書き方</a></li><li class="nav-item current"><a href="/popstation-userguide-docs/tips/rag-prompt.html" aria-current="page">カスタムデータ用RAGプロンプトの書き方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/custom-data-tips.html">カスタムデータを上手に使うコツ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/use-cases.html">業務別の使い方</a></li><li class="nav-item"><a href="/popstation-userguide-docs/tips/copyright.html">生成AIと著作権</a></li></ul></div></details><details class="nav-chapter"><summary>仕様</summary><div class="nav-group"><p class="nav-group-title">画面別：利用者向け</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat.html">チャット画面</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/modes.html">モード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-edit.html">モードの作成・編集</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications.html">お知らせ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mypage.html">マイページ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/widget.html">ウィジェット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chats.html">共有中のチャット</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/shared-chat.html">共有されたチャット</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：ログインまわり</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/login.html">ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/signup.html">アカウント登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-verify.html">認証コードの入力</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/confirm-email-change.html">メールアドレス変更の確認</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/auth-error.html">認証エラー</a></li></ul></div><div class="nav-group"><p class="nav-group-title">画面別：管理画面</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/dashboard.html">ダッシュボード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/analytics.html">ユーザー分析</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/system-settings.html">システム管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mfa-settings.html">MFA設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/notifications-admin.html">お知らせ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data.html">カスタムデータ登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/custom-data-detail.html">カスタムデータ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/chat-logs.html">AIチャットログ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/action-logs.html">操作履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/downloads.html">ダウンロード管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-histories.html">請求履歴</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/users.html">ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/user-groups.html">ユーザーグループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/mode-categories.html">モードカテゴリ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/billing-groups.html">課金グループ管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/screens/api-credentials.html">API連携</a></li></ul></div><div class="nav-group"><p class="nav-group-title">横断の一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/roles.html">ロールと権限の一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/contract.html">契約・プランによる違いの一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/chat-flow.html">チャットのしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/models.html">AIモデル一覧</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/attachments.html">ファイル添付の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/custom-data-files.html">カスタムデータに登録できるファイル</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/limits.html">利用上限と決済失敗時の扱い</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/csv-formats.html">CSVの形式</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/retention.html">データの保存期間</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/authentication.html">認証の仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/public-api.html">公開APIの仕様</a></li><li class="nav-item"><a href="/popstation-userguide-docs/spec/reference/requirements.html">動作環境</a></li></ul></div></details><details class="nav-chapter"><summary>困ったとき</summary><div class="nav-group"><p class="nav-group-title">エラーメッセージ一覧</p><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/login.html">エラーメッセージ：ログイン</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/chat-send.html">エラーメッセージ：チャット送信</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/send-limits.html">エラーメッセージ：送信の制限</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-search.html">エラーメッセージ：カスタムデータとWeb検索</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/ng-words.html">エラーメッセージ：NGワード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/attachments.html">エラーメッセージ：添付</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/voice.html">エラーメッセージ：音声</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/deep-research.html">エラーメッセージ：Deep Research</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/modes.html">エラーメッセージ：モード</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/custom-data-register.html">エラーメッセージ：カスタムデータの登録</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/user-management.html">エラーメッセージ：ユーザー管理</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/csv.html">エラーメッセージ：CSV</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/billing.html">エラーメッセージ：請求</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/settings.html">エラーメッセージ：設定</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/widget.html">エラーメッセージ：ウィジェット</a></li></ul></div><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/help/generic-error.html">「エラーが発生しました」と出たとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/nothing-happens.html">何も表示されない・反応しないとき</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/faq.html">よくある質問</a></li><li class="nav-item"><a href="/popstation-userguide-docs/help/contact.html">お問い合わせ方法</a></li></ul></div></details><details class="nav-chapter"><summary>お知らせ</summary><div class="nav-group"><ul><li class="nav-item"><a href="/popstation-userguide-docs/news/release-notes.html">リリースノート</a></li><li class="nav-item"><a href="/popstation-userguide-docs/news/spec-changes.html">仕様変更のお知らせ</a></li></ul></div></details></nav><main id="main" class="content" data-pagefind-body><!-- 検索の絞り込みに使う値 --><span hidden data-pagefind-filter="章:活用Tips"></span><span hidden data-pagefind-filter="対象:一般ユーザー"></span><span hidden data-pagefind-filter="対象:カスタムデータ管理者"></span><span hidden data-pagefind-filter="対象:ユーザー管理者"></span><span hidden data-pagefind-filter="対象:管理者"></span><span hidden data-pagefind-filter="環境:インターネット"></span><span hidden data-pagefind-meta="title:カスタムデータ用RAGプロンプトの書き方"></span><ol class="breadcrumb" data-pagefind-ignore><li><a href="/popstation-userguide-docs/index.html">トップ</a></li><li>活用Tips</li></ol><h1>カスタムデータ用RAGプロンプトの書き方</h1><div class="page-tags" data-pagefind-ignore><span class="tag tag-role">対象：全ユーザー</span><span class="tag tag-contract">カスタムデータを使えるプランのご契約でのみ使えます</span></div><p class="lead">カスタムデータを使うモードで、検索した資料をAIにどう使わせるかを決める「カスタムデータ用RAGプロンプト」の書き方を、簡単な形から順に説明します。</p><div class="prose"><p>「カスタムデータ用RAGプロンプト」は、カスタムデータを検索して見つかった資料を、<strong>AIにどう使わせるか</strong>を指示する文章です。たとえば「資料に書かれていないことは答えない」「表にまとめる」「必ずファイル名を書く」といった決まりを、モードごとに決められます。</p>
+<p>書かなくても、POPstationが用意した既定の指示文で動きます。既定の動きで足りないときだけ書き換えます。</p>
+<h2 id="始める前に">始める前に</h2>
+<ul>
+<li>カスタムモードの作成・編集の画面で、「データ参照先」を「カスタムデータ」にすると、「カスタムデータ用RAGプロンプト」の欄が折りたたまれた状態で表示されます（<a href="/popstation-userguide-docs/spec/screens/mode-edit.html">モードの作成・編集</a>）。</li>
+<li>欄には、最初から既定の指示文が入っています。<strong>欄に手を加えずに保存すると、既定の指示文が使われます。</strong> 欄を空にして保存したときも同じです。</li>
+<li>検索から回答までの流れは、<a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a>にあります。先に読むと、この先が分かりやすくなります。</li>
+</ul>
+<h2 id="しくみを1分で">しくみを1分で</h2>
+<p>カスタムデータを使うと、POPstationは質問のたびに次のことをします。</p>
+<ol>
+<li>質問に関係しそうな資料の断片を、検索で最大10件探す</li>
+<li><strong>このページで書く指示文</strong>に、質問と見つけた断片を差し込む</li>
+<li>できあがった文章をAIに送る</li>
+</ol>
+<p>AIが見られるのは、2.で差し込まれた断片だけです。指示文は、その断片を「どう読んで、どう答えるか」をAIに伝える役目です。</p>
+<h2 id="必ず入れる2つの語">必ず入れる2つの語</h2>
+<p>指示文には、次の2つの語を必ず入れます。どちらかが無いと、保存のときに「カスタムデータ用RAGプロンプトに {search_query} が含まれていません」（<code>{search_result}</code> も同じ）と表示され、保存できません。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>語</th><th>AIに送るときに入るもの</th></tr></thead><tbody><tr><td><code>{search_query}</code></td><td>質問の文（モードでは、入力欄の値を差し込んだあとのモードプロンプト）</td></tr><tr><td><code>{search_result}</code></td><td>検索で見つけた資料の断片。断片ごとに「Ref: ファイル名」の行と本文が並びます</td></tr></tbody></table>
+<p>欄の下の「{search_query}」「{search_result}」のボタンを押すと、カーソルの位置にその語が入ります。半角の波かっこ <code>{ }</code> と、つづりを正確に書いてください。</p>
+<p>例：<code>{search_result}</code> は、AIに送るときに次のような文字に置き換わります。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Ref: 旅費規程.pdf</span></span>
+<span class="line"><span>第3章 旅費 ＞ 第12条（日当）</span></span>
+<span class="line"><span>国内出張の日当は、1日につき2,000円とする。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Ref: 出張申請の手引き.docx</span></span>
+<span class="line"><span>日当は精算時に自動で計上されます。…</span></span></code></pre>
+<h2 id="ステップ1いちばん簡単な形">ステップ1：いちばん簡単な形</h2>
+<p>まずは、2つの語を入れただけの短い形から始めます。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>次の資料をもとに、質問に答えてください。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>質問：{search_query}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>資料：</span></span>
+<span class="line"><span>{search_result}</span></span></code></pre>
+<p>これでも動きます。「出張の日当はいくらですか？」と質問すると、AIには次の文章が届きます。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>次の資料をもとに、質問に答えてください。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>質問：出張の日当はいくらですか？</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>資料：</span></span>
+<span class="line"><span>Ref: 旅費規程.pdf</span></span>
+<span class="line"><span>第3章 旅費 ＞ 第12条（日当）</span></span>
+<span class="line"><span>国内出張の日当は、1日につき2,000円とする。</span></span>
+<span class="line"><span>…</span></span></code></pre>
+<h2 id="ステップ2守ってほしい決まりを足す">ステップ2：守ってほしい決まりを足す</h2>
+<p>簡単な形のままだと、資料に無いことをAIが自分の知識で補って答えることがあります。守ってほしい決まりを、箇条書きで足します。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>次の資料をもとに、質問に答えてください。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 決まり</span></span>
+<span class="line"><span>- 資料に書かれていることだけで答える</span></span>
+<span class="line"><span>- 資料に書かれていないときは「資料に記載がありません」とだけ答える</span></span>
+<span class="line"><span>- 推測で数字や日付を補わない</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>質問：{search_query}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>資料：</span></span>
+<span class="line"><span>{search_result}</span></span></code></pre>
+<aside class="callout callout-tip"><p class="callout-title">決まりは短く、具体的に</p><p>「正確に答えて」のようなあいまいな指示より、「資料に無いときは『資料に記載がありません』と答える」のように、<strong>どういうときに、何をするか</strong>を書くほうが守られます。</p></aside>
+<h2 id="ステップ3回答の形を決める">ステップ3：回答の形を決める</h2>
+<p>回答の形（表・箇条書き・長さ）を決めると、毎回そろった回答になります。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span># 出力の形</span></span>
+<span class="line"><span>- 最初に1〜2行で結論を書く</span></span>
+<span class="line"><span>- 続けて、根拠を箇条書きで3つまで書く</span></span>
+<span class="line"><span>- 全体で300文字以内にする</span></span></code></pre>
+<p>表にしたいときは、列を決めて書きます。表の書き方は<a href="/popstation-userguide-docs/tips/markdown.html">マークダウン記法の基本</a>もご覧ください。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span># 出力の形</span></span>
+<span class="line"><span>次の列の表にまとめる：項目 / 内容 / 根拠のファイル名</span></span></code></pre>
+<h2 id="ステップ4根拠の示し方を決める">ステップ4：根拠の示し方を決める</h2>
+<p>回答を確かめやすくするために、根拠のファイル名を書かせます。断片には「Ref: ファイル名」の行があるので、それを使うように指示します。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span># 根拠</span></span>
+<span class="line"><span>- 回答の根拠にした資料のファイル名を、「Ref:」の行から書き写す</span></span>
+<span class="line"><span>- 資料の文をそのまま使うときは、引用（>）で示す</span></span></code></pre>
+<aside class="callout callout-warning"><p class="callout-title">書き換えると、ページ番号は付かなくなります</p><p>既定の指示文を使っているときは、断片の「Ref:」の行にページ番号（例：<code>p.12</code>）も付き、回答にページ番号まで書かれます。<strong>欄を書き換えて自分の指示文を使うと、「Ref:」の行にはファイル名だけが入り、ページ番号は付きません。</strong> 指示文に「ページ番号を書く」と書いても、AIにはページ番号が渡っていないので書けません。ページ番号が必要なときは、既定の指示文のまま使います。</p></aside>
+<h2 id="ステップ5役割と読み手を伝える">ステップ5：役割と読み手を伝える</h2>
+<p>誰が読む回答なのかを伝えると、言葉づかいや詳しさがそろいます。</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span># 役割</span></span>
+<span class="line"><span>あなたは総務部の担当者です。社員からの規程の問い合わせに、やさしい言葉で答えます。</span></span></code></pre>
+<h2 id="完成例">完成例</h2>
+<p>ここまでを組み合わせた例です。用途に合わせて書き換えてください。</p>
+<h3 id="例社内規程の問い合わせに答える">例：社内規程の問い合わせに答える</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span># 役割</span></span>
+<span class="line"><span>あなたは総務部の担当者です。社員からの社内規程の問い合わせに答えます。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 決まり</span></span>
+<span class="line"><span>- 資料に書かれていることだけで答える</span></span>
+<span class="line"><span>- 資料に書かれていないときは「規程に記載がありません。総務部にお問い合わせください。」とだけ答える</span></span>
+<span class="line"><span>- 金額・日数・期限は、資料の表記のまま書く</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 出力の形</span></span>
+<span class="line"><span>- 最初に1〜2行で結論を書く</span></span>
+<span class="line"><span>- 続けて、根拠になった条文を引用（>）で示し、その上にファイル名を書く</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 質問</span></span>
+<span class="line"><span>{search_query}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 資料</span></span>
+<span class="line"><span>{search_result}</span></span></code></pre>
+<h3 id="例お客さまへの回答の下書きを作る">例：お客さまへの回答の下書きを作る</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span># 役割</span></span>
+<span class="line"><span>あなたはサポート窓口の担当者です。お客さまへのメールの下書きを作ります。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 決まり</span></span>
+<span class="line"><span>- 資料（製品マニュアル・FAQ）に書かれていることだけを使う</span></span>
+<span class="line"><span>- 資料に無い内容は書かず、最後に「確認が必要な点」として箇条書きにする</span></span>
+<span class="line"><span>- 敬語で、お客さまに分かる言葉で書く</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 出力の形</span></span>
+<span class="line"><span>件名・本文の順で書く。本文は400文字以内。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># お客さまからの問い合わせ</span></span>
+<span class="line"><span>{search_query}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 資料</span></span>
+<span class="line"><span>{search_result}</span></span></code></pre>
+<h3 id="例議事録や報告書から情報を集める">例：議事録や報告書から情報を集める</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>次の資料から、質問に関係する情報を集めて表にしてください。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 決まり</span></span>
+<span class="line"><span>- 資料に書かれていることだけを使う</span></span>
+<span class="line"><span>- 日付と決定事項は、資料の表記のまま書く</span></span>
+<span class="line"><span>- 該当する情報が無い資料は、表に入れない</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 出力の形</span></span>
+<span class="line"><span>次の列の表にする：日付 / 決まったこと / 担当 / ファイル名</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 質問</span></span>
+<span class="line"><span>{search_query}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 資料</span></span>
+<span class="line"><span>{search_result}</span></span></code></pre>
+<p>この例のように「集めて表にする」使い方では、<strong>AIに渡る断片は多くても10件</strong>です。資料の全体を漏れなく集めたいときは、カスタムデータではなく、ファイルを添付して質問します（<a href="/popstation-userguide-docs/spec/reference/rag.html">カスタムデータ検索（RAG）のしくみ</a>）。</p>
+<h2 id="よくある間違い">よくある間違い</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>書き方</th><th>起きること</th><th>直し方</th></tr></thead><tbody><tr><td><code>{search_result}</code> を書き忘れる</td><td>保存できません（「…{search_result} が含まれていません」）</td><td>欄の下のボタンで入れます</td></tr><tr><td><code>{ search_query }</code>（空白入り）、<code>｛search_query｝</code>（全角）、<code>{search-query}</code></td><td>必須の語と見なされず保存できないか、置き換わらずにそのままAIに届きます</td><td>半角で、空白を入れずに書きます。ボタンで入れると確実です</td></tr><tr><td>指示文の中に、ほかの <code>{名前}</code> を書く</td><td>置き換わらずに、そのままの文字でAIに届きます（エラーにはなりません）</td><td>波かっこを使わない書き方にします</td></tr><tr><td>「資料をすべて読んで答えて」と書く</td><td>AIに渡るのは検索で選んだ断片だけなので、すべては読めません</td><td>「資料に無いときは〜と答える」と書きます</td></tr><tr><td>「ページ番号を書いて」と書く</td><td>書き換えた指示文ではページ番号が渡らないので、書けません</td><td>ページ番号が要るときは既定の指示文を使います</td></tr><tr><td>モードプロンプトに長い指示を書く</td><td>モードではモードプロンプトの全文で検索するので、指示の言葉に引っぱられて、関係の薄い資料が見つかることがあります</td><td>出力の形などの指示は、モードプロンプトよりRAGプロンプトに書きます</td></tr></tbody></table>
+<p><code>{search_query}</code> と <code>{search_result}</code> のほかに、<code>{prompt}</code> と <code>{user_query}</code> も、質問の文に置き換わります。</p>
+<h2 id="既定の指示文参考">既定の指示文（参考）</h2>
+<p>欄に最初から入っている既定の指示文には、次のことが書かれています。書き換えるときは、これをもとにしてください。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>部分</th><th>内容</th></tr></thead><tbody><tr><td>役割</td><td>高度な分析能力と専門知識を持つAIアシスタント</td></tr><tr><td>指示</td><td>参照ファイルの情報を使って質問に答える</td></tr><tr><td>手順</td><td>要点をまとめてから詳しく説明する／引用はブロック引用（>）でファイル名とページ番号を書く／確信度を示す／参照ファイルに無いことを推測で補わない／していないこと（「画像を直接確認した」など）を根拠として書かない／画像から自動で作られた説明の部分は、引用せず「（画像）」とだけ書く</td></tr><tr><td>出力形式</td><td>Markdown形式・重要な部分は強調・日本語</td></tr></tbody></table>
+<h2 id="うまくいかないとき">うまくいかないとき</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>困っていること</th><th>確かめること</th></tr></thead><tbody><tr><td>「参考情報が見つかるような…」と表示される</td><td>指示文ではなく検索の問題です。質問やモードプロンプトに、資料の言葉が入っているか確かめます（<a href="/popstation-userguide-docs/tips/custom-data-tips.html">カスタムデータを上手に使うコツ</a>）</td></tr><tr><td>資料に無いことまで答える</td><td>「資料に無いときは〜と答える」の決まりを足します</td></tr><tr><td>回答の形がそろわない</td><td>出力の形を、列名や文字数まで具体的に書きます</td></tr><tr><td>前より回答の質が下がった</td><td>欄を空にして保存すると、既定の指示文に戻ります</td></tr></tbody></table></div><nav class="pager" aria-label="前後のページ" data-pagefind-ignore><a class="pager-prev" href="/popstation-userguide-docs/tips/mode-prompt.html"><span>前へ</span>モードプロンプトの書き方</a><a class="pager-next" href="/popstation-userguide-docs/tips/custom-data-tips.html"><span>次へ</span>カスタムデータを上手に使うコツ</a></nav></main><aside class="toc" aria-label="このページの目次"><p class="toc-title">このページの目次</p><ul><li class="toc-depth-2"><a href="#始める前に">始める前に</a></li><li class="toc-depth-2"><a href="#しくみを1分で">しくみを1分で</a></li><li class="toc-depth-2"><a href="#必ず入れる2つの語">必ず入れる2つの語</a></li><li class="toc-depth-2"><a href="#ステップ1いちばん簡単な形">ステップ1：いちばん簡単な形</a></li><li class="toc-depth-2"><a href="#ステップ2守ってほしい決まりを足す">ステップ2：守ってほしい決まりを足す</a></li><li class="toc-depth-2"><a href="#ステップ3回答の形を決める">ステップ3：回答の形を決める</a></li><li class="toc-depth-2"><a href="#ステップ4根拠の示し方を決める">ステップ4：根拠の示し方を決める</a></li><li class="toc-depth-2"><a href="#ステップ5役割と読み手を伝える">ステップ5：役割と読み手を伝える</a></li><li class="toc-depth-2"><a href="#完成例">完成例</a></li><li class="toc-depth-3"><a href="#例社内規程の問い合わせに答える">例：社内規程の問い合わせに答える</a></li><li class="toc-depth-3"><a href="#例お客さまへの回答の下書きを作る">例：お客さまへの回答の下書きを作る</a></li><li class="toc-depth-3"><a href="#例議事録や報告書から情報を集める">例：議事録や報告書から情報を集める</a></li><li class="toc-depth-2"><a href="#よくある間違い">よくある間違い</a></li><li class="toc-depth-2"><a href="#既定の指示文参考">既定の指示文（参考）</a></li><li class="toc-depth-2"><a href="#うまくいかないとき">うまくいかないとき</a></li></ul></aside></div><dialog class="search-dialog" aria-label="ガイド内を検索"><form method="dialog" class="search-form" role="search"><div class="search-input-row"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><input type="search" name="q" placeholder="例：ユーザー削除、ファイル 上限、パスワード" autocomplete="off" aria-label="検索する言葉"><button type="submit" class="search-close" value="close" aria-label="閉じる">Esc</button></div><div class="search-filters"><label class="search-filter-env" hidden><input type="checkbox" name="env" checked> <span data-env-filter-label>ご利用の環境に関係するページだけ</span></label><label>対象<select name="role"><option value="">すべて</option><option value="一般ユーザー">一般ユーザー</option><option value="カスタムデータ管理者">カスタムデータ管理者</option><option value="ユーザー管理者">ユーザー管理者</option><option value="管理者">管理者</option></select></label><div class="search-chapters" role="group" aria-label="章で絞り込む"><label class="chip"><input type="checkbox" name="chapter" value="はじめに">はじめに</label><label class="chip"><input type="checkbox" name="chapter" value="ログインとアカウント">ログインとアカウント</label><label class="chip"><input type="checkbox" name="chapter" value="使い方">使い方</label><label class="chip"><input type="checkbox" name="chapter" value="管理者ガイド">管理者ガイド</label><label class="chip"><input type="checkbox" name="chapter" value="活用Tips">活用Tips</label><label class="chip"><input type="checkbox" name="chapter" value="仕様">仕様</label><label class="chip"><input type="checkbox" name="chapter" value="困ったとき">困ったとき</label><label class="chip"><input type="checkbox" name="chapter" value="お知らせ">お知らせ</label></div></div></form><p class="search-status" aria-live="polite"></p><ol class="search-results"></ol></dialog><script type="module" src="/popstation-userguide-docs/_astro/Search.astro_astro_type_script_index_0_lang.CFnn-6hv.js"></script><script type="module">var e=document.querySelector(`[data-env-select]`),t=document.documentElement;e&&(e.value=t.dataset.env||`internet`,e.addEventListener(`change`,()=>{t.dataset.env=e.value;try{localStorage.setItem(`qtg-env`,e.value)}catch{}document.dispatchEvent(new CustomEvent(`qtg:env`,{detail:e.value}))}));for(let t of e?document.querySelectorAll(`.env-tabs`):[]){let n=[...t.querySelectorAll(`:scope > .env-panel`)],r=document.createElement(`div`);r.className=`env-tab-bar`,r.setAttribute(`role`,`tablist`);for(let t of n){let n=document.createElement(`button`);n.type=`button`,n.className=`env-tab`,n.dataset.envTab=t.dataset.envPanel,n.textContent=t.dataset.label||``,n.addEventListener(`click`,()=>{e&&(e.value=t.dataset.envPanel||`internet`,e.dispatchEvent(new Event(`change`)))}),r.append(n)}t.prepend(r)}var n=document.querySelector(`.nav-toggle`);n?.addEventListener(`click`,()=>{let e=document.body.classList.toggle(`nav-open`);n.setAttribute(`aria-expanded`,String(e))});</script></body></html><script type="module" src="/popstation-userguide-docs/_astro/Doc.astro_astro_type_script_index_0_lang.C0bxyGav.js"></script>
